@@ -19,6 +19,54 @@ public class SlipDetails {
 	String slipNumber;        // Slip number by default written in the slip.
 	@Column(name="Account_Number")
 	String AccountNumber;
+	public String getSlipNumber() {
+		return slipNumber;
+	}
+	public void setSlipNumber(String slipNumber) {
+		this.slipNumber = slipNumber;
+	}
+	public String getAccountNumber() {
+		return AccountNumber;
+	}
+	public void setAccountNumber(String accountNumber) {
+		AccountNumber = accountNumber;
+	}
+	public String getAmount() {
+		return amount;
+	}
+	public void setAmount(String amount) {
+		this.amount = amount;
+	}
+	public String getTransactionType() {
+		return transactionType;
+	}
+	public void setTransactionType(String transactionType) {
+		this.transactionType = transactionType;
+	}
+	public String getHolderName() {
+		return HolderName;
+	}
+	public void setHolderName(String holderName) {
+		HolderName = holderName;
+	}
+	public LocalDate getSlipDate() {
+		return slipDate;
+	}
+	public void setSlipDate(LocalDate slipDate) {
+		this.slipDate = slipDate;
+	}
+	public String getBankName() {
+		return bankName;
+	}
+	public void setBankName(String bankName) {
+		this.bankName = bankName;
+	}
+	public String getIFSC() {
+		return IFSC;
+	}
+	public void setIFSC(String iFSC) {
+		IFSC = iFSC;
+	}
 	@Column(name="Amount")
 	String amount;             //amount that you want to pay.
 	@Column(name="Type")

@@ -17,6 +17,18 @@ public class PassBook {
 	@Id
 	@Column(name="Account_Number")
 	String accountNumber;
+	public String getAccountNumber() {
+		return accountNumber;
+	}
+	public void setAccountNumber(String accountNumber) {
+		this.accountNumber = accountNumber;
+	}
+	public List<Transaction> getTranscationList() {
+		return transcationList;
+	}
+	public void setTranscationList(List<Transaction> transcationList) {
+		this.transcationList = transcationList;
+	}
 	@OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
     @JoinColumn(name="Account_Number")
     private List<Transaction> transcationList;

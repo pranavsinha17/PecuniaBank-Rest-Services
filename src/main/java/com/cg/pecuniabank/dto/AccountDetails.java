@@ -18,6 +18,48 @@ public class AccountDetails {
 	@Id
 	@Column(name="Account_Number") //may be generate by employee or auto generate by any service.
 	String accountNumber;
+	public String getAccountNumber() {
+		return accountNumber;
+	}
+	public void setAccountNumber(String accountNumber) {
+		this.accountNumber = accountNumber;
+	}
+	public String getAccountBalance() {
+		return accountBalance;
+	}
+	public void setAccountBalance(String accountBalance) {
+		this.accountBalance = accountBalance;
+	}
+	public String getAccountHolderName() {
+		return accountHolderName;
+	}
+	public void setAccountHolderName(String accountHolderName) {
+		this.accountHolderName = accountHolderName;
+	}
+	public String getCurrency() {
+		return currency;
+	}
+	public void setCurrency(String currency) {
+		this.currency = currency;
+	}
+	public String getCreditScore() {
+		return creditScore;
+	}
+	public void setCreditScore(String creditScore) {
+		this.creditScore = creditScore;
+	}
+//	public CustomerDetails getCustomerDetails() {
+//		return customerDetails;
+//	}
+//	public void setCustomerDetails(CustomerDetails customerDetails) {
+//		this.customerDetails = customerDetails;
+//	}
+//	public BranchDetails getBranchdetails() {
+//		return branchdetails;
+//	}
+//	public void setBranchdetails(BranchDetails branchdetails) {
+//		this.branchdetails = branchdetails;
+//	}
 	@Column(name="Account_Balance")
 	String accountBalance;
 	@Column(name="Account_Holder_Name")//customer name
@@ -26,13 +68,13 @@ public class AccountDetails {
 	String currency;
 	@Column(name="Credit_Score") //It is auto generated but now employee fill the credit score by it own.
 	String creditScore;
-	@OneToOne(cascade=CascadeType.ALL)   // 1:1 unidirectional
-	@JoinColumn(name="Customer_Id")
-	CustomerDetails customerDetails;
-	@ManyToOne(optional = false)  // N:1 unidirectional 
-	@JoinColumn(name="Branch_Id")  //We use optional is false it means by default every Account holder get same branch details.
-	BranchDetails branchdetails;
-	
+//	@OneToOne(cascade=CascadeType.ALL)   // 1:1 unidirectional
+//	@JoinColumn(name="Customer_Id")
+//	CustomerDetails customerDetails;
+//	@ManyToOne(optional = false)  // N:1 unidirectional 
+//	@JoinColumn(name="Branch_Id")  //We use optional is false it means by default every Account holder get same branch details.
+//	BranchDetails branchdetails;
+//	
 	
 	
 }

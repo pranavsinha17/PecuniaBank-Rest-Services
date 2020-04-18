@@ -34,8 +34,62 @@ public class EmployeeDetails {
 	@OneToOne(cascade=CascadeType.ALL)   // 1:1 unidirectional
 	@JoinColumn(name="address_id")
 	Address Address;
-	@ManyToOne(optional = false)  // N:1 unidirectional 
-	@JoinColumn(name="Branch_Id")  //We use optional is false it means by default every Account holder get same branch details.
-	BranchDetails branchdetails;
-	
+	public String getEmployeeNumber() {
+		return employeeNumber;
+	}
+	public void setEmployeeNumber(String employeeNumber) {
+		this.employeeNumber = employeeNumber;
+	}
+	public String getEmployeeFirstName() {
+		return employeeFirstName;
+	}
+	public void setEmployeeFirstName(String employeeFirstName) {
+		this.employeeFirstName = employeeFirstName;
+	}
+	public String getEmployeeLastName() {
+		return employeeLastName;
+	}
+	public void setEmployeeLastName(String employeeLastName) {
+		this.employeeLastName = employeeLastName;
+	}
+	public String getDOB() {
+		return DOB;
+	}
+	public void setDOB(String dOB) {
+		DOB = dOB;
+	}
+	public String getAge() {
+		return age;
+	}
+	public void setAge(String age) {
+		this.age = age;
+	}
+	public String getPanNumber() {
+		return panNumber;
+	}
+	public void setPanNumber(String panNumber) {
+		this.panNumber = panNumber;
+	}
+	public String getAdharNumber() {
+		return adharNumber;
+	}
+	public void setAdharNumber(String adharNumber) {
+		this.adharNumber = adharNumber;
+	}
+	public Address getAddress() {
+		return Address;
+	}
+	public void setAddress(Address address) {
+		Address = address;
+	}
+//	public BranchDetails getBranchdetails() {
+//		return branchdetails;
+//	}
+//	public void setBranchdetails(BranchDetails branchdetails) {
+//		this.branchdetails = branchdetails;
+//	}
+//	@ManyToOne(optional = false)  // N:1 unidirectional 
+//	@JoinColumn(name="Branch_Id")  //We use optional is false it means by default every Account holder get same branch details.
+//	BranchDetails branchdetails;
+//	
 }

@@ -22,6 +22,60 @@ public class ChequeDetails {
 	String payeeAccountNumber;   
 	@Column(name="account_Number")
 	String accountNumber;    
+	public String getChequeNumber() {
+		return chequeNumber;
+	}
+	public void setChequeNumber(String chequeNumber) {
+		this.chequeNumber = chequeNumber;
+	}
+	public LocalDate getIssueDate() {
+		return issueDate;
+	}
+	public void setIssueDate(LocalDate issueDate) {
+		this.issueDate = issueDate;
+	}
+	public String getPayeeAccountNumber() {
+		return payeeAccountNumber;
+	}
+	public void setPayeeAccountNumber(String payeeAccountNumber) {
+		this.payeeAccountNumber = payeeAccountNumber;
+	}
+	public String getAccountNumber() {
+		return accountNumber;
+	}
+	public void setAccountNumber(String accountNumber) {
+		this.accountNumber = accountNumber;
+	}
+	public String getAmount() {
+		return amount;
+	}
+	public void setAmount(String amount) {
+		this.amount = amount;
+	}
+	public String getTransactionType() {
+		return transactionType;
+	}
+	public void setTransactionType(String transactionType) {
+		this.transactionType = transactionType;
+	}
+	public String getPayName() {
+		return payName;
+	}
+	public void setPayName(String payName) {
+		this.payName = payName;
+	}
+	public String getBankName() {
+		return bankName;
+	}
+	public void setBankName(String bankName) {
+		this.bankName = bankName;
+	}
+	public String getIFSC() {
+		return IFSC;
+	}
+	public void setIFSC(String iFSC) {
+		IFSC = iFSC;
+	}
 	@Column(name="Amount")
 	String amount;             
 	@Column(name="Type")

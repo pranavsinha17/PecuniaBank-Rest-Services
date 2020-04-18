@@ -26,6 +26,66 @@ public class CustomerDetails {
 	String DOB;//date of birth format like (day/Mon/Year)
 	@Column(name="Age")
 	String age;
+	public String getCustomerID() {
+		return customerID;
+	}
+	public void setCustomerID(String customerID) {
+		this.customerID = customerID;
+	}
+	public String getCustomerFirstName() {
+		return customerFirstName;
+	}
+	public void setCustomerFirstName(String customerFirstName) {
+		this.customerFirstName = customerFirstName;
+	}
+	public String getCustomerLastName() {
+		return customerLastName;
+	}
+	public void setCustomerLastName(String customerLastName) {
+		this.customerLastName = customerLastName;
+	}
+	public String getDOB() {
+		return DOB;
+	}
+	public void setDOB(String dOB) {
+		DOB = dOB;
+	}
+	public String getAge() {
+		return age;
+	}
+	public void setAge(String age) {
+		this.age = age;
+	}
+	public String getPanNumber() {
+		return panNumber;
+	}
+	public void setPanNumber(String panNumber) {
+		this.panNumber = panNumber;
+	}
+	public String getAdharNumber() {
+		return adharNumber;
+	}
+	public void setAdharNumber(String adharNumber) {
+		this.adharNumber = adharNumber;
+	}
+	public String getAccountType() {
+		return accountType;
+	}
+	public void setAccountType(String accountType) {
+		this.accountType = accountType;
+	}
+	public String getOpeningBalance() {
+		return openingBalance;
+	}
+	public void setOpeningBalance(String openingBalance) {
+		this.openingBalance = openingBalance;
+	}
+//	public Address getAddress() {
+//		return Address;
+//	}
+//	public void setAddress(Address address) {
+//		Address = address;
+//	}
 	@Column(name="Pan_Number")
 	String panNumber;
 	@Column(name="Adhar_Number")
@@ -34,9 +94,9 @@ public class CustomerDetails {
 	String accountType;
 	@Column(name="Opening_Balance") //Minimum balance required to open the bank;(5000/-)
 	String openingBalance;
-	@OneToOne(cascade=CascadeType.ALL)   // 1:1 unidirectional
-	@JoinColumn(name="address_id")
-	Address Address;
-	
+//	@OneToOne(cascade=CascadeType.ALL)   // 1:1 unidirectional
+//	@JoinColumn(name="address_id")
+//	Address Address;
+//	
 
 }
