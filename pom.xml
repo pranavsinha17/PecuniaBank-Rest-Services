@@ -9,10 +9,10 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.example</groupId>
-	<artifactId>Pecuni-Bank-Rest-Services</artifactId>
+	<artifactId>PecuniaBank1</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>Pecuni-Bank-Rest-Services</name>
-	<description>Pecunia Bank Backend Services</description>
+	<name>PecuniaBank1</name>
+	<description>Demo project for Spring Boot</description>
 
 	<properties>
 		<java.version>1.8</java.version>
@@ -26,10 +26,6 @@
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-web</artifactId>
-		</dependency>
-		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-web-services</artifactId>
 		</dependency>
 
 		<dependency>
