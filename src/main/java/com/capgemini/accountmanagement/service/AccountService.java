@@ -7,7 +7,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.capgemini.accountmanagement.entity.AccountDetails;
+import com.capgemini.accountmanagement.entity.Address;
+import com.capgemini.accountmanagement.entity.CustomerDetails;
 import com.capgemini.accountmanagement.repository.AccountRepository;
+import com.capgemini.accountmanagement.repository.AddressRepository;
+import com.capgemini.accountmanagement.repository.CustomerRepository;
 
 @Service
 public class AccountService {
@@ -42,4 +46,10 @@ public class AccountService {
 		accountRepository.deleteById(str);	
 		}
 }
+	
+	
+	
+	
+	
+
 

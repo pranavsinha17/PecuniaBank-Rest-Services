@@ -14,7 +14,7 @@ import com.capgemini.accountmanagement.repository.AddressRepository;
 public class AddressService {
 	
 	@Autowired
-	private AddressRepository addressRepository;
+	AddressRepository addressRepository;
 	
 	public List<Address>getAllAddress()
 	{

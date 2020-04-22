@@ -4,7 +4,6 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.capgemini.accountmanagement.entity.CustomerDetails;
@@ -13,7 +12,6 @@ import com.capgemini.accountmanagement.repository.CustomerRepository;
 @Service
 public class CustomerService {
 	
-	@Autowired
 	private CustomerRepository customerRepository;
 	
 	public List<CustomerDetails>getAllCustomers()

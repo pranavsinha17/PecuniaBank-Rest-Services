@@ -10,8 +10,9 @@ import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
+
 @Entity
-@Table(name="Customer")
+@Table(name="Customers")
 public class CustomerDetails {
 	
 	@Id
@@ -171,6 +172,8 @@ public class CustomerDetails {
 	public void setAddress(Address address) {
 		this.address = address;
 	}
+	
+	
 	
 	
 	

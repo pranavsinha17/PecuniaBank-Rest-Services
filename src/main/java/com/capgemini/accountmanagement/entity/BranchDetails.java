@@ -4,74 +4,80 @@ package com.capgemini.accountmanagement.entity;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
+import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
+
 @Entity
-@Table(name="Branch")
+@Table(name="Branches")
 public class BranchDetails {
 	
 	@Id
 	@Column(name="Branch_Id")
-	String branchId;
-	
+	@GeneratedValue(strategy=GenerationType.SEQUENCE,generator="genName1")
+	@SequenceGenerator(name="genName1", sequenceName="id1",initialValue=118001,allocationSize=1)
+	private int branchId;
 	@Column(name="Branch_Name")
-	String branchName;
-	
+	private String branchName;
 	@Column(name="IFSC_Code")
-	String branchIFSC;
-	
-	@OneToOne(cascade=CascadeType.ALL)  
+	private String branchIFSC;
+	@Column(name="Phone_Number")
+	private String phoneNumber;
+	@OneToOne(cascade=CascadeType.ALL)   // 1:1 unidirectional
 	@JoinColumn(name="address_id")
-	Address Address;
-
-	public BranchDetails()
-	{
-		
-	}
+	Address address;
 	
-	public BranchDetails(String branchId, String branchName, String branchIFSC,
-			com.capgemini.accountmanagement.entity.Address address) {
+	public BranchDetails(int branchId, String branchName, String branchIFSC, Address address ,String phoneNumber) {
 		super();
 		this.branchId = branchId;
 		this.branchName = branchName;
 		this.branchIFSC = branchIFSC;
-		Address = address;
+		this.address = address;
+		this.phoneNumber=phoneNumber;
 	}
+	
 
-	public String getBranchId() {
+	public int getBranchId() {
 		return branchId;
 	}
-
-	public void setBranchId(String branchId) {
+	public void setBranchId(int branchId) {
 		this.branchId = branchId;
 	}
-
 	public String getBranchName() {
 		return branchName;
 	}
-
 	public void setBranchName(String branchName) {
 		this.branchName = branchName;
 	}
-
 	public String getBranchIFSC() {
 		return branchIFSC;
 	}
-
 	public void setBranchIFSC(String branchIFSC) {
 		this.branchIFSC = branchIFSC;
 	}
-
 	public Address getAddress() {
-		return Address;
+		return address;
+	}
+	public void setAddress(Address address) {
+		this.address = address;
+	}
+	public String getPhoneNumber() {
+		return phoneNumber;
 	}
 
-	public void setAddress(Address address) {
-		Address = address;
+	public void setPhoneNumber(String phoneNumber) {
+		this.phoneNumber = phoneNumber;
 	}
+	
+	public BranchDetails() {
+		super();
+	}
+
 	
 
 }

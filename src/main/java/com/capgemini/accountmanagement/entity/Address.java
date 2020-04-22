@@ -2,36 +2,33 @@ package com.capgemini.accountmanagement.entity;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
 @Entity
-@Table(name="AddressDetail")
+@Table(name="Addresses")
 public class Address {
 	@Id
 	@Column(name="ADDRESS_ID")
-	//@GeneratedValue(strategy=GenerationType.SEQUENCE,generator="genName")
-	//@SequenceGenerator(name="genName", sequenceName="id",initialValue=101,allocationSize=1)
-	private long addressId;
-	
-	@Column(name="Street")
+	@GeneratedValue(strategy=GenerationType.SEQUENCE,generator="genName")
+	@SequenceGenerator(name="genName", sequenceName="id",initialValue=101,allocationSize=1)
+	private int addressId;
+	@Column(name="ADDRESS_STREET")
 	private String street;
-	
 	@Column(name="ADDRESS_CITY")
 	private String city;
-	
 	@Column(name="ADDRESS_STATE")
 	private String state;
-	
 	@Column(name="ADDRESS_ZIPCODE")
 	private String zipCode;
 	
-	public Address()
-	{
-		
+	public Address() {
+		super();
 	}
-
-	public Address(long addressId, String street, String city, String state, String zipCode) {
+	public Address(int addressId, String street, String city, String state, String zipCode) {
 		super();
 		this.addressId = addressId;
 		this.street = street;
@@ -39,59 +36,63 @@ public class Address {
 		this.state = state;
 		this.zipCode = zipCode;
 	}
-
-	public long getAddressId() {
+	/**
+	 * @return the addressId
+	 */
+	public int getAddressId() {
 		return addressId;
 	}
-
-	public void setAddressId(long addressId) {
+	/**
+	 * @param addressId the addressId to set
+	 */
+	public void setAddressId(int addressId) {
 		this.addressId = addressId;
 	}
-
-//	public String getAddressLine1() {
-//		return addressLine1;
-//	}
-//
-//	public void setAddressLine1(String addressLine1) {
-//		this.addressLine1 = addressLine1;
-//	}
-//
-//	public String getAddressLine2() {
-//		return addressLine2;
-//	}
-//
-//	public void setAddressLine2(String addressLine2) {
-//		this.addressLine2 = addressLine2;
-//	}
-
+	/**
+	 * @return the street
+	 */
 	public String getStreet() {
 		return street;
 	}
-
+	/**
+	 * @param street the street to set
+	 */
 	public void setStreet(String street) {
 		this.street = street;
 	}
-
+	/**
+	 * @return the city
+	 */
 	public String getCity() {
 		return city;
 	}
-
+	/**
+	 * @param city the city to set
+	 */
 	public void setCity(String city) {
 		this.city = city;
 	}
-
+	/**
+	 * @return the state
+	 */
 	public String getState() {
 		return state;
 	}
-
+	/**
+	 * @param state the state to set
+	 */
 	public void setState(String state) {
 		this.state = state;
 	}
-
+	/**
+	 * @return the zipCode
+	 */
 	public String getZipCode() {
 		return zipCode;
 	}
-
+	/**
+	 * @param zipCode the zipCode to set
+	 */
 	public void setZipCode(String zipCode) {
 		this.zipCode = zipCode;
 	}
