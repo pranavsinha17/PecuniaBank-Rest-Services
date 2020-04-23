@@ -14,9 +14,8 @@ import com.capgemini.main.entity.ChequeDetails;
 import com.capgemini.main.entity.Transaction;
 import com.capgemini.main.exception.UserException;
 
-
 @Service
-public class TranscationDebitServices implements TranscationUsingDebitCheque{
+public class TransactionCreditService implements TransationUsingCreditCheque {
 	
 	@Autowired
 	DaoCheque daoCheque;
@@ -29,23 +28,14 @@ public class TranscationDebitServices implements TranscationUsingDebitCheque{
     String transactionOption="Cheque";
     String transactionType []= {"Debit","Credit"};
     boolean checkBalance;
-    double balance;
+    double benificaryBalance;
+    double payeeBalance;
     String transactionStatus[]= {"Successful","Pending"};
-	
-    /*
-     * Function that perform cheque using debating money from the account.
-     * Find if account of cheque owner is exits in bank or not
-     * cheque cheque issue date that cheque is valid or not
-     * check the balance if that much amount exist in owner account or not
-     * update the cheque status
-     * make a transaction statement 
-     * update the account balance
-     */
 
 	@Override
-	public String debitCheque(ChequeDetails chequeDetails) throws UserException  {
+	public String creditCheque(ChequeDetails chequeDetails) throws UserException {
 		// TODO Auto-generated method stub
-		   daoCheque.setChequeDetails(chequeDetails);
+		  daoCheque.setChequeDetails(chequeDetails);
 		   
 		   //Check account exist or not.
 		if(daoAccount.checkAccountExist(chequeDetails.getAccountNumber()))
@@ -62,21 +52,32 @@ public class TranscationDebitServices implements TranscationUsingDebitCheque{
 			
 			if(checkBalance)
 			{
+				
 				if(chequeDetails.getBankName().equals("PECUNIA"))
 				{
+					if(daoAccount.checkAccountExist(chequeDetails.getBenificaryAccountNumber()))
+					{
 
 					System.out.println("Transcation is Succesful");
 					daoCheque.updateChequeStatus(chequeDetails.getChequeNumber(),checkStatus[1]);
-					UpdateBalance(chequeDetails.getAccountNumber(), balance);
-					 setTranscationReport( accountDetails,chequeDetails, transactionStatus[0]);	
+					UpdateBalance(chequeDetails.getAccountNumber(), payeeBalance);
+					UpdateBalance(chequeDetails.getBenificaryAccountNumber(), benificaryBalance);
+					setDebitTranscationReport( accountDetails,chequeDetails, transactionStatus[0]);	
+					}
+					else
+					{
+						System.out.println("The benificary Account is not Exist in the bank KIndly check the Account Number");
+						throw new UserException("Invalid Benificary Account Number Kindly check the Account Number");
+					}
 				}
 				else
 				{
 					//We are not connected with server of there banks to validate the information that why we set status pending.
 					System.out.println("Transcation is pending for conformation of other bank but the balance is dedicated ");
 					daoCheque.updateChequeStatus(chequeDetails.getChequeNumber(),checkStatus[2]);
-					UpdateBalance(chequeDetails.getAccountNumber(), balance);
-					setTranscationReport( accountDetails,chequeDetails, transactionStatus[1]);	
+					UpdateBalance(chequeDetails.getAccountNumber(), payeeBalance);
+					setDebitTranscationReport( accountDetails,chequeDetails, transactionStatus[1]);	
+					//Contact to other bank to transfer the money to benificary account.
 				}
 				
 			}
@@ -98,26 +99,18 @@ public class TranscationDebitServices implements TranscationUsingDebitCheque{
 		  }
 		else
 		{
-			System.out.println("Account Not exist");
+			System.out.println("Account Not exist"+"  "+chequeDetails.getAccountNumber());
 			throw new UserException("Invalid Account Number Kindly check the Account Number");
 		}
 		
 		
 		return null;
+		
 	}
 
-	
-
-	
-
-
-
-	
-
 	@Override
-	public void  setTranscationReport(AccountDetails accountDetails,ChequeDetails chequeDetails,String status) {
+	public void setDebitTranscationReport(AccountDetails accountDetails, ChequeDetails chequeDetails, String status) {
 		// TODO Auto-generated method stub
-		
 		Transaction transaction=new Transaction();
 		transaction.setAccountNumber(accountDetails.getAccountNumber());
 		transaction.setBankName(chequeDetails.getBankName());
@@ -130,10 +123,8 @@ public class TranscationDebitServices implements TranscationUsingDebitCheque{
 		transaction.setTransactionStatus(status);
 		
 		daoTransaction.setTranscationDetails(transaction);
+		
 	}
-
-
-	
 
 	/*
 	 * check the balance exits or not and dedicated the balance store in balance variable.
@@ -145,13 +136,15 @@ public class TranscationDebitServices implements TranscationUsingDebitCheque{
 		
 		if(balance1>=balance2)
 		{
-			balance=balance1-balance2; //get balance by subtracting the account balance and the cheque balance.
+			payeeBalance=balance1-balance2; //get balance by subtracting the account balance and the cheque balance.
 			return true;
 		}
 			
 		
 		return false;
 	}
+	
+	
 
 
 
@@ -164,6 +157,33 @@ public class TranscationDebitServices implements TranscationUsingDebitCheque{
 		daoAccount.updateBalance(accountNumber, balance);
 		return null;
 	}
+
+	@Override
+	public void addBalance(double balance1, double balance2) {
+		// TODO Auto-generated method stub
+		
+		benificaryBalance=balance1+balance2;
+		
+	}
+
+	@Override
+	public void setCreditTranscationReport(AccountDetails accountDetails, ChequeDetails chequeDetails, String status) {
+		// TODO Auto-generated method stub
+		Transaction transaction=new Transaction();
+		transaction.setAccountNumber(chequeDetails.getBenificaryAccountNumber());
+		transaction.setBankName(chequeDetails.getBankName());
+		transaction.setBenificaryAccoountNumber(accountDetails.getAccountNumber());//Debating money from the account .
+		transaction.setTransactionDate(LocalDate.now());
+		transaction.setBenificaryName(accountDetails.getAccountHolderName());
+		transaction.setTransactionOption(transactionOption);
+		transaction.setTransactionType(transactionType[1]);
+		transaction.setTransactionAmount(chequeDetails.getAmount());
+		transaction.setTransactionStatus(status);
+		
+		daoTransaction.setTranscationDetails(transaction);
+		
+	}
+
 
 
 }

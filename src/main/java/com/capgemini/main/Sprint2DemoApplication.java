@@ -16,6 +16,7 @@ import com.capgemini.main.entity.CustomerDetails;
 import com.capgemini.main.entity.EmployeeCredentials;
 import com.capgemini.main.entity.EmployeeDetails;
 import com.capgemini.main.exception.UserException;
+import com.capgemini.main.service.TransationUsingCreditCheque;
 import com.capgemini.main.service.TranscationUsingDebitCheque;
 
 
@@ -27,6 +28,9 @@ public class Sprint2DemoApplication implements CommandLineRunner{
 	
 	@Autowired
 	TranscationUsingDebitCheque debitService;  
+	
+	@Autowired
+	TransationUsingCreditCheque creditService;
 	
 	
 	public static void main(String[] args) {
@@ -475,18 +479,21 @@ public class Sprint2DemoApplication implements CommandLineRunner{
 		daoService.insertAccountDetails(accountDetails6);
 		daoService.insertAccountDetails(accountDetails7);
 		
+		// Every Check Number is Different and it's depend on cheque booklet of every individual account holder. 
+		//Then I have make a check booklet of 5 account members and 2 cheque of each member for debit and credit.
 		//only one cheque details->for withdrawing money using cheque
+		
 		ChequeDetails chequeDetails=new ChequeDetails();
 		chequeDetails.setChequeNumber(652201);
 		chequeDetails.setAccountNumber(1170001);
-		chequeDetails.setPayeeAccountNumber(1170001);
+		chequeDetails.setBenificaryAccountNumber(1170001);
 		chequeDetails.setIFSC("PUNB033954");
 		chequeDetails.setAmount(1000);
 		chequeDetails.setBankName("PECUNIA");
 		chequeDetails.setIssueDate(LocalDate.of(2020, 04, 22));
 		chequeDetails.setPayName("Self");  //SELF me Account Holder Withdrawing Money form his/her bank by own using cheque.
-		chequeDetails.setTransactionType("Debit");
-		chequeDetails.setCheckStatus("pending");
+		chequeDetails.setTransactionType("Debit");// Debated money from by using cheque.
+		chequeDetails.setCheckStatus("Unknown");
 		try {
 			debitService.debitCheque(chequeDetails);
 		}
@@ -494,6 +501,26 @@ public class Sprint2DemoApplication implements CommandLineRunner{
 			
 			System.out.println(""+e);
 		}
+		
+		
+				ChequeDetails chequeDetails1=new ChequeDetails();
+				chequeDetails1.setChequeNumber(652202);//we have to put different cheque number beacuse we use the previous one
+				chequeDetails1.setAccountNumber(1170001);
+				chequeDetails1.setBenificaryAccountNumber(1170002);
+				chequeDetails1.setIFSC("PUNB033954");
+				chequeDetails1.setAmount(1000);
+				chequeDetails1.setBankName("PECUNIA");
+				chequeDetails1.setIssueDate(LocalDate.of(2020, 04, 22));
+				chequeDetails1.setPayName("Self");  //SELF means Account Holder Withdrawing Money form his/her bank by own using cheque.
+				chequeDetails1.setTransactionType("Credit");// transaction money from one to another person.
+				chequeDetails1.setCheckStatus("Unknown");
+				try {
+					creditService.creditCheque(chequeDetails1);
+				}
+				catch (UserException e) {
+					
+					System.out.println(""+e);
+				}
 		
 
 	}

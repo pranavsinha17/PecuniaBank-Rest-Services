@@ -19,7 +19,7 @@ public class ChequeDetails {
 	@Column(name="Issue_Date")
     LocalDate issueDate;  //date when cheque is generate by the cheque owner.
 	@Column(name="Account_Holder_Number")//mention in cheque
-	private long payeeAccountNumber;   
+	private long benificaryAccountNumber;   
 	@Column(name="account_Number")
 	private long accountNumber;    
 	@Column(name="Amount")
@@ -39,7 +39,7 @@ public class ChequeDetails {
 	@Override
 	public String toString() {
 		return "ChequeDetails [chequeNumber=" + chequeNumber + ", issueDate=" + issueDate + ", payeeAccountNumber="
-				+ payeeAccountNumber + ", accountNumber=" + accountNumber + ", amount=" + amount + ", transactionType="
+				+ benificaryAccountNumber + ", accountNumber=" + accountNumber + ", amount=" + amount + ", transactionType="
 				+ transactionType + ", payName=" + payName + ", bankName=" + bankName + ", IFSC=" + IFSC + "]";
 	}
 	
@@ -52,7 +52,7 @@ public class ChequeDetails {
 		super();
 		this.chequeNumber = chequeNumber;
 		this.issueDate = issueDate;
-		this.payeeAccountNumber = payeeAccountNumber;
+		this.benificaryAccountNumber = payeeAccountNumber;
 		this.accountNumber = accountNumber;
 		this.amount = amount;
 		this.transactionType = transactionType;
@@ -88,14 +88,14 @@ public class ChequeDetails {
 	/**
 	 * @return the payeeAccountNumber
 	 */
-	public long getPayeeAccountNumber() {
-		return payeeAccountNumber;
+	public long getBenificaryAccountNumber() {
+		return benificaryAccountNumber;
 	}
 	/**
 	 * @param payeeAccountNumber the payeeAccountNumber to set
 	 */
-	public void setPayeeAccountNumber(long payeeAccountNumber) {
-		this.payeeAccountNumber = payeeAccountNumber;
+	public void setBenificaryAccountNumber(long payeeAccountNumber) {
+		this.benificaryAccountNumber = payeeAccountNumber;
 	}
 	/**
 	 * @return the accountNumber
