@@ -336,130 +336,208 @@ public class AccountManagementApplication implements CommandLineRunner{
 		accountDetails3.setCustomerDetails(customerDetails3);
 		
 		//Account4
-				AccountDetails accountDetails4=new AccountDetails();
-				Address customer4Address=new Address();
-				CustomerDetails customerDetails4=new CustomerDetails();
+		AccountDetails accountDetails4=new AccountDetails();
+		Address customer4Address=new Address();
+		CustomerDetails customerDetails4=new CustomerDetails();
+        accountDetails4.setAccountHolderName("Mradula Shukla");
+		accountDetails4.setAccountInterest("3");
+		accountDetails4.setCreditScore("905");
+		accountDetails4.setAccountBalance("8500");
+		accountDetails4.setAccountStatus("Active");
+		accountDetails4.setBranchdetails(branchDetails2);
+        customerDetails4.setOpeningBalance("8500");
+		customerDetails4.setAccountType("Current");
+		customerDetails4.setAdhaarNumber("9854 4569 2345");
+		customerDetails4.setContactNumber("8004255984");
+		customerDetails4.setPanNumber("YTRFV664L");
+		customerDetails4.setDOB("21/06/1994");
+		customerDetails4.setCustomerFirstName("Mradula");
+		customerDetails4.setCustomerLastName("Shukla");
+		customerDetails4.setAge("44");
+		customerDetails4.setGender("Female");
+		customer4Address.setStreet("126,Sector-11");
+		customer4Address.setState("Gujrat");
+		customer4Address.setCity("Gandhi Nagar");
+		customer4Address.setZipCode("362011");
+		customerDetails4.setAddress(customer4Address);
+		accountDetails4.setCustomerDetails(customerDetails4);
+		customerDetails4.setAddress(customer4Address);
+		accountDetails4.setCustomerDetails(customerDetails4);
 
-				accountDetails4.setAccountHolderName("Mradula Shukla");
-				accountDetails4.setAccountInterest("3");
-				accountDetails4.setCreditScore("905");
-				accountDetails4.setAccountBalance("8500");
-				accountDetails4.setAccountStatus("Active");
-				accountDetails4.setBranchdetails(branchDetails2);
+		//Account5
+		AccountDetails accountDetails5=new AccountDetails();
+		Address customer5Address=new Address();
+		CustomerDetails customerDetails5=new CustomerDetails();
+		accountDetails5.setAccountHolderName("Anushkaa Awasthi");
+		accountDetails5.setAccountInterest("3");
+		accountDetails5.setCreditScore("700");
+		accountDetails5.setAccountBalance("9700");
+		accountDetails5.setAccountStatus("Active");
+		accountDetails5.setBranchdetails(branchDetails3);
+		customerDetails5.setOpeningBalance("9700");
+		customerDetails5.setAccountType("Current");
+		customerDetails5.setAdhaarNumber("7458 5464 2545");
+		customerDetails5.setContactNumber("8317016118");
+		customerDetails5.setPanNumber("QCFRE856F");
+		customerDetails5.setDOB("06/04/1989");
+		customerDetails5.setCustomerFirstName("Anushkaa");
+		customerDetails5.setCustomerLastName("Awasthi");
+		customerDetails5.setAge("31");
+		customerDetails5.setGender("Female");
+		customer5Address.setStreet("2-9-2,Arihant Majestiv Towers");
+		customer5Address.setState("Tamil Nadu");
+		customer5Address.setCity("Chennai");
+		customer5Address.setZipCode("600107");
+		customerDetails5.setAddress(customer5Address);
+		accountDetails5.setCustomerDetails(customerDetails5);
+		customerDetails5.setAddress(customer5Address);
+		accountDetails5.setCustomerDetails(customerDetails5);
 
-				customerDetails4.setOpeningBalance("8500");
-				customerDetails4.setAccountType("Current");
-				customerDetails4.setAdhaarNumber("9854 4569 2345");
-				customerDetails4.setContactNumber("8004255984");
-				customerDetails4.setPanNumber("YTRFV664L");
-				customerDetails4.setDOB("21/06/1994");
-				customerDetails4.setCustomerFirstName("Mradula");
-				customerDetails4.setCustomerLastName("Shukla");
-				customerDetails4.setAge("44");
-				customerDetails4.setGender("Female");
-				customer4Address.setStreet("126,Sector-11");
-				customer4Address.setState("Gujrat");
-				customer4Address.setCity("Gandhi Nagar");
-				customer4Address.setZipCode("362011");
-				customerDetails4.setAddress(customer4Address);
-				accountDetails4.setCustomerDetails(customerDetails4);
-				customerDetails4.setAddress(customer4Address);
-				accountDetails4.setCustomerDetails(customerDetails4);
-
-				//Account5
-				AccountDetails accountDetails5=new AccountDetails();
-				Address customer5Address=new Address();
-				CustomerDetails customerDetails5=new CustomerDetails();
-
-				accountDetails5.setAccountHolderName("Anushkaa Awasthi");
-				accountDetails5.setAccountInterest("3");
-				accountDetails5.setCreditScore("700");
-				accountDetails5.setAccountBalance("9700");
-				accountDetails5.setAccountStatus("Active");
-				accountDetails5.setBranchdetails(branchDetails3);
-
-				customerDetails5.setOpeningBalance("9700");
-				customerDetails5.setAccountType("Current");
-				customerDetails5.setAdhaarNumber("7458 5464 2545");
-				customerDetails5.setContactNumber("8317016118");
-				customerDetails5.setPanNumber("QCFRE856F");
-				customerDetails5.setDOB("06/04/1989");
-				customerDetails5.setCustomerFirstName("Anushkaa");
-				customerDetails5.setCustomerLastName("Awasthi");
-				customerDetails5.setAge("31");
-				customerDetails5.setGender("Female");
-				customer5Address.setStreet("2-9-2,Arihant Majestiv Towers");
-				customer5Address.setState("Tamil Nadu");
-				customer5Address.setCity("Chennai");
-				customer5Address.setZipCode("600107");
-				customerDetails5.setAddress(customer5Address);
-				accountDetails5.setCustomerDetails(customerDetails5);
-				customerDetails5.setAddress(customer5Address);
-				accountDetails5.setCustomerDetails(customerDetails5);
-
-				//Account6
-				AccountDetails accountDetails6=new AccountDetails();
-				Address customer6Address=new Address();
-				CustomerDetails customerDetails6=new CustomerDetails();
-				accountDetails6.setAccountHolderName("Prabhjot");
-				accountDetails6.setAccountInterest("3");
-				accountDetails6.setCreditScore("1250");
-				accountDetails6.setAccountBalance("5000");
-				accountDetails6.setAccountStatus("Active");
-				accountDetails6.setBranchdetails(branchDetails3);
-				customerDetails6.setOpeningBalance("5000");
-				customerDetails6.setAccountType("Current");
-				customerDetails6.setAdhaarNumber("9656 4565 2421");
-				customerDetails6.setContactNumber("8968117732");
-				customerDetails6.setPanNumber("TYRFD567P");
-				customerDetails6.setDOB("05/03/1997");
-				customerDetails6.setCustomerFirstName("Prabhjot");
-				customerDetails6.setCustomerLastName("Kaur");
-				customerDetails6.setAge("23");
-				customerDetails6.setGender("Female");
-				customer6Address.setStreet("900,Bhagat Singh Nagar Model House");
-				customer6Address.setState("Punjab");
-				customer6Address.setCity("Jalandhar");
-				customer6Address.setZipCode("144003");
-				customerDetails6.setAddress(customer6Address);
-				accountDetails6.setCustomerDetails(customerDetails6);
-				customerDetails6.setAddress(customer6Address);
-				accountDetails6.setCustomerDetails(customerDetails6);
+		//Account6
+		AccountDetails accountDetails6=new AccountDetails();
+		Address customer6Address=new Address();
+		CustomerDetails customerDetails6=new CustomerDetails();
+		accountDetails6.setAccountHolderName("Prabhjot");
+		accountDetails6.setAccountInterest("3");
+		accountDetails6.setCreditScore("1250");
+		accountDetails6.setAccountBalance("5000");
+		accountDetails6.setAccountStatus("Active");
+		accountDetails6.setBranchdetails(branchDetails3);
+		customerDetails6.setOpeningBalance("5000");
+		customerDetails6.setAccountType("Current");
+		customerDetails6.setAdhaarNumber("9656 4565 2421");
+		customerDetails6.setContactNumber("8968117732");
+		customerDetails6.setPanNumber("TYRFD567P");
+		customerDetails6.setDOB("05/03/1997");
+		customerDetails6.setCustomerFirstName("Prabhjot");
+		customerDetails6.setCustomerLastName("Kaur");
+		customerDetails6.setAge("23");
+		customerDetails6.setGender("Female");
+		customer6Address.setStreet("900,Bhagat Singh Nagar Model House");
+		customer6Address.setState("Punjab");
+		customer6Address.setCity("Jalandhar");
+		customer6Address.setZipCode("144003");
+		customerDetails6.setAddress(customer6Address);
+		accountDetails6.setCustomerDetails(customerDetails6);
+		customerDetails6.setAddress(customer6Address);
+		accountDetails6.setCustomerDetails(customerDetails6);
 								
-				//Account 7
-				AccountDetails accountDetails7=new AccountDetails();
-				Address customer7Address=new Address();
-				CustomerDetails customerDetails7=new CustomerDetails();
-				accountDetails7.setAccountHolderName("Rahul Bajaj");
-				accountDetails7.setAccountInterest("3.5");
-				accountDetails7.setCreditScore("2200");
-				accountDetails7.setAccountBalance("7500");
-				accountDetails7.setAccountStatus("Active");
-				accountDetails7.setBranchdetails(branchDetails3);
-				customerDetails7.setOpeningBalance("7500");
-				customerDetails7.setAccountType("Savings");
-				customerDetails7.setAdhaarNumber("7546 8598 2115");
-				customerDetails7.setContactNumber("9415546297");
-				customerDetails7.setPanNumber("ASWED099D");
-				customerDetails7.setDOB("04/12/1978");
-				customerDetails7.setCustomerFirstName("Rahul");
-				customerDetails7.setCustomerLastName("Bajaj");
-				customerDetails7.setAge("42");
-				customerDetails7.setGender("Male");
-				customer7Address.setStreet("101 Circular Rd, Bemloi");
-				customer7Address.setState("Himachal Pradesh");
-				customer7Address.setCity("Shimla");
-				customer7Address.setZipCode("171001");
-				customerDetails7.setAddress(customer7Address);
-				accountDetails7.setCustomerDetails(customerDetails7);
-				customerDetails7.setAddress(customer7Address);
-				accountDetails7.setCustomerDetails(customerDetails7);
+		//Account 7
+		AccountDetails accountDetails7=new AccountDetails();
+		Address customer7Address=new Address();
+		CustomerDetails customerDetails7=new CustomerDetails();
+		accountDetails7.setAccountHolderName("Rahul Bajaj");
+		accountDetails7.setAccountInterest("3.5");
+		accountDetails7.setCreditScore("2200");
+		accountDetails7.setAccountBalance("7500");
+		accountDetails7.setAccountStatus("Active");
+		accountDetails7.setBranchdetails(branchDetails3);
+		customerDetails7.setOpeningBalance("7500");
+		customerDetails7.setAccountType("Savings");
+		customerDetails7.setAdhaarNumber("7546 8598 2115");
+		customerDetails7.setContactNumber("9415546297");
+		customerDetails7.setPanNumber("ASWED099D");
+		customerDetails7.setDOB("04/12/1978");
+		customerDetails7.setCustomerFirstName("Rahul");
+		customerDetails7.setCustomerLastName("Bajaj");
+		customerDetails7.setAge("42");
+		customerDetails7.setGender("Male");
+		customer7Address.setStreet("101 Circular Rd, Bemloi");
+		customer7Address.setState("Himachal Pradesh");
+		customer7Address.setCity("Shimla");
+		customer7Address.setZipCode("171001");
+		customerDetails7.setAddress(customer7Address);
+		accountDetails7.setCustomerDetails(customerDetails7);
+		customerDetails7.setAddress(customer7Address);
+		accountDetails7.setCustomerDetails(customerDetails7);
 
-	
-		
-		
-		
-		
+		//Account 8
+		AccountDetails accountDetails8=new AccountDetails();
+		Address customer8Address=new Address();
+		CustomerDetails customerDetails8=new CustomerDetails();
+		accountDetails8.setAccountHolderName("Amardeep Singh");
+		accountDetails8.setAccountInterest("3");
+		accountDetails8.setCreditScore("300");
+		accountDetails8.setAccountBalance("9000");
+		accountDetails8.setAccountStatus("Active");
+		accountDetails8.setBranchdetails(branchDetails2);
+		customerDetails8.setOpeningBalance("9000");
+		customerDetails8.setAccountType("Current");
+		customerDetails8.setAdhaarNumber("4829 5542 8768");
+		customerDetails8.setContactNumber("8840864659");
+		customerDetails8.setPanNumber("PYGTF467P");
+		customerDetails8.setDOB("03/05/1990");
+		customerDetails8.setCustomerFirstName("Amardeep");
+		customerDetails8.setCustomerLastName("Singh");
+		customerDetails8.setAge("30");
+		customerDetails8.setGender("Male");
+		customer8Address.setStreet("Gujela, Ghatampur");
+		customer8Address.setState("Uttar Pradesh");
+		customer8Address.setCity("Kanpur");
+		customer8Address.setZipCode("209206");
+		customerDetails8.setAddress(customer8Address);
+		accountDetails8.setCustomerDetails(customerDetails8);
+		customerDetails8.setAddress(customer8Address);
+		accountDetails8.setCustomerDetails(customerDetails8);
+		      
+		//Account 9
+		AccountDetails accountDetails9=new AccountDetails();
+		Address customer9Address=new Address();
+		CustomerDetails customerDetails9=new CustomerDetails();
+		accountDetails9.setAccountHolderName("Satyam Sinha");
+		accountDetails9.setAccountInterest("3.5");
+		accountDetails9.setCreditScore("1610");
+		accountDetails9.setAccountBalance("20000");
+		accountDetails9.setAccountStatus("Active");
+		accountDetails9.setBranchdetails(branchDetails4);
+		customerDetails9.setOpeningBalance("20000");
+		customerDetails9.setAccountType("Savings");
+		customerDetails9.setAdhaarNumber("6985 2345 6528");
+		customerDetails9.setContactNumber("9973060640");
+		customerDetails9.setPanNumber("BSTUM8565M");
+		customerDetails9.setDOB("02/04/1984");
+		customerDetails9.setCustomerFirstName("Satyam");
+		customerDetails9.setCustomerLastName("Sinha");
+		customerDetails9.setAge("36");
+		customerDetails9.setGender("Male");
+		customer9Address.setStreet("East off Bustand, Gangjala");
+		customer9Address.setState("Bihar");
+		customer9Address.setCity("Saharasa");
+		customer9Address.setZipCode("855201");
+		customerDetails9.setAddress(customer9Address);
+		accountDetails9.setCustomerDetails(customerDetails9);
+		customerDetails9.setAddress(customer9Address);
+		accountDetails9.setCustomerDetails(customerDetails9);		
+				
+		//Account 10
+		AccountDetails accountDetails10=new AccountDetails();
+		Address customer10Address=new Address();
+		CustomerDetails customerDetails10=new CustomerDetails();
+		accountDetails10.setAccountHolderName("Pranav Kapoor");
+		accountDetails10.setAccountInterest("3.5");
+		accountDetails10.setCreditScore("1980");
+		accountDetails10.setAccountBalance("5600");
+		accountDetails10.setAccountStatus("Active");
+		accountDetails10.setBranchdetails(branchDetails5);
+		customerDetails10.setOpeningBalance("5600");
+		customerDetails10.setAccountType("Savings");
+		customerDetails10.setAdhaarNumber("5298 1114 8262");
+		customerDetails10.setContactNumber("9115513073");
+		customerDetails10.setPanNumber("APMUT485B");
+		customerDetails10.setDOB("03/10/1992");
+		customerDetails10.setCustomerFirstName("Pranav");
+		customerDetails10.setCustomerLastName("Kapoor");
+		customerDetails10.setAge("28");
+		customerDetails10.setGender("Male");
+		customer10Address.setStreet("Near Ashram Marg, Jawahar Circle");
+		customer10Address.setState("Rajasthan");
+		customer10Address.setCity("Jaipur");
+		customer10Address.setZipCode("302015");
+		customerDetails10.setAddress(customer10Address);
+		accountDetails10.setCustomerDetails(customerDetails10);
+		customerDetails10.setAddress(customer10Address);
+		accountDetails10.setCustomerDetails(customerDetails10);
+						
 		daoService.insertAccountDetails(accountDetails1);
 		daoService.insertAccountDetails(accountDetails2);
 		daoService.insertAccountDetails(accountDetails3);
@@ -467,8 +545,9 @@ public class AccountManagementApplication implements CommandLineRunner{
 		daoService.insertAccountDetails(accountDetails5);
 		daoService.insertAccountDetails(accountDetails6);
 		daoService.insertAccountDetails(accountDetails7);
-
+		daoService.insertAccountDetails(accountDetails8);
+		daoService.insertAccountDetails(accountDetails9);
+		daoService.insertAccountDetails(accountDetails10);
 	}
-
 }
 

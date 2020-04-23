@@ -13,88 +13,80 @@ import org.springframework.web.bind.annotation.RestController;
 import com.capgemini.accountmanagement.entity.AccountDetails;
 import com.capgemini.accountmanagement.entity.Address;
 import com.capgemini.accountmanagement.entity.CustomerDetails;
-import com.capgemini.accountmanagement.service.AccountService;
-import com.capgemini.accountmanagement.service.AddressService;
-import com.capgemini.accountmanagement.service.CustomerService;
+import com.capgemini.accountmanagement.service.Services;
+
 
 @RestController
 public class Controller {
 	
 	@Autowired
-	private AccountService accountService;
-	@Autowired
-	private AddressService addressService;
-	@Autowired
-	private CustomerService customerService;
+	private Services service;
+//	@Autowired
+//	private AddressService addressService;
+//	@Autowired
+//	private CustomerService customerService;
 	
 	
 	@RequestMapping("/accounts")
 	public List<AccountDetails> getAllAccounts()
 	{
-		return accountService.getAllAccounts();
-	}
-	@RequestMapping("/accounts/{accountNumber}")
-	public Optional<AccountDetails> getAccount(@PathVariable long accountNumber)
-	{
-		return accountService.getAccount(accountNumber);
+		return service.getAllAccounts();
 	}
 	@RequestMapping(method=RequestMethod.POST,value="/accounts")
 	public void addAccount(@RequestBody AccountDetails account) {
 		
-		accountService.addAccount(account);	
+		service.addAccount(account);	
+	}
+	@RequestMapping("/accounts/{accountNumber}")
+	public Optional<AccountDetails> getAccount(@PathVariable long accountNumber)
+	{
+		return service.getAccount(accountNumber);
 	}
 	@RequestMapping(method=RequestMethod.PUT,value="/accounts/{accountNumber}")
 	public void updateAccount(@RequestBody AccountDetails account,@PathVariable long accountNumber) {
 		
-		accountService.updateAccount(account,accountNumber);	
+		
+		service.updateAccount(account,accountNumber);	
 	}
 	@RequestMapping(method=RequestMethod.DELETE,value="/accounts/{accountNumber}")
-	public void deleteAccount(@PathVariable long accountNumber) {
+	public String deleteAccount(@PathVariable long accountNumber) {
 		
-		accountService.deleteAccount(accountNumber);	
+		service.deleteAccount(accountNumber);	
+		return "Customer has been deleted successfully";
+
 	}
 	
 	@RequestMapping("/address")
 	public List<Address> getAllAddress()
 	{
-		return addressService.getAllAddress();
-	}
-	@RequestMapping("/address/{addressId}")
-	public Optional<Address> getAddress(@PathVariable long addressId)
-	{
-		return addressService.getAddress(addressId);
+		return service.getAllAddress();
 	}
 	@RequestMapping(method=RequestMethod.POST,value="/address")
 	public void addAddress(@RequestBody Address address) {
 		
-		addressService.addAddress(address);	
+		service.addAddress(address);	
 	}
 	
 	@RequestMapping("/customers")
 	public List<CustomerDetails> getAllCustomers()
 	{
-		return customerService.getAllCustomers();
-	}
-	@RequestMapping("/customers/{customerId}")
-	public Optional<CustomerDetails> getCustomer(@PathVariable long customerId)
-	{
-		return customerService.getAccount(customerId);
+		return service.getAllCustomers();
 	}
 	@RequestMapping(method=RequestMethod.POST,value="/customers")
 	public void addCustomer(@RequestBody CustomerDetails customer) {
 		
-		customerService.addCustomer(customer);	
+		service.addCustomer(customer);	
 	}
 	@RequestMapping(method=RequestMethod.PUT,value="/customers/{customerId}")
 	public void updateCustomer(@RequestBody CustomerDetails customer,@PathVariable long customerId) {
 		
-		customerService.updateCustomer(customer,customerId);	
+		service.updateCustomer(customer,customerId);	
 	}
-	@RequestMapping(method=RequestMethod.DELETE,value="/customers/{customerId}")
-	public void deletCustomer(@PathVariable long customerId) {
-		
-		customerService.deleteCustomer(customerId);	
-	}
+//	@RequestMapping(method=RequestMethod.DELETE,value="/customers/{customerId}")
+//	public void deletCustomer(@PathVariable long customerId) {
+//		
+//		service.deleteCustomer(customerId);	
+//	}
 
 
 	
