@@ -30,6 +30,13 @@ public class BranchDetails {
 	@JoinColumn(name="address_id")
 	Address address;
 	
+	@Override
+	public String toString() {
+		return "BranchDetails [branchId=" + branchId + ", branchName=" + branchName + ", branchIFSC=" + branchIFSC
+				+ ", phoneNumber=" + phoneNumber + ", address=" + address + "]";
+	}
+
+
 	public BranchDetails(int branchId, String branchName, String branchIFSC, Address address ,String phoneNumber) {
 		super();
 		this.branchId = branchId;

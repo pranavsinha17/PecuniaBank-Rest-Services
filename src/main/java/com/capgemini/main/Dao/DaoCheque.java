@@ -1,10 +1,11 @@
 package com.capgemini.main.Dao;
 
+
+import com.capgemini.main.entity.ChequeDetails;
+
 public interface DaoCheque {
-	public void setLoanDetails();
-	public void getTranscationDetails();
-	public void setTranscationDetails();
-	public void findAccountDetails();
-	public boolean checkAccountExist();
+	public void setChequeDetails(ChequeDetails chequeDetails);
+	public void updateChequeStatus(long chequeNumber,String checkStatus );
+	
 	
 }

@@ -47,6 +47,13 @@ public class EmployeeDetails {
 	@OneToOne(cascade=CascadeType.ALL)   
 	@JoinColumn(name="address_id")
 	Address address;
+	@Override
+	public String toString() {
+		return "EmployeeDetails [employeeNumber=" + employeeNumber + ", branchId=" + branchId + ", employeeFirstName="
+				+ employeeFirstName + ", employeeLastName=" + employeeLastName + ", DOB=" + DOB + ", age=" + age
+				+ ", gender=" + gender + ", panNumber=" + panNumber + ", adharNumber=" + adharNumber + ", mobileNumber="
+				+ mobileNumber + ", address=" + address + "]";
+	}
 	public EmployeeDetails() {
 		super();
 	}

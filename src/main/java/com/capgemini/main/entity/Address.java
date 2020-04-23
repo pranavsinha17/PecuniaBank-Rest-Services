@@ -25,6 +25,11 @@ public class Address {
 	@Column(name="ADDRESS_ZIPCODE")
 	private String zipCode;
 	
+	@Override
+	public String toString() {
+		return "Address [addressId=" + addressId + ", street=" + street + ", city=" + city + ", state=" + state
+				+ ", zipCode=" + zipCode + "]";
+	}
 	public Address() {
 		super();
 	}

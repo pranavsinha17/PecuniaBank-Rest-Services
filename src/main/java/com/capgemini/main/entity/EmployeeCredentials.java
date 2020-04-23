@@ -22,6 +22,11 @@ public class EmployeeCredentials {
 	@OneToOne(cascade=CascadeType.ALL)   // 1:1 unidirectional
 	@JoinColumn(name="Employee_Number")
 	EmployeeDetails EmployeeDetails;  //Given by the bank using this we fetch all the information relate to employee.
+	@Override
+	public String toString() {
+		return "EmployeeCredentials [employeeId=" + employeeId + ", employeePassword=" + employeePassword
+				+ ", EmployeeDetails=" + EmployeeDetails + "]";
+	}
 	public EmployeeCredentials(String employeeId, String employeePassword,EmployeeDetails employeeDetails) {
 		super();
 		this.employeeId = employeeId;

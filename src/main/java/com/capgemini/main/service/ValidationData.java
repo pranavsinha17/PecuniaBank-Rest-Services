@@ -6,7 +6,7 @@ import java.util.logging.Logger;
 import java.util.regex.Pattern;
 
 public class ValidationData {
-	
+	/* This is the validation part of service layer we have to integrated with our service */
 	
 	 static Logger logger;
      
