@@ -18,7 +18,13 @@ public class EmployeeCredentials {
 	String username;
 	@Column(name="password")
 	String password;
-//	@OneToOne(cascade=CascadeType.ALL)   // 1:1 unidirectional
+	public EmployeeCredentials() {
+		// TODO Auto-generated constructor stub
+	}
+public EmployeeCredentials(String status) {
+		// TODO Auto-generated constructor stub
+	}
+	//	@OneToOne(cascade=CascadeType.ALL)   // 1:1 unidirectional
 //	@JoinColumn(name="Employee_Number")
 //	String EmployeeDetails;  //Given by the bank
 	public String getEmployeeId() {
