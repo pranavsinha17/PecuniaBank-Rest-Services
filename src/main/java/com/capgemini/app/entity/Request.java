@@ -1,4 +1,4 @@
-package com.capgemini.pecuniabank.entity;
+package com.capgemini.app.entity;
 
 import javax.persistence.Column;
 
@@ -11,15 +11,22 @@ import javax.persistence.ManyToOne;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
+import org.hibernate.annotations.DynamicInsert;
+import org.hibernate.annotations.DynamicUpdate;
+
+
+
 @Entity
-	@Table(name = "LOAN")
-	public class LoanRequest {
+@Table(name="Request_Loan")
+@DynamicUpdate(true)
+@DynamicInsert(true)
+public class Request {
 	
 	  @Id
 	  @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "loan_seq")
 		@SequenceGenerator(sequenceName = "loan_seq", initialValue=11111, allocationSize = 1, name = "loan_seq")
 	    @Column(name = "LOAN_REQUESTID")
-		private String loanRequestId;
+		private long loanRequestId;
 	  
 	  
 	  @Column(name = "LOAN_AMOUNT")
@@ -35,30 +42,21 @@ import javax.persistence.Table;
 	  private double roi;
 	  
 	    @ManyToOne(optional = false)
-	    @JoinColumn(name="Account_Number")
-	  private AccountManagement accountNumber;
+	    @JoinColumn(name="ACCOUNT_NUMBER")
+	  private Account accountNumber;
 	  
-	  public LoanRequest() {
-	    }
+	  
 	 
 	 
-	    public LoanRequest(double amount, String type, int tenure, double roi)
-		{
-		
-			this.amount = amount;
-			this.type = type;
-			this.tenure = tenure;
-			this.roi = roi;
-	
-		}
+	    
 
 
-		public String getLoanRequestId() {
+		public long getLoanRequestId() {
 			return loanRequestId;
 		}
 
 
-		public void setLoanRequestId(String loanRequestId) {
+		public void setLoanRequestId(long loanRequestId) {
 			this.loanRequestId = loanRequestId;
 		}
 
@@ -104,26 +102,32 @@ import javax.persistence.Table;
 		}
 
 
-		public AccountManagement getAccountNumber() {
+		public Account getAccountNumber() {
 			return accountNumber;
 		}
 
 
-		public void setAccountNumber(AccountManagement accountNumber) {
+		public void setAccountNumber(Account accountNumber) {
 			this.accountNumber = accountNumber;
 		}
 		
-		 @Override
-		public String toString()
+		public Request(double amount, String type, int tenure, double roi)
 		{
-			return "loan request id is: "+loanRequestId +","+ "loan amount is: " +amount+","+ "loan type is: " +type+","+
-		"loan tenure is: " +tenure+","+"loan roi is: " +roi+",";
-		}
-
-
+		
+			this.amount = amount;
+			this.type = type;
+			this.tenure = tenure;
+			this.roi = roi;
 	
-		 
-		  
-		 
+	
+		}
+		
+	
+
+
+
+	public Request() {
+		super();
+	}
 
 }

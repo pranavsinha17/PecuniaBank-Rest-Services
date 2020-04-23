@@ -1,10 +1,11 @@
-package com.example.demo;
+package com.capgemini.app;
 
 import org.junit.jupiter.api.Test;
+
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class PecuniaBank1ApplicationTests {
+class LoanApplicationTests {
 
 	@Test
 	void contextLoads() {

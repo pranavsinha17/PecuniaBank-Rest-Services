@@ -8,10 +8,10 @@
 		<version>2.2.6.RELEASE</version>
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
-	<groupId>com.example</groupId>
-	<artifactId>PecuniaBank1</artifactId>
+	<groupId>com.capgemini</groupId>
+	<artifactId>HealthCareSystem</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>PecuniaBank1</name>
+	<name>HealthCareSystem</name>
 	<description>Demo project for Spring Boot</description>
 
 	<properties>
