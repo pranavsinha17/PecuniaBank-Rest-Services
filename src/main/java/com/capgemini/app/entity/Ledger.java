@@ -30,122 +30,157 @@ public class Ledger {
 	@Column(name="Account_Number")
 	private String accountNumber;
 	@Column(name="EMI_Amount")
-	private String EMI_Amount;
+	private double EMI_Amount;
 	@Column(name="Interest_Rate") //make a list of interest rate of different type of loan
-	private String interestRate;
+	private double interestRate;
 	@Column(name="EMI_Terms")
-	private String numberOfEMI;
+	private int numberOfEMI;
 	@Column(name="Duration")
-	private String duration;
+	private int duration;
 	@Column(name="Loan_Status")
 	private String status;
 	
-	  @OneToOne(optional = false)
-	    @JoinColumn(name="LOAN_REQUESTID")
-	  private Request loanRequestId;
-	  
-	  
-	  
-		public long getLoanLedgerId() {
-			return loanLedgerId;
-		}
-
-
-		public void setLoanLedgerId(long loanLedgerId) {
-			this.loanLedgerId = loanLedgerId;
-		}
-
-
-
-		public String getAccountNumber() {
-			return accountNumber;
-		}
-
-
-		public void setAccountNumber(String accountNumber) {
-			this.accountNumber = accountNumber;
-		}
-
-
-		public String getEMI_Amount() {
-			return EMI_Amount;
-		}
-
-
-		public void setEMI_Amount(String eMI_Amount) {
-			EMI_Amount = eMI_Amount;
-		}
-
-
-		public String getInterestRate() {
-			return interestRate;
-		}
-
-
-		public void setInterestRate(String interestRate) {
-			this.interestRate = interestRate;
-		}
-
-
-		public String getNumberOfEMI() {
-			return numberOfEMI;
-		}
-
-
-		public void setNumberOfEMI(String numberOfEMI) {
-			this.numberOfEMI = numberOfEMI;
-		}
-
-
-		public String getDuration() {
-			return duration;
-		}
-
-
-		public void setDuration(String duration) {
-			this.duration = duration;
-		}
-
-
-		public String getStatus() {
-			return status;
-		}
-
-
-		public void setStatus(String status) {
-			this.status = status;
-		}
-
-
-		public Request getLoanRequestId() {
-			return loanRequestId;
-		}
-
-
-		public void setLoanRequestId(Request loanRequestId) {
-			this.loanRequestId = loanRequestId;
-		}
-	
-	
-
-	 
-	 
-	    public Ledger(String accountNumber, String EMI_Amount, String interestRate, String  numberOfEMI, String duration
-	    		, String status)
-		{
-		
-			this.accountNumber = accountNumber;
-			this.EMI_Amount = EMI_Amount;
-			this.interestRate = interestRate;
-			this.numberOfEMI = numberOfEMI;
-			this.duration = duration;
-			this.status = status;
-	
-		}
-
+	  @Override
+	public String toString() {
+		return "Ledger [loanLedgerId=" + loanLedgerId + ", accountNumber=" + accountNumber + ", EMI_Amount="
+				+ EMI_Amount + ", interestRate=" + interestRate + ", numberOfEMI=" + numberOfEMI + ", duration="
+				+ duration + ", status=" + status + ", loanRequestId=" + loanRequestId + "]";
+	}
 
 	public Ledger() {
 		super();
 	}
+
+	public Ledger(long loanLedgerId, String accountNumber, double eMI_Amount, double interestRate, int numberOfEMI,
+			int duration, String status, Request loanRequestId) {
+		super();
+		this.loanLedgerId = loanLedgerId;
+		this.accountNumber = accountNumber;
+		EMI_Amount = eMI_Amount;
+		this.interestRate = interestRate;
+		this.numberOfEMI = numberOfEMI;
+		this.duration = duration;
+		this.status = status;
+		this.loanRequestId = loanRequestId;
+	}
+
+	/**
+	 * @return the loanLedgerId
+	 */
+	public long getLoanLedgerId() {
+		return loanLedgerId;
+	}
+
+	/**
+	 * @param loanLedgerId the loanLedgerId to set
+	 */
+	public void setLoanLedgerId(long loanLedgerId) {
+		this.loanLedgerId = loanLedgerId;
+	}
+
+	/**
+	 * @return the accountNumber
+	 */
+	public String getAccountNumber() {
+		return accountNumber;
+	}
+
+	/**
+	 * @param accountNumber the accountNumber to set
+	 */
+	public void setAccountNumber(String accountNumber) {
+		this.accountNumber = accountNumber;
+	}
+
+	/**
+	 * @return the eMI_Amount
+	 */
+	public double getEMI_Amount() {
+		return EMI_Amount;
+	}
+
+	/**
+	 * @param eMI_Amount the eMI_Amount to set
+	 */
+	public void setEMI_Amount(double eMI_Amount) {
+		EMI_Amount = eMI_Amount;
+	}
+
+	/**
+	 * @return the interestRate
+	 */
+	public double getInterestRate() {
+		return interestRate;
+	}
+
+	/**
+	 * @param interestRate the interestRate to set
+	 */
+	public void setInterestRate(double interestRate) {
+		this.interestRate = interestRate;
+	}
+
+	/**
+	 * @return the numberOfEMI
+	 */
+	public int getNumberOfEMI() {
+		return numberOfEMI;
+	}
+
+	/**
+	 * @param numberOfEMI the numberOfEMI to set
+	 */
+	public void setNumberOfEMI(int numberOfEMI) {
+		this.numberOfEMI = numberOfEMI;
+	}
+
+	/**
+	 * @return the duration
+	 */
+	public int getDuration() {
+		return duration;
+	}
+
+	/**
+	 * @param duration the duration to set
+	 */
+	public void setDuration(int duration) {
+		this.duration = duration;
+	}
+
+	/**
+	 * @return the status
+	 */
+	public String getStatus() {
+		return status;
+	}
+
+	/**
+	 * @param status the status to set
+	 */
+	public void setStatus(String status) {
+		this.status = status;
+	}
+
+	/**
+	 * @return the loanRequestId
+	 */
+	public Request getLoanRequestId() {
+		return loanRequestId;
+	}
+
+	/**
+	 * @param loanRequestId the loanRequestId to set
+	 */
+	public void setLoanRequestId(Request loanRequestId) {
+		this.loanRequestId = loanRequestId;
+	}
+
+	@OneToOne(optional = false)
+	  @JoinColumn(name="LOAN_REQUESTID")
+	  private Request loanRequestId;
+	  
+	  
+
 
 }

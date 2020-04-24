@@ -8,14 +8,9 @@ import com.capgemini.app.entity.Request;
 public interface LoanService {
 	
 	boolean addRequest(Request request);
-	boolean addAccount(Account account);
-
-	
-	boolean removeCenter(long id);
-	
-	List<Request> getAllCenter();
-	double calculateEmi(double amount2, int tenure2, double loanRoi2);
-	boolean checkCreditScore(int creditScore);
-	
+	boolean  addAccount(Account account);
+	public double calculateEMI(double loanAmount,int tenure,double roi);
+	public boolean checkCreditScore(int creditScore);
+	public boolean loanProcess(Request request);
 
 }

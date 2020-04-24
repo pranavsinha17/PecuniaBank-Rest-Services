@@ -10,6 +10,7 @@ import javax.transaction.Transactional;
 import org.springframework.stereotype.Repository;
 
 import com.capgemini.app.entity.Account;
+import com.capgemini.app.entity.Ledger;
 import com.capgemini.app.entity.Request;
 import com.capgemini.app.exception.AccountException;
 
@@ -64,11 +65,18 @@ public class LoanDaoImplementation implements LoanDao{
 	}
 
 	@Override
-	public boolean existAccount(String accountNumber) throws AccountException {
+	public Account existAccount(String accountNumber)  {
 		// TODO Auto-generated method stub
 		Account account=em.find(Account.class, accountNumber);
-		if(account==null) throw new AccountException("Your account is not exist in this bank if you want loan then first you have to open a account for that you can go to account management department");
-		return true;
+		return account;
 	}
+
+	@Override
+	public void addledger(Ledger ledger) {
+		// TODO Auto-generated method stub
+		em.persist(ledger);
+	}
+	
+	
 
 }

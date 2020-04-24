@@ -8,6 +8,7 @@ import com.capgemini.app.dao.LoanDao;
 import com.capgemini.app.dao.LoanDaoImplementation;
 import com.capgemini.app.entity.Account;
 import com.capgemini.app.entity.Request;
+import com.capgemini.app.service.LoanService;
 
 import org.springframework.beans.factory.annotation.Autowired;
 	import org.springframework.boot.CommandLineRunner;
@@ -22,6 +23,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 		LoanDaoImplementation loanDaoImplementation;
 		
 		
+		@Autowired
+		private LoanService loanService;
+		
 		public static void main(String[] args) {
 			SpringApplication.run(LoanApplication.class, args);
 		}
@@ -33,7 +37,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 			
 			Account accountManagement=new Account();
 			Request loanRequest=new Request();
-			accountManagement.setAccountNumber("872323432315");
+			accountManagement.setAccountNumber("872323432313");
 			accountManagement.setAccountHolderName("Anjali Singh");
 			accountManagement.setAccountBalance(7500);
 			accountManagement.setAccountInterest("3.5");
@@ -47,7 +51,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 			
 			Account accountManagement1=new Account();
 			Request loanRequest1=new Request();
-			accountManagement1.setAccountNumber("516118161787");
+			accountManagement1.setAccountNumber("516118161782");
 			accountManagement1.setAccountHolderName("Sonia Bhardwaaj");
 			accountManagement1.setAccountBalance(8000);
 			accountManagement1.setAccountInterest("3.5");
@@ -63,7 +67,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 			
 			Account accountManagement3=new Account();
 			Request loanRequest3=new Request();
-			accountManagement3.setAccountNumber("998177885429");
+			accountManagement3.setAccountNumber("998177885423");
 			accountManagement3.setAccountHolderName("Manoj Kumar Meena");
 			accountManagement3.setAccountBalance(5000);
 			accountManagement3.setAccountInterest("3");
@@ -82,7 +86,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 			loanDaoImplementation.insertLoanRequest(loanRequest1);
 
 			loanDaoImplementation.insertLoanRequest(loanRequest3);
-
+			
+			
+			//Requesting for a loan.
+			loanService.loanProcess(loanRequest);
 			
 			
 		}

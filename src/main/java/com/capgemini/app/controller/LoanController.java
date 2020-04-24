@@ -20,33 +20,23 @@ import com.capgemini.app.service.LoanService;
 public class LoanController {
 	
 	@Autowired
-	private LoanService centerService;
+	private LoanService loanService;
 	
-	@GetMapping("/getAllCenter")
-    public ResponseEntity<List<Request>> getAllCenter() {
-			List<Request> list = centerService.getAllCenter();
-			return new ResponseEntity<List<Request>>(list,HttpStatus.OK);
-	}
+	
 	
 	@PostMapping("/addRequest")
 	public ResponseEntity<Request> addRequest(@RequestBody Request request) {
-		centerService.addRequest(request);
+		loanService.loanProcess(request);
 		return new ResponseEntity<Request>(HttpStatus.OK);
 	}
 	
 	@PostMapping("/addAccountDetails")
 	public ResponseEntity<Account> addAccount(@RequestBody Account account) {
-		centerService.addAccount(account);
+		loanService.addAccount(account);
 		return new ResponseEntity<Account>(HttpStatus.OK);
 	}
 	
-	@DeleteMapping("/removeCenter/{centerId}")
-    public ResponseEntity<Request> removeCenter(@PathVariable("centerId") long id) {
-		
-			centerService.removeCenter(id);
-		return new ResponseEntity<Request>(HttpStatus.NO_CONTENT);
-	}
-	
+
 
 
 }
