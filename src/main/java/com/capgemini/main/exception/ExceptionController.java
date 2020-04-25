@@ -13,8 +13,8 @@ public class ExceptionController {
 		return new ResponseEntity<>(exception.getMessage(), HttpStatus.NOT_FOUND);
 	}
 
-	@ExceptionHandler(value = UserDefineException.class)
-	public ResponseEntity<Object> handleException1(UserDefineException exception) {
+	@ExceptionHandler(value = UserException.class)
+	public ResponseEntity<Object> handleException1(UserException exception) {
 		return new ResponseEntity<>(exception.getMessage(), HttpStatus.FORBIDDEN);
 	}
 

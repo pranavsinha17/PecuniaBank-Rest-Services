@@ -43,7 +43,7 @@ public class AccountDetails {
 	
 	
 	@ManyToOne(optional = false)
-	@JoinColumn(name="Branch_Id")
+	@JoinColumn(name="Branch_Id") //According the customer location the branch is assigned.
 	BranchDetails branchdetails;
 
 

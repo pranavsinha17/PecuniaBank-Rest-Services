@@ -11,5 +11,6 @@ public interface TransationUsingCreditCheque {
 	public String  UpdateBalance(long accountNumber,double balance);
 	public boolean checkBalance(double balance1,double balance2);
 	public void addBalance(double balance1,double balance2);
+	public boolean checkAccountExist(long accountNumber);
 
 }

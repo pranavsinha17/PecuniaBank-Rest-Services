@@ -184,6 +184,15 @@ public class TransactionCreditService implements TransationUsingCreditCheque {
 		
 	}
 
+	@Override
+	public boolean checkAccountExist(long accountNumber) {
+		// TODO Auto-generate
+		boolean Exists=daoAccount.checkAccountExist(accountNumber);
+		if(Exists)
+			return true;
+		return false;
+	}
+
 
 
 }

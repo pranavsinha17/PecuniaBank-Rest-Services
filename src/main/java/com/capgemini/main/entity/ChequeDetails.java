@@ -35,6 +35,39 @@ public class ChequeDetails {
 	@Column(name="status")
 	private String checkStatus;
 	
+	private String issueDate1;
+	
+
+	/**
+	 * @return the issueDate1
+	 */
+	public String getIssueDate1() {
+		return issueDate1;
+	}
+
+	/**
+	 * @param issueDate1 the issueDate1 to set
+	 */
+	public void setIssueDate1(String issueDate1) {
+		this.issueDate1 = issueDate1;
+	}
+
+	public ChequeDetails(long chequeNumber, long benificaryAccountNumber, long accountNumber, double amount,
+			String transactionType, String payName, String bankName, String IFSC, String checkStatus,
+			String issueDate1) {
+		super();
+		this.chequeNumber = chequeNumber;
+		this.benificaryAccountNumber = benificaryAccountNumber;
+		this.accountNumber = accountNumber;
+		this.amount = amount;
+		this.transactionType = transactionType;
+		this.payName = payName;
+		this.bankName = bankName;
+		this.IFSC = IFSC;
+		this.checkStatus = checkStatus;
+		this.issueDate1 = issueDate1;
+		
+	}
 
 	@Override
 	public String toString() {
@@ -48,7 +81,7 @@ public class ChequeDetails {
 	}
 	
 	public ChequeDetails(long chequeNumber, LocalDate issueDate, long payeeAccountNumber, long accountNumber,
-			double amount, String transactionType, String payName, String bankName, String iFSC,String checkStatus) {
+			double amount, String transactionType, String payName, String bankName, String IFSC,String checkStatus) {
 		super();
 		this.chequeNumber = chequeNumber;
 		this.issueDate = issueDate;
@@ -58,7 +91,7 @@ public class ChequeDetails {
 		this.transactionType = transactionType;
 		this.payName = payName;
 		this.bankName = bankName;
-		IFSC = iFSC;
+		this.IFSC = IFSC;
 		this.checkStatus=checkStatus;
 	}
 	/**
@@ -158,16 +191,16 @@ public class ChequeDetails {
 		this.bankName = bankName;
 	}
 	/**
-	 * @return the iFSC
+	 * @return the IFSC
 	 */
 	public String getIFSC() {
 		return IFSC;
 	}
 	/**
-	 * @param iFSC the iFSC to set
+	 * @param IFSC the IFSC to set
 	 */
-	public void setIFSC(String iFSC) {
-		IFSC = iFSC;
+	public void setIFSC(String IFSC) {
+		this.IFSC = IFSC;
 	}
 	/**
 	 * @return the checkStatus

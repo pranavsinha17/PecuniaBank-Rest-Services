@@ -35,20 +35,38 @@ public class SlipDetails {
 	String bankName;
 	@Column(name="IFSC")
 	String IFSC;
+	@Column(name="status")
+	String status;
 	
 	@Override
 	public String toString() {
 		return "SlipDetails [slipNumber=" + slipNumber + ", AccountNumber=" + AccountNumber + ", amount=" + amount
 				+ ", transactionType=" + transactionType + ", HolderName=" + HolderName + ", slipDate=" + slipDate
-				+ ", bankName=" + bankName + ", IFSC=" + IFSC + "]";
+				+ ", bankName=" + bankName + ", IFSC=" + IFSC + ", status=" + status + "]";
 	}
+
+	/**
+	 * @return the status
+	 */
+	public String getStatus() {
+		return status;
+	}
+
+	/**
+	 * @param status the status to set
+	 */
+	public void setStatus(String status) {
+		this.status = status;
+	}
+
+	
 	
 	public SlipDetails() {
 		super();
 	}
 	
 	public SlipDetails(long slipNumber, long accountNumber, double amount, String transactionType, String holderName,
-			LocalDate slipDate, String bankName, String iFSC) {
+			LocalDate slipDate, String bankName, String iFSC ,String status) {
 		super();
 		this.slipNumber = slipNumber;
 		AccountNumber = accountNumber;
@@ -58,6 +76,7 @@ public class SlipDetails {
 		this.slipDate = slipDate;
 		this.bankName = bankName;
 		IFSC = iFSC;
+		this.status=status;
 	}
 	/**
 	 * @return the slipNumber
