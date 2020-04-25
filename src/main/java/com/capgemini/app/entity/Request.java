@@ -41,8 +41,8 @@ public class Request {
 	  @Column(name = "LOAN_ROI")
 	  private double roi;
 	  
-	  @ManyToOne(optional = false)
-	  @JoinColumn(name="ACCOUNT_NUMBER")
+	    @ManyToOne(optional = false)
+	    @JoinColumn(name="ACCOUNT_NUMBER")
 	  private Account accountNumber;
 	  
 	  

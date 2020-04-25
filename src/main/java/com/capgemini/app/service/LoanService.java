@@ -5,6 +5,7 @@ import java.util.List;
 import com.capgemini.app.entity.Account;
 import com.capgemini.app.entity.Ledger;
 import com.capgemini.app.entity.Request;
+import com.capgemini.app.exception.UserException;
 
 public interface LoanService {
 	
@@ -12,8 +13,8 @@ public interface LoanService {
 	boolean  addAccount(Account account);
 	public double calculateEMI(double loanAmount,int tenure,double roi);
 	public boolean checkCreditScore(int creditScore);
-	public boolean loanProcess(Request request);
-	public boolean findAccount(String accountNumber);
+	public void loanProcess(Request request)throws UserException;
+	public boolean findAccount(String accountNumber)throws UserException;
 	public List<Ledger> viewAll();
 	public List<Ledger> ViewLedger(String accountNumber);
 

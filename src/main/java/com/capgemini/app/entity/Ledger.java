@@ -17,7 +17,7 @@ import javax.persistence.Table;
 
 
 @Entity
-@Table(name="Ledgerrr")
+@Table(name="Ledger_Info")
 //@SequenceGenerator(name ="test_seq",initialValue=101, allocationSize = 1)
 public class Ledger {
 	

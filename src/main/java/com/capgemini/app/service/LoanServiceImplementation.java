@@ -9,6 +9,7 @@ import com.capgemini.app.dao.LoanDao;
 import com.capgemini.app.entity.Account;
 import com.capgemini.app.entity.Ledger;
 import com.capgemini.app.entity.Request;
+import com.capgemini.app.exception.UserException;
 
 @Service
 public class LoanServiceImplementation implements LoanService{
@@ -51,7 +52,7 @@ public class LoanServiceImplementation implements LoanService{
 	}
 
 	@Override
-	public boolean loanProcess(Request request) {
+	public void loanProcess(Request request) throws UserException{
 		// TODO Auto-generated method stub
 		Account account=loanDao.existAccount(request.getAccountNumber().getAccountNumber());
 		if(account!=null)
@@ -70,11 +71,12 @@ public class LoanServiceImplementation implements LoanService{
 				ledger.setStatus("Grant");
 				
 				loanDao.addledger(ledger);
-				System.out.println("Loan approved your ledger report");
+				System.out.println("Your Loan Request has been approved for more details view Loan Ledger");
 			}
 			else
 			{
 			System.out.println("You can't get loan due to your previous track record");
+			throw new UserException("Your credit score is not good to grant your Loan Request");
 			}
 			
 			
@@ -82,17 +84,26 @@ public class LoanServiceImplementation implements LoanService{
 		else
 		{
 			System.out.println("Your account is not exists in our account firstly open account and then apply");
+			throw new UserException("Your Account does not Exist. To take loan first you have to open account in our bank. For that go to Account management branch.");
 		}
-		
-		return false;
 	}
 
 	@Override
-	public boolean findAccount(String accountNumber) {
+	public boolean findAccount(String accountNumber) throws UserException {
 		// TODO Auto-generated method stub
+	
+		boolean Exists=loanDao.findAccount(accountNumber);
+		if(Exists)
+		{
+			return true;
+		}
+		else
+		{
+			throw new UserException("Your Account does not Exist. To take loan first you have to open account in our bank. For that go to Account management branch.");
+		}
 		
-		return loanDao.findAccount(accountNumber) ;
-	}
+}
+	
 
 	@Override
 	public List<Ledger> viewAll() {
