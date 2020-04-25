@@ -36,6 +36,7 @@ public class LoanController {
 		return new ResponseEntity<Account>(HttpStatus.OK);
 	}
 	
+	//make controller according to your convenient................
 
 
 

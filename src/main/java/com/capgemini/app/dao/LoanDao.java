@@ -18,5 +18,8 @@ public interface LoanDao {
 	boolean removeCenter(long id);
 	
 	List<Request> getAllCenter();
+	boolean findAccount(String accountNumber);
+	List<Ledger> viewLedger(String accountNumber);
+	List<Ledger> viewAllLedger();
 	
 }

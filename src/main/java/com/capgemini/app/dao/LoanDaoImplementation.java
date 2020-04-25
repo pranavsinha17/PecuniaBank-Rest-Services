@@ -76,6 +76,31 @@ public class LoanDaoImplementation implements LoanDao{
 		// TODO Auto-generated method stub
 		em.persist(ledger);
 	}
+
+	@Override
+	public boolean findAccount(String accountNumber) {
+		// TODO Auto-generated method stub
+		return em.contains(em.find(Account.class, accountNumber));
+		
+	}
+
+	@Override
+	public List<Ledger> viewLedger(String accountNumber) {
+		// TODO Auto-generated method stub
+		String Qstr="SELECT ledger FROM Ledger ledger WHERE ledger.getAccountNumber()=accountNumber";
+		TypedQuery<Ledger> query=em.createQuery(Qstr,Ledger.class);
+		List<Ledger> ledgerList=query.getResultList();
+		return ledgerList;
+	}
+
+	@Override
+	public List<Ledger> viewAllLedger() {
+		// TODO Auto-generated method stub
+		String Qstr="SELECT ledger FROM Ledger ledger";
+		TypedQuery<Ledger> query=em.createQuery(Qstr,Ledger.class);
+		List<Ledger> ledgerList=query.getResultList();
+		return ledgerList;
+	}
 	
 	
 

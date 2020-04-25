@@ -87,6 +87,25 @@ public class LoanServiceImplementation implements LoanService{
 		return false;
 	}
 
+	@Override
+	public boolean findAccount(String accountNumber) {
+		// TODO Auto-generated method stub
+		
+		return loanDao.findAccount(accountNumber) ;
+	}
+
+	@Override
+	public List<Ledger> viewAll() {
+		// TODO Auto-generated method stub
+		return loanDao.viewAllLedger();
+	}
+
+	@Override
+	public List<Ledger> ViewLedger(String accountNumber) {
+		// TODO Auto-generated method stub
+		return loanDao.viewLedger(accountNumber);
+	}
+
 
 
 }
