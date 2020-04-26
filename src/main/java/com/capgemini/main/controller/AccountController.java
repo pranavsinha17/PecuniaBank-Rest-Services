@@ -35,7 +35,7 @@ public class AccountController {
 	}
 	
 	@PostMapping("/AccountUpdateMobile/{accountId}/{mobileNumber}")
-	public ResponseEntity<String> addBranch(@PathVariable("accountId")long accountId,@PathVariable("mobileNumber")String mobileNumber) {
+	public ResponseEntity<String> updateMobileNumber(@PathVariable("accountId")long accountId,@PathVariable("mobileNumber")String mobileNumber) {
 		boolean result=accountService.updateAccountMobileNumber(accountId, mobileNumber);
 		if(result)
 		{
@@ -47,7 +47,7 @@ public class AccountController {
 	}
 	
 	@PostMapping("/AccountDelete/{accountId}")
-	public ResponseEntity<String> addBranch(@PathVariable("accountId")long accountId) {
+	public ResponseEntity<String> deleteAccount(@PathVariable("accountId")long accountId) {
 		boolean result=accountService.deleteAccount(accountId);
 		if(result)
 		{
@@ -58,8 +58,8 @@ public class AccountController {
 		return new ResponseEntity<String>(res,HttpStatus.OK);
 	}
 	
-	@PostMapping("/AccountUpdateMobile/{accountId}/{mobileNumber}")
-	public ResponseEntity<String> addBranch(@RequestBody Address address,@PathVariable("accountId")long accountId) {
+	@PostMapping("/AccountUpdateAddress/{accountId}/{mobileNumber}")
+	public ResponseEntity<String> updateAddress(@RequestBody Address address,@PathVariable("accountId")long accountId) {
 		boolean result=accountService.updateAccountAddress(accountId, address);
 		if(result)
 		{
@@ -71,7 +71,7 @@ public class AccountController {
 	}
 	
 	@PostMapping("/AccountUpdateName/{accountId}/{Name}")
-	public ResponseEntity<String> addName(@PathVariable("accountId")long accountId,@PathVariable("name")String Name) {
+	public ResponseEntity<String> updateName(@PathVariable("accountId")long accountId,@PathVariable("name")String Name) {
 		boolean result=accountService.updateName(accountId, Name);
 		if(result)
 		{

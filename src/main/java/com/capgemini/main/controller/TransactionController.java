@@ -47,7 +47,7 @@ public class TransactionController {
 	 * Transaction using cheque for debitService .
 	 */
 	@PostMapping("/DebitChequeDetails") //insert the data to database
-	public ResponseEntity<ChequeDetails> DebitDetails(@RequestBody ChequeDetails chequeDetails) throws UserException {
+	public ResponseEntity<ChequeDetails> DebitDetails(@RequestBody ChequeDetails chequeDetails) throws UserDefineException, UserException {
 		
 		if(creditService.checkAccountExist(chequeDetails.getAccountNumber())&&creditService.checkAccountExist(chequeDetails.getBenificaryAccountNumber())) {
 		String []data;
@@ -68,9 +68,9 @@ public class TransactionController {
 	 * Transaction using cheque for debitService .
 	 */
 	@PostMapping("/CreditChequeDetails") //insert the data to database
-	public ResponseEntity<ChequeDetails> CreditDetails(@RequestBody ChequeDetails chequeDetails) throws UserException{
+	public ResponseEntity<ChequeDetails> CreditDetails(@RequestBody ChequeDetails chequeDetails) throws UserDefineException, UserException{
 		
-		if(creditService.checkAccountExist(chequeDetails.getAccountNumber())&&creditService.checkAccountExist(chequeDetails.getBenificaryAccountNumber())) {
+		//if(creditService.checkAccountExist(chequeDetails.getAccountNumber())&&creditService.checkAccountExist(chequeDetails.getBenificaryAccountNumber())) {
 		String []data;
 		data=chequeDetails.getIssueDate1().split(",");
 		int year = Integer.parseInt( data[0] );
@@ -79,11 +79,11 @@ public class TransactionController {
 		LocalDate issueDate = LocalDate.of(year,month,day);
 		chequeDetails.setIssueDate(issueDate);
 		creditService.creditCheque(chequeDetails);
-		}
-		else
-		{
-			throw new UserDefineException("Account Number is Invalid");
-		}
+		//}
+		//else
+		//{
+		//	throw new UserDefineException("Account Number is Invalid");
+		//}
 		
 		return new ResponseEntity<ChequeDetails>(chequeDetails,HttpStatus.OK);
 	}
@@ -92,12 +92,12 @@ public class TransactionController {
 	 * Transaction using slip for creditService .
 	 */
 	@PostMapping("/SlipCrediDetails") //insert the data to database
-	public ResponseEntity<SlipDetails>slipDetailsCredit(@RequestBody SlipDetails slipDetails) throws UserException{
+	public ResponseEntity<SlipDetails>slipDetailsCredit(@RequestBody SlipDetails slipDetails) throws UserDefineException, UserException{
 		slipDetails.setSlipDate(LocalDate.now());
-		if(creditService.checkAccountExist(slipDetails.getAccountNumber()))
+		//if(creditService.checkAccountExist(slipDetails.getAccountNumber()))
 		slipService.creditSlip(slipDetails);
-		else
-			throw new UserDefineException("Account Number is Invalid");
+		//else
+		//	throw new UserDefineException("Account Number is Invalid");
 			
 		
 		
@@ -110,10 +110,10 @@ public class TransactionController {
 	@PostMapping("/SlipDebitDetails") //insert the data to database
 	public ResponseEntity<SlipDetails>slipDetailsDebit(@RequestBody SlipDetails slipDetails) throws UserException{
 		slipDetails.setSlipDate(LocalDate.now());
-		if(creditService.checkAccountExist(slipDetails.getAccountNumber()))
+		//if(creditService.checkAccountExist(slipDetails.getAccountNumber()))
 		slipService.debitSlip(slipDetails);
-		else
-			throw new UserDefineException("Account Number is Invalid");
+		//else
+		//	throw new UserDefineException("Account Number is Invalid");
 		
 		
 		return new ResponseEntity<SlipDetails>(slipDetails,HttpStatus.OK);
