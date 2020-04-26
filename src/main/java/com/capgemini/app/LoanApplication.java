@@ -69,12 +69,12 @@ import org.springframework.beans.factory.annotation.Autowired;
 			
 			Account accountManagement3=new Account();
 			Request loanRequest3=new Request();
-			accountManagement3.setAccountNumber("998177885435");
+			accountManagement3.setAccountNumber("643265200000");
 			accountManagement3.setAccountHolderName("Manoj Kumar Meena");
 			accountManagement3.setAccountBalance(5000);
 			accountManagement3.setAccountInterest("3");
-			accountManagement3.setCreditScore(400);
-			loanRequest3.setAccountNumber(accountManagement3);
+			accountManagement3.setCreditScore(800);
+			loanRequest3.setAccountNumber("643265200000");
 			loanRequest3.setAmount(300000);
 			loanRequest3.setRoi(10);
 			loanRequest3.setTenure(6);
@@ -98,6 +98,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 				
 				System.out.println(""+e);
 			}
+			loanService.viewAll();
+			
 			
 
 			

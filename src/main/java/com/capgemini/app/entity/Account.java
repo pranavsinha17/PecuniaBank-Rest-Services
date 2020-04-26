@@ -15,7 +15,7 @@ import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
 @Entity
-@Table(name="ACCOUNT_INFO")
+@Table(name="ACCOUNT_INFOO")
 public class Account {
 	
 	@Id

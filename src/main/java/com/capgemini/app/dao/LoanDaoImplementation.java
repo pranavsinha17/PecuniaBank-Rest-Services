@@ -69,8 +69,8 @@ public class LoanDaoImplementation implements LoanDao{
 	@Override
 	public List<Ledger> viewLedger(String accountNumber) {
 		// TODO Auto-generated method stub
-		String Qstr="SELECT ledger FROM Ledger ledger WHERE ledger.getAccountNumber()=accountNumber";
-		TypedQuery<Ledger> query=em.createQuery(Qstr,Ledger.class);
+		String Qstr="SELECT ledger FROM Ledger ledger WHERE ledger.accountNumber= :accountNumber";
+		TypedQuery<Ledger> query=em.createQuery(Qstr,Ledger.class).setParameter("accountNumber", accountNumber);
 		List<Ledger> ledgerList=query.getResultList();
 		return ledgerList;
 	}

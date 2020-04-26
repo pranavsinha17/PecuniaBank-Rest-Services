@@ -52,9 +52,9 @@ public class LoanServiceImplementation implements LoanService{
 	}
 
 	@Override
-	public void loanProcess(Request request) throws UserException{
+	public boolean loanProcess(Request request) throws UserException{
 		// TODO Auto-generated method stub
-		Account account=loanDao.existAccount(request.getAccountNumber().getAccountNumber());
+		Account account=loanDao.existAccount(request.getAccountNumber());
 		if(account!=null)
 		{
 			int creditScore=account.getCreditScore();
@@ -86,6 +86,7 @@ public class LoanServiceImplementation implements LoanService{
 			System.out.println("Your account is not exists in our account firstly open account and then apply");
 			throw new UserException("Your Account does not Exist. To take loan first you have to open account in our bank. For that go to Account management branch.");
 		}
+		return false;
 	}
 
 	@Override

@@ -13,7 +13,7 @@ public interface LoanService {
 	boolean  addAccount(Account account);
 	public double calculateEMI(double loanAmount,int tenure,double roi);
 	public boolean checkCreditScore(int creditScore);
-	public void loanProcess(Request request)throws UserException;
+	public boolean loanProcess(Request request)throws UserException;
 	public boolean findAccount(String accountNumber)throws UserException;
 	public List<Ledger> viewAll();
 	public List<Ledger> ViewLedger(String accountNumber);

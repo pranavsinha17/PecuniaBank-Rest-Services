@@ -61,8 +61,8 @@ public class LoanController {
 		
 	}
 	@PostMapping("/viewLedger/{accountNumber}")
-	public String viewLedger(@Valid @RequestBody Ledger ledger, BindingResult br) throws UserException{
-		System.out.println(ledger.toString());
+	  public ResponseEntity<List<Ledger>> getData(@Valid @RequestBody Ledger ledger, BindingResult br) throws UserException{
+		//System.out.println(ledger.toString());
 		
 		String err="";
 		if(br.hasErrors()) {
@@ -72,8 +72,9 @@ public class LoanController {
 			throw new UserException(err);
 		}
 		try {
-			loanService.ViewLedger(ledger.getAccountNumber());
-			return "your requested data is here";
+			//return "your requested data is here";
+			List<Ledger> list = loanService.ViewLedger(ledger.getAccountNumber());
+			return new ResponseEntity<List<Ledger>>(list,HttpStatus.OK);
 			//return "Your loan Request has been granted for more information view loan ledger";
 		}
 		catch(Exception e) {
@@ -102,8 +103,8 @@ public class LoanController {
 		
 	}
 	@GetMapping("/viewLedgerData")
-	public String viewLedgerData(@Valid @RequestBody Ledger ledger, BindingResult br) throws UserException{
-		System.out.println(ledger.toString());
+	public ResponseEntity<List<Ledger>> getLedgerData(@Valid @RequestBody Ledger ledger, BindingResult br) throws UserException{
+	//	System.out.println(ledger.toString());
 		
 		String err="";
 		if(br.hasErrors()) {
@@ -113,8 +114,8 @@ public class LoanController {
 			throw new UserException(err);
 		}
 		try {
-			loanService.viewAll();
-			return "your requested data is here";
+			List<Ledger> list = loanService.viewAll();
+			return new ResponseEntity<List<Ledger>>(list,HttpStatus.OK);
 			//return "Your loan Request has been granted for more information view loan ledger";
 		}
 		catch(Exception e) {
