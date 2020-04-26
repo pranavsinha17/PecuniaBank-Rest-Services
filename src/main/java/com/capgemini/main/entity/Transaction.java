@@ -1,6 +1,7 @@
 package com.capgemini.main.entity;
 
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.time.LocalTime;
 
 import javax.persistence.Column;
@@ -32,15 +33,13 @@ public class Transaction {
 	@Column(name="Transaction_Amount")
 	private double transactionAmount;
 	@Column(name="Transaction_Date")
-	LocalDate transactionDate;
+	LocalDateTime transactionDate;
 	@Column(name="Benificary_Name")
 	private String benificaryName;
 	@Column(name="Benificary_Accoount_Number")
 	private long benificaryAccoountNumber;
 	@Column(name="Benificary_Bank_Name")
 	private String bankName;
-	@Column(name="Transaction_Time")
-	LocalTime transactionTime;
 	
 	@Override
 	public String toString() {
@@ -49,7 +48,7 @@ public class Transaction {
 				+ ", transactionStatus=" + transactionStatus + ", transactionAmount=" + transactionAmount
 				+ ", transactionDate=" + transactionDate + ", benificaryName=" + benificaryName
 				+ ", benificaryAccoountNumber=" + benificaryAccoountNumber + ", bankName=" + bankName
-				+ ", transactionTime=" + transactionTime + "]";
+				+ ", transactionTime=" + "]";
 	}
 
 	public Transaction() {
@@ -57,8 +56,8 @@ public class Transaction {
 	}
 
 	public Transaction(long transactionId, long accountNumber, String transactionOption, String transactionType,
-			String transactionStatus, double transactionAmount, LocalDate transactionDate, String benificaryName,
-			long benificaryAccoountNumber, String bankName, LocalTime transactionTime) {
+			String transactionStatus, double transactionAmount, LocalDateTime transactionDate, String benificaryName,
+			long benificaryAccoountNumber, String bankName ) {
 		super();
 		this.transactionId = transactionId;
 		this.accountNumber = accountNumber;
@@ -70,22 +69,9 @@ public class Transaction {
 		this.benificaryName = benificaryName;
 		this.benificaryAccoountNumber = benificaryAccoountNumber;
 		this.bankName = bankName;
-		this.transactionTime = transactionTime;
+		
 	}
 
-	/**
-	 * @return the transactionTime
-	 */
-	public LocalTime getTransactionTime() {
-		return transactionTime;
-	}
-
-	/**
-	 * @param transactionTime the transactionTime to set
-	 */
-	public void setTransactionTime(LocalTime transactionTime) {
-		this.transactionTime = transactionTime;
-	}
 
 
 	/**
@@ -163,13 +149,13 @@ public class Transaction {
 	/**
 	 * @return the transactionDate
 	 */
-	public LocalDate getTransactionDate() {
+	public LocalDateTime getTransactionDate() {
 		return transactionDate;
 	}
 	/**
 	 * @param transactionDate the transactionDate to set
 	 */
-	public void setTransactionDate(LocalDate transactionDate) {
+	public void setTransactionDate(LocalDateTime transactionDate) {
 		this.transactionDate = transactionDate;
 	}
 	/**

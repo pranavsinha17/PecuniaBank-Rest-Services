@@ -1,13 +1,14 @@
 package com.capgemini.main.entity;
 	
-	import javax.persistence.Column;
+	import java.time.LocalDate;
+
+import javax.persistence.Column;
 	import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
-import javax.persistence.OneToOne;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
@@ -32,13 +33,15 @@ import javax.persistence.Table;
 		private int duration;
 		@Column(name="Loan_Status")
 		private String status;
+		@Column(name="startDate")
+		private LocalDate startDate;
+		@Column(name="endDate")
+		private LocalDate endDate;
 		@Column(name="LOAN_REQUESTID")
 		private long loanRequestId ;
-		public LoanLedger() {
-			super();
-		}
 		public LoanLedger(long loanLedgerId, AccountDetails accountDetails, double eMI_Amount, float interestRate,
-				int numberOfEMI, int duration, String status, long loanRequestId) {
+				int numberOfEMI, int duration, String status, LocalDate startDate, LocalDate endDate,
+				long loanRequestId) {
 			super();
 			this.loanLedgerId = loanLedgerId;
 			this.accountDetails = accountDetails;
@@ -47,6 +50,8 @@ import javax.persistence.Table;
 			this.numberOfEMI = numberOfEMI;
 			this.duration = duration;
 			this.status = status;
+			this.startDate = startDate;
+			this.endDate = endDate;
 			this.loanRequestId = loanRequestId;
 		}
 		/**
@@ -134,6 +139,30 @@ import javax.persistence.Table;
 			this.status = status;
 		}
 		/**
+		 * @return the startDate
+		 */
+		public LocalDate getStartDate() {
+			return startDate;
+		}
+		/**
+		 * @param startDate the startDate to set
+		 */
+		public void setStartDate(LocalDate startDate) {
+			this.startDate = startDate;
+		}
+		/**
+		 * @return the endDate
+		 */
+		public LocalDate getEndDate() {
+			return endDate;
+		}
+		/**
+		 * @param endDate the endDate to set
+		 */
+		public void setEndDate(LocalDate endDate) {
+			this.endDate = endDate;
+		}
+		/**
 		 * @return the loanRequestId
 		 */
 		public long getLoanRequestId() {
@@ -149,10 +178,13 @@ import javax.persistence.Table;
 		public String toString() {
 			return "LoanLedger [loanLedgerId=" + loanLedgerId + ", accountDetails=" + accountDetails + ", EMI_Amount="
 					+ EMI_Amount + ", interestRate=" + interestRate + ", numberOfEMI=" + numberOfEMI + ", duration="
-					+ duration + ", status=" + status + ", loanRequestId=" + loanRequestId + "]";
+					+ duration + ", status=" + status + ", startDate=" + startDate + ", endDate=" + endDate
+					+ ", loanRequestId=" + loanRequestId + "]";
 		}
-		
-		
+		public LoanLedger() {
+			super();
+		}
+
 		
 		
 	}

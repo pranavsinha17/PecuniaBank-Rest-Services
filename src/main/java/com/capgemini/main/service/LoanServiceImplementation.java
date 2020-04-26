@@ -1,5 +1,6 @@
 package com.capgemini.main.service;
 
+import java.time.LocalDate;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -74,6 +75,8 @@ public class LoanServiceImplementation implements LoanService{
 				ledger.setInterestRate((float) 12.0);
 				ledger.setLoanRequestId(request.getLoanRequestId());
 				ledger.setNumberOfEMI((int) (request.getTenure()*12));
+				ledger.setStartDate(LocalDate.now());
+				ledger.setEndDate(LocalDate.now().plusYears(request.getTenure()));
 				ledger.setStatus("Grant");
 				
 				loanDao.addledger(ledger);

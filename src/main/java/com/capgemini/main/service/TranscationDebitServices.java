@@ -1,6 +1,7 @@
 package com.capgemini.main.service;
 
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.time.LocalTime;
 import java.time.Period;
 
@@ -123,13 +124,12 @@ public class TranscationDebitServices implements TranscationUsingDebitCheque{
 		transaction.setAccountNumber(accountDetails.getAccountNumber());
 		transaction.setBankName(chequeDetails.getBankName());
 		transaction.setBenificaryAccoountNumber(chequeDetails.getBenificaryAccountNumber());//Debating money from the account .
-		transaction.setTransactionDate(LocalDate.now());
+		transaction.setTransactionDate(LocalDateTime.now());
 		transaction.setBenificaryName(chequeDetails.getPayName());
 		transaction.setTransactionOption(transactionOption);
 		transaction.setTransactionType(transactionType[0]);
 		transaction.setTransactionAmount(chequeDetails.getAmount());
 		transaction.setTransactionStatus(status);
-		transaction.setTransactionTime(LocalTime.now());
 		daoTransaction.setTranscationDetails(transaction);
 	}
 
