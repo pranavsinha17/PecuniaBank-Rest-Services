@@ -1,5 +1,7 @@
 package com.capgemini.accountmanagement.entity;
 
+import java.time.LocalDateTime;
+
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -39,6 +41,9 @@ public class AccountDetails {
 		@Column(name="Account_Interest")
 		String accountInterest;
 		
+		@Column(name="Creation_Date")
+		private LocalDateTime creationDate;			
+		
 		@ManyToOne(optional = false)  
 		@JoinColumn(name="Branch_Id")
 		BranchDetails branchdetails;
@@ -48,9 +53,12 @@ public class AccountDetails {
 			
 		}
 		
+		
+
+		
 		public AccountDetails(long accountNumber, CustomerDetails customerDetails, String accountHolderName,
 				String accountStatus, String accountBalance, String creditScore, String accountInterest,
-				BranchDetails branchdetails) {
+				LocalDateTime creationDate, BranchDetails branchdetails) {
 			super();
 			this.accountNumber = accountNumber;
 			this.customerDetails = customerDetails;
@@ -59,10 +67,13 @@ public class AccountDetails {
 			this.accountBalance = accountBalance;
 			this.creditScore = creditScore;
 			this.accountInterest = accountInterest;
+			this.creationDate = creationDate;
 			this.branchdetails = branchdetails;
 		}
 
-		
+
+
+
 		public long getAccountNumber() {
 			return accountNumber;
 		}
@@ -117,6 +128,14 @@ public class AccountDetails {
 
 		public void setAccountInterest(String accountInterest) {
 			this.accountInterest = accountInterest;
+		}
+
+		public LocalDateTime getCreationDate() {
+			return creationDate;
+		}
+
+		public void setCreationDate(LocalDateTime creationDate) {
+			this.creationDate = creationDate;
 		}
 
 		public BranchDetails getBranchdetails() {

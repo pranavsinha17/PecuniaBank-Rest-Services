@@ -1,5 +1,7 @@
 package com.capgemini.accountmanagement;
 
+import java.time.LocalDateTime;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
@@ -257,7 +259,7 @@ public class AccountManagementApplication implements CommandLineRunner{
 		customerDetails1.setAge("21");
 		customerDetails1.setGender("Female");
 		customerDetails1.setContactNumber("9815406012");
-		customerDetails1.setPanNumber("QSWED234M");
+		customerDetails1.setPanNumber("QSWED2341M");
 		customerDetails1.setAdhaarNumber("3650 7451 9856");
 		customerDetails1.setAccountType("Current");
 		customerDetails1.setOpeningBalance("25000");
@@ -273,6 +275,7 @@ public class AccountManagementApplication implements CommandLineRunner{
 		accountDetails1.setCreditScore("1400");
 		accountDetails1.setAccountInterest("3");
 		accountDetails1.setCreditScore("1400");
+		accountDetails1.setCreationDate(LocalDateTime.now());
 	    accountDetails1.setBranchdetails(branchDetails1);
 
 //		
@@ -287,13 +290,15 @@ public class AccountManagementApplication implements CommandLineRunner{
 		accountDetails2.setCreditScore("980");
 		accountDetails2.setAccountBalance("12000");
 		accountDetails2.setAccountStatus("Active");
+		accountDetails2.setCreationDate(LocalDateTime.now());
+		//accountDetails.insertAccountDetails(accountDetails);
 		accountDetails2.setBranchdetails(branchDetails1);
 
 		customerDetails2.setOpeningBalance("12000");
 		customerDetails2.setAccountType("Savings");
 		customerDetails2.setAdhaarNumber("7485 8555 3330");
 		customerDetails2.setContactNumber("9041459865");
-		customerDetails2.setPanNumber("RTYUO852L");
+		customerDetails2.setPanNumber("RTYUO8522L");
 		customerDetails2.setDOB("06/02/1998");
 		customerDetails2.setCustomerFirstName("Ashish");
 		customerDetails2.setCustomerLastName("Singh");
@@ -316,13 +321,14 @@ public class AccountManagementApplication implements CommandLineRunner{
 		accountDetails3.setCreditScore("500");
 		accountDetails3.setAccountBalance("6000");
 		accountDetails3.setAccountStatus("Active");
+		accountDetails3.setCreationDate(LocalDateTime.now());
 		accountDetails3.setBranchdetails(branchDetails2);
 
 		customerDetails3.setOpeningBalance("6000");
 		customerDetails3.setAccountType("Savings");
 		customerDetails3.setAdhaarNumber("9652 2222 6000");
 		customerDetails3.setContactNumber("7007820982");
-		customerDetails3.setPanNumber("AATRE747P");
+		customerDetails3.setPanNumber("AATRE7472P");
 		customerDetails3.setDOB("23/10/1994");
 		customerDetails3.setCustomerFirstName("Vishal");
 		customerDetails3.setCustomerLastName("Tiwari");
@@ -344,12 +350,13 @@ public class AccountManagementApplication implements CommandLineRunner{
 		accountDetails4.setCreditScore("905");
 		accountDetails4.setAccountBalance("8500");
 		accountDetails4.setAccountStatus("Active");
+		accountDetails4.setCreationDate(LocalDateTime.now());
 		accountDetails4.setBranchdetails(branchDetails2);
         customerDetails4.setOpeningBalance("8500");
 		customerDetails4.setAccountType("Current");
 		customerDetails4.setAdhaarNumber("9854 4569 2345");
 		customerDetails4.setContactNumber("8004255984");
-		customerDetails4.setPanNumber("YTRFV664L");
+		customerDetails4.setPanNumber("YTRFV6624L");
 		customerDetails4.setDOB("21/06/1994");
 		customerDetails4.setCustomerFirstName("Mradula");
 		customerDetails4.setCustomerLastName("Shukla");
@@ -373,12 +380,13 @@ public class AccountManagementApplication implements CommandLineRunner{
 		accountDetails5.setCreditScore("700");
 		accountDetails5.setAccountBalance("9700");
 		accountDetails5.setAccountStatus("Active");
+		accountDetails5.setCreationDate(LocalDateTime.now());
 		accountDetails5.setBranchdetails(branchDetails3);
 		customerDetails5.setOpeningBalance("9700");
 		customerDetails5.setAccountType("Current");
 		customerDetails5.setAdhaarNumber("7458 5464 2545");
 		customerDetails5.setContactNumber("8317016118");
-		customerDetails5.setPanNumber("QCFRE856F");
+		customerDetails5.setPanNumber("QCFRE8546F");
 		customerDetails5.setDOB("06/04/1989");
 		customerDetails5.setCustomerFirstName("Anushkaa");
 		customerDetails5.setCustomerLastName("Awasthi");
@@ -402,12 +410,13 @@ public class AccountManagementApplication implements CommandLineRunner{
 		accountDetails6.setCreditScore("1250");
 		accountDetails6.setAccountBalance("5000");
 		accountDetails6.setAccountStatus("Active");
+		accountDetails6.setCreationDate(LocalDateTime.now());
 		accountDetails6.setBranchdetails(branchDetails3);
 		customerDetails6.setOpeningBalance("5000");
 		customerDetails6.setAccountType("Current");
 		customerDetails6.setAdhaarNumber("9656 4565 2421");
 		customerDetails6.setContactNumber("8968117732");
-		customerDetails6.setPanNumber("TYRFD567P");
+		customerDetails6.setPanNumber("TYRFD5617P");
 		customerDetails6.setDOB("05/03/1997");
 		customerDetails6.setCustomerFirstName("Prabhjot");
 		customerDetails6.setCustomerLastName("Kaur");
@@ -431,12 +440,13 @@ public class AccountManagementApplication implements CommandLineRunner{
 		accountDetails7.setCreditScore("2200");
 		accountDetails7.setAccountBalance("7500");
 		accountDetails7.setAccountStatus("Active");
+		accountDetails7.setCreationDate(LocalDateTime.now());
 		accountDetails7.setBranchdetails(branchDetails3);
 		customerDetails7.setOpeningBalance("7500");
 		customerDetails7.setAccountType("Savings");
 		customerDetails7.setAdhaarNumber("7546 8598 2115");
 		customerDetails7.setContactNumber("9415546297");
-		customerDetails7.setPanNumber("ASWED099D");
+		customerDetails7.setPanNumber("ASWED1099D");
 		customerDetails7.setDOB("04/12/1978");
 		customerDetails7.setCustomerFirstName("Rahul");
 		customerDetails7.setCustomerLastName("Bajaj");
@@ -460,12 +470,13 @@ public class AccountManagementApplication implements CommandLineRunner{
 		accountDetails8.setCreditScore("300");
 		accountDetails8.setAccountBalance("9000");
 		accountDetails8.setAccountStatus("Active");
+		accountDetails8.setCreationDate(LocalDateTime.now());
 		accountDetails8.setBranchdetails(branchDetails2);
 		customerDetails8.setOpeningBalance("9000");
 		customerDetails8.setAccountType("Current");
 		customerDetails8.setAdhaarNumber("4829 5542 8768");
 		customerDetails8.setContactNumber("8840864659");
-		customerDetails8.setPanNumber("PYGTF467P");
+		customerDetails8.setPanNumber("PYGTF4267P");
 		customerDetails8.setDOB("03/05/1990");
 		customerDetails8.setCustomerFirstName("Amardeep");
 		customerDetails8.setCustomerLastName("Singh");
@@ -489,12 +500,13 @@ public class AccountManagementApplication implements CommandLineRunner{
 		accountDetails9.setCreditScore("1610");
 		accountDetails9.setAccountBalance("20000");
 		accountDetails9.setAccountStatus("Active");
+		accountDetails9.setCreationDate(LocalDateTime.now());
 		accountDetails9.setBranchdetails(branchDetails4);
 		customerDetails9.setOpeningBalance("20000");
 		customerDetails9.setAccountType("Savings");
 		customerDetails9.setAdhaarNumber("6985 2345 6528");
 		customerDetails9.setContactNumber("9973060640");
-		customerDetails9.setPanNumber("BSTUM8565M");
+		customerDetails9.setPanNumber("BSTUM81565M");
 		customerDetails9.setDOB("02/04/1984");
 		customerDetails9.setCustomerFirstName("Satyam");
 		customerDetails9.setCustomerLastName("Sinha");
@@ -518,12 +530,13 @@ public class AccountManagementApplication implements CommandLineRunner{
 		accountDetails10.setCreditScore("1980");
 		accountDetails10.setAccountBalance("5600");
 		accountDetails10.setAccountStatus("Active");
+		accountDetails10.setCreationDate(LocalDateTime.now());
 		accountDetails10.setBranchdetails(branchDetails5);
 		customerDetails10.setOpeningBalance("5600");
 		customerDetails10.setAccountType("Savings");
 		customerDetails10.setAdhaarNumber("5298 1114 8262");
 		customerDetails10.setContactNumber("9115513073");
-		customerDetails10.setPanNumber("APMUT485B");
+		customerDetails10.setPanNumber("APMUT4815B");
 		customerDetails10.setDOB("03/10/1992");
 		customerDetails10.setCustomerFirstName("Pranav");
 		customerDetails10.setCustomerLastName("Kapoor");

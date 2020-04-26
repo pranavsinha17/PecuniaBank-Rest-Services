@@ -21,74 +21,69 @@ public class Controller {
 	
 	@Autowired
 	private Services service;
-//	@Autowired
-//	private AddressService addressService;
-//	@Autowired
-//	private CustomerService customerService;
-	
 	
 	@RequestMapping("/accounts")
-	public List<AccountDetails> getAllAccounts()
+	public List<AccountDetails> getAllAccounts()//for getting all account information
 	{
 		return service.getAllAccounts();
 	}
 	@RequestMapping(method=RequestMethod.POST,value="/accounts")
-	public void addAccount(@RequestBody AccountDetails account) {
+	public String addAccount(@RequestBody AccountDetails account) //adding a new account
+	{
 		
-		service.addAccount(account);	
+		service.addAccount(account);
+		return "Account added successfully";
 	}
 	@RequestMapping("/accounts/{accountNumber}")
-	public Optional<AccountDetails> getAccount(@PathVariable long accountNumber)
+	public Optional<AccountDetails> getAccount(@PathVariable long accountNumber)//for getting detail of an specific account
 	{
 		return service.getAccount(accountNumber);
 	}
 	@RequestMapping(method=RequestMethod.PUT,value="/accounts/{accountNumber}")
-	public void updateAccount(@RequestBody AccountDetails account,@PathVariable long accountNumber) {
-		
-		
-		service.updateAccount(account,accountNumber);	
+	public String updateAccount(@RequestBody AccountDetails account,@PathVariable long accountNumber) //for updating details
+	{	
+		service.updateAccount(account,accountNumber);
+		return "Account has been updated successfully";
 	}
 	@RequestMapping(method=RequestMethod.DELETE,value="/accounts/{accountNumber}")
-	public String deleteAccount(@PathVariable long accountNumber) {
+	public String deleteAccount(@PathVariable long accountNumber)//for deleting an account
+	{
 		
 		service.deleteAccount(accountNumber);	
-		return "Customer has been deleted successfully";
+		return "Account has been deleted successfully";
 
 	}
 	
 	@RequestMapping("/address")
-	public List<Address> getAllAddress()
+	public List<Address> getAllAddress()//for getting all address(customer,employee,branch)
 	{
 		return service.getAllAddress();
 	}
 	@RequestMapping(method=RequestMethod.POST,value="/address")
-	public void addAddress(@RequestBody Address address) {
+	public String addAddress(@RequestBody Address address) //for adding address
+	{
 		
-		service.addAddress(address);	
+		service.addAddress(address);
+		return "Address addded successfully";
 	}
 	
 	@RequestMapping("/customers")
-	public List<CustomerDetails> getAllCustomers()
+	public List<CustomerDetails> getAllCustomers()//for getting details of all customer
 	{
 		return service.getAllCustomers();
 	}
 	@RequestMapping(method=RequestMethod.POST,value="/customers")
-	public void addCustomer(@RequestBody CustomerDetails customer) {
+	public String addCustomer(@RequestBody CustomerDetails customer)//To add a new customer
+	{
 		
 		service.addCustomer(customer);	
+		return "Customer added successfully";
 	}
 	@RequestMapping(method=RequestMethod.PUT,value="/customers/{customerId}")
-	public void updateCustomer(@RequestBody CustomerDetails customer,@PathVariable long customerId) {
+	public String updateCustomer(@RequestBody CustomerDetails customer,@PathVariable long customerId)//for updating customer details
+	{
 		
-		service.updateCustomer(customer,customerId);	
-	}
-//	@RequestMapping(method=RequestMethod.DELETE,value="/customers/{customerId}")
-//	public void deletCustomer(@PathVariable long customerId) {
-//		
-//		service.deleteCustomer(customerId);	
-//	}
-
-
-	
-	
+		service.updateCustomer(customer,customerId);
+		return "Customer details updated successfully";
+	}	
 }
