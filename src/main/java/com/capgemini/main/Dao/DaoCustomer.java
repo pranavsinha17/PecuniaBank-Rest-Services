@@ -9,4 +9,5 @@ public interface DaoCustomer {
     public boolean deleteAccount(long accountId);
     public boolean updateMobile(long accountId, String mobileNumber);
     public boolean updateAddress(long accountId, Address address);
+    public boolean updateName(long accountId, String Name);
 }

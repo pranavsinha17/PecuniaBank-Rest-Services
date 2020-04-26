@@ -13,7 +13,7 @@ import com.capgemini.main.entity.CustomerDetails;
 import com.capgemini.main.exception.UserDefineException;
 import com.capgemini.main.service.AccountService;
 
-@RestController
+//@RestController
 public class AccountController {
 	
 
@@ -61,6 +61,18 @@ public class AccountController {
 	@PostMapping("/AccountUpdateMobile/{accountId}/{mobileNumber}")
 	public ResponseEntity<String> addBranch(@RequestBody Address address,@PathVariable("accountId")long accountId) {
 		boolean result=accountService.updateAccountAddress(accountId, address);
+		if(result)
+		{
+			res=" Account updated Sucessfuly";
+		}
+		else
+			throw new UserDefineException("Account Number is Invalid");
+		return new ResponseEntity<String>(res,HttpStatus.OK);
+	}
+	
+	@PostMapping("/AccountUpdateName/{accountId}/{Name}")
+	public ResponseEntity<String> addName(@PathVariable("accountId")long accountId,@PathVariable("name")String Name) {
+		boolean result=accountService.updateName(accountId, Name);
 		if(result)
 		{
 			res=" Account updated Sucessfuly";

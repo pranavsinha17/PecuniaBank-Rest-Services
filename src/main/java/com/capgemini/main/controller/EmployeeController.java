@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.capgemini.main.service.EmployeeLoginService;
 
-@RestController
+//@RestController
 public class EmployeeController {
 	//common for all.........
 	@Autowired

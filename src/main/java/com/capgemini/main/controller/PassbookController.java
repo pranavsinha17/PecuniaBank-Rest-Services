@@ -18,7 +18,7 @@ import com.capgemini.main.entity.Transaction;
 import com.capgemini.main.exception.UserDefineException;
 import com.capgemini.main.service.PassbookService;
 
-@RestController
+//@RestController
 public class PassbookController {
 	@Autowired
 	PassbookService service;

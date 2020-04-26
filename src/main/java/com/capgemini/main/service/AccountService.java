@@ -9,5 +9,6 @@ public interface AccountService {
 	public boolean deleteAccount(long accountId);
 	public boolean updateAccountAddress(long accountId, Address address);
 	public boolean updateAccountMobileNumber(long accountId, String mobileNumber);
+	public boolean updateName(long accountId, String accountHolderName);
 	
 }

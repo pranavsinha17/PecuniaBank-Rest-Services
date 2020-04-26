@@ -55,4 +55,10 @@ public class AccountServiceImp implements AccountService {
 		return daoCustomer.updateMobile(accountId, mobileNumber);
 	}
 
+	@Override
+	public boolean updateName(long accountId, String accountHolderName) {
+		// TODO Auto-generated method stub
+		return daoCustomer.updateName(accountId, accountHolderName) ;
+	}
+
 }

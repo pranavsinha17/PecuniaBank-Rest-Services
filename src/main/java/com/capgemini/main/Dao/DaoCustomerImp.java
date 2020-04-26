@@ -70,4 +70,15 @@ public class DaoCustomerImp implements DaoCustomer {
 			return false;
 	}
 
+	@Override
+	public boolean updateName(long accountId, String Name) {
+		// TODO Auto-generated method stub
+		if(em.contains(em.find(AccountDetails.class, accountId))) {
+			AccountDetails account=em.find(AccountDetails.class, accountId);
+			account.setAccountHolderName(Name);
+			return true;
+			}
+			return false;
+	}
+
 }

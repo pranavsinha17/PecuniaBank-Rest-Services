@@ -19,7 +19,7 @@ import com.capgemini.main.service.SlipService;
 import com.capgemini.main.service.TransationUsingCreditCheque;
 import com.capgemini.main.service.TranscationUsingDebitCheque;
 
-@RestController
+//@RestController
 public class TransactionController {
 	
 	@Autowired
@@ -91,7 +91,7 @@ public class TransactionController {
 	/*
 	 * Transaction using slip for creditService .
 	 */
-	@PostMapping("/SlipChequeDetails") //insert the data to database
+	@PostMapping("/SlipCrediDetails") //insert the data to database
 	public ResponseEntity<SlipDetails>slipDetailsCredit(@RequestBody SlipDetails slipDetails) throws UserException{
 		slipDetails.setSlipDate(LocalDate.now());
 		if(creditService.checkAccountExist(slipDetails.getAccountNumber()))
@@ -107,7 +107,7 @@ public class TransactionController {
 	/*
 	 * Transaction using slip for debitService .
 	 */
-	@PostMapping("/SlipChequeDetails") //insert the data to database
+	@PostMapping("/SlipDebitDetails") //insert the data to database
 	public ResponseEntity<SlipDetails>slipDetailsDebit(@RequestBody SlipDetails slipDetails) throws UserException{
 		slipDetails.setSlipDate(LocalDate.now());
 		if(creditService.checkAccountExist(slipDetails.getAccountNumber()))

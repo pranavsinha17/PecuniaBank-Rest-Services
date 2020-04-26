@@ -20,7 +20,7 @@ import com.capgemini.main.exception.UserException;
 import com.capgemini.main.service.LoanService;
 import com.capgemini.main.entity.LoanRequest;
 
-@RestController
+//@RestController
 public class LoanController {
 	
 	@Autowired
