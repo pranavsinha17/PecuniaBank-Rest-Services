@@ -10,7 +10,7 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name="Addresses")
-public class Address {
+public class AddressDetails {
 	@Id
 	@Column(name="ADDRESS_ID")
 	@GeneratedValue(strategy=GenerationType.SEQUENCE,generator="genName")
@@ -25,10 +25,15 @@ public class Address {
 	@Column(name="ADDRESS_ZIPCODE")
 	private String zipCode;
 	
-	public Address() {
+	@Override
+	public String toString() {
+		return "Address [addressId=" + addressId + ", street=" + street + ", city=" + city + ", state=" + state
+				+ ", zipCode=" + zipCode + "]";
+	}
+	public AddressDetails() {
 		super();
 	}
-	public Address(int addressId, String street, String city, String state, String zipCode) {
+	public AddressDetails(int addressId, String street, String city, String state, String zipCode) {
 		super();
 		this.addressId = addressId;
 		this.street = street;

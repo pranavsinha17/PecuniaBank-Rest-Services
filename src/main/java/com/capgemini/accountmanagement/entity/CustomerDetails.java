@@ -1,5 +1,4 @@
 package com.capgemini.accountmanagement.entity;
-
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -48,20 +47,26 @@ public class CustomerDetails {
 	private String accountType;
 	
 	@Column(name="Opening_Balance") 
-	private String openingBalance;
+	private int openingBalance;
 	
 	@OneToOne(cascade=CascadeType.ALL) 
 	@JoinColumn(name="address_id")
-	private Address address;
+	private AddressDetails address;
+	
+	@Column(name="BranchId")
+	private int branchId;
+	
+	@Column(name="Credit_Score")
+	private int creditScore;
 	
 	public CustomerDetails()
 	{
-		
+		super();
 	}
 
 	public CustomerDetails(long customerId, String customerFirstName, String customerLastName, String dOB, String age,
 			String gender, String contactNumber, String panNumber, String adhaarNumber, String accountType,
-			String openingBalance, Address address) {
+			int openingBalance, AddressDetails address, int branchId, int creditScore) {
 		super();
 		this.customerId = customerId;
 		this.customerFirstName = customerFirstName;
@@ -75,6 +80,8 @@ public class CustomerDetails {
 		this.accountType = accountType;
 		this.openingBalance = openingBalance;
 		this.address = address;
+		this.branchId = branchId;
+		this.creditScore=creditScore;
 	}
 
 	public long getCustomerId() {
@@ -157,20 +164,45 @@ public class CustomerDetails {
 		this.accountType = accountType;
 	}
 
-	public String getOpeningBalance() {
+	public int getOpeningBalance() {
 		return openingBalance;
 	}
 
-	public void setOpeningBalance(String openingBalance) {
+	public void setOpeningBalance(int openingBalance) {
 		this.openingBalance = openingBalance;
 	}
 
-	public Address getAddress() {
+	public AddressDetails getAddress() {
 		return address;
 	}
 
-	public void setAddress(Address address) {
+	public void setAddress(AddressDetails address) {
 		this.address = address;
+	}
+
+	public int getBranchId() {
+		return branchId;
+	}
+
+	public void setBranchId(int branchId) {
+		this.branchId = branchId;
+	}
+
+	public int getCreditScore() {
+		return creditScore;
+	}
+
+	public void setCreditScore(int creditScore) {
+		this.creditScore = creditScore;
+	}
+
+	@Override
+	public String toString() {
+		return "CustomerDetails [customerId=" + customerId + ", customerFirstName=" + customerFirstName
+				+ ", customerLastName=" + customerLastName + ", DOB=" + DOB + ", age=" + age + ", gender=" + gender
+				+ ", contactNumber=" + contactNumber + ", panNumber=" + panNumber + ", adhaarNumber=" + adhaarNumber
+				+ ", accountType=" + accountType + ", openingBalance=" + openingBalance + ", address=" + address
+				+ ", branchId=" + branchId + ", creditScore=" + creditScore + "]";
 	}
 	
 	

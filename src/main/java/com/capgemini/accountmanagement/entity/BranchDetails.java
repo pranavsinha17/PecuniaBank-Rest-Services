@@ -1,6 +1,5 @@
 package com.capgemini.accountmanagement.entity;
 
-
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -12,27 +11,37 @@ import javax.persistence.OneToOne;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
-
 @Entity
 @Table(name="Branches")
 public class BranchDetails {
-	
+	//We Auto put the information of branch.
 	@Id
 	@Column(name="Branch_Id")
 	@GeneratedValue(strategy=GenerationType.SEQUENCE,generator="genName1")
 	@SequenceGenerator(name="genName1", sequenceName="id1",initialValue=118001,allocationSize=1)
 	private int branchId;
+	
 	@Column(name="Branch_Name")
 	private String branchName;
+	
 	@Column(name="IFSC_Code")
 	private String branchIFSC;
+	
 	@Column(name="Phone_Number")
 	private String phoneNumber;
+	
 	@OneToOne(cascade=CascadeType.ALL)   // 1:1 unidirectional
 	@JoinColumn(name="address_id")
-	Address address;
+	AddressDetails address;
 	
-	public BranchDetails(int branchId, String branchName, String branchIFSC, Address address ,String phoneNumber) {
+	@Override
+	public String toString() {
+		return "BranchDetails [branchId=" + branchId + ", branchName=" + branchName + ", branchIFSC=" + branchIFSC
+				+ ", phoneNumber=" + phoneNumber + ", address=" + address + "]";
+	}
+
+
+	public BranchDetails(int branchId, String branchName, String branchIFSC, AddressDetails address ,String phoneNumber) {
 		super();
 		this.branchId = branchId;
 		this.branchName = branchName;
@@ -60,10 +69,10 @@ public class BranchDetails {
 	public void setBranchIFSC(String branchIFSC) {
 		this.branchIFSC = branchIFSC;
 	}
-	public Address getAddress() {
+	public AddressDetails getAddress() {
 		return address;
 	}
-	public void setAddress(Address address) {
+	public void setAddress(AddressDetails address) {
 		this.address = address;
 	}
 	public String getPhoneNumber() {
@@ -78,6 +87,6 @@ public class BranchDetails {
 		super();
 	}
 
-	
 
 }
+
