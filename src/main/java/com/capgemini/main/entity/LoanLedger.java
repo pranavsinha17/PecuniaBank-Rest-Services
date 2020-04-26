@@ -29,24 +29,16 @@ import javax.persistence.Table;
 		@Column(name="EMI_Terms")
 		private int numberOfEMI;
 		@Column(name="Duration")
-		String duration;
+		private int duration;
 		@Column(name="Loan_Status")
-		String status;
+		private String status;
 		@Column(name="LOAN_REQUESTID")
 		private long loanRequestId ;
-		
-		
-		@Override
-		public String toString() {
-			return "LoanLedger [loanLedgerId=" + loanLedgerId + ", accountDetails=" + accountDetails + ", EMI_Amount="
-					+ EMI_Amount + ", interestRate=" + interestRate + ", numberOfEMI=" + numberOfEMI + ", duration="
-					+ duration + ", status=" + status + ", loanRequestId=" + loanRequestId + "]";
+		public LoanLedger() {
+			super();
 		}
-
-
-
 		public LoanLedger(long loanLedgerId, AccountDetails accountDetails, double eMI_Amount, float interestRate,
-				int numberOfEMI, String duration, String status, long loanRequestId) {
+				int numberOfEMI, int duration, String status, long loanRequestId) {
 			super();
 			this.loanLedgerId = loanLedgerId;
 			this.accountDetails = accountDetails;
@@ -57,33 +49,6 @@ import javax.persistence.Table;
 			this.status = status;
 			this.loanRequestId = loanRequestId;
 		}
-
-
-
-		/**
-		 * @return the accountDetails
-		 */
-		public AccountDetails getAccountDetails() {
-			return accountDetails;
-		}
-
-
-
-		/**
-		 * @param accountDetails the accountDetails to set
-		 */
-		public void setAccountDetails(AccountDetails accountDetails) {
-			this.accountDetails = accountDetails;
-		}
-
-
-
-		public LoanLedger() {
-			super();
-		}
-		
-		
-		
 		/**
 		 * @return the loanLedgerId
 		 */
@@ -95,6 +60,18 @@ import javax.persistence.Table;
 		 */
 		public void setLoanLedgerId(long loanLedgerId) {
 			this.loanLedgerId = loanLedgerId;
+		}
+		/**
+		 * @return the accountDetails
+		 */
+		public AccountDetails getAccountDetails() {
+			return accountDetails;
+		}
+		/**
+		 * @param accountDetails the accountDetails to set
+		 */
+		public void setAccountDetails(AccountDetails accountDetails) {
+			this.accountDetails = accountDetails;
 		}
 		/**
 		 * @return the eMI_Amount
@@ -135,13 +112,13 @@ import javax.persistence.Table;
 		/**
 		 * @return the duration
 		 */
-		public String getDuration() {
+		public int getDuration() {
 			return duration;
 		}
 		/**
 		 * @param duration the duration to set
 		 */
-		public void setDuration(String duration) {
+		public void setDuration(int duration) {
 			this.duration = duration;
 		}
 		/**
@@ -168,6 +145,15 @@ import javax.persistence.Table;
 		public void setLoanRequestId(long loanRequestId) {
 			this.loanRequestId = loanRequestId;
 		}
+		@Override
+		public String toString() {
+			return "LoanLedger [loanLedgerId=" + loanLedgerId + ", accountDetails=" + accountDetails + ", EMI_Amount="
+					+ EMI_Amount + ", interestRate=" + interestRate + ", numberOfEMI=" + numberOfEMI + ", duration="
+					+ duration + ", status=" + status + ", loanRequestId=" + loanRequestId + "]";
+		}
+		
+		
+		
 		
 	}
 

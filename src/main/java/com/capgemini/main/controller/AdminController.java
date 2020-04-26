@@ -10,7 +10,6 @@ import org.springframework.web.bind.annotation.RestController;
 import com.capgemini.main.entity.Admin;
 import com.capgemini.main.entity.BranchDetails;
 import com.capgemini.main.entity.EmployeeCredentials;
-import com.capgemini.main.entity.EmployeeDetails;
 import com.capgemini.main.exception.UserException;
 import com.capgemini.main.service.AdminService;
 
@@ -23,6 +22,8 @@ public class AdminController {
 	/*
 	 * For Admin Login url to fetch id and password of Admin. 
 	 */
+	
+	//Using postman to add these details.
 	
 	@PostMapping("/Admin")
 	public ResponseEntity<String> login(@RequestBody Admin admin) throws UserException{

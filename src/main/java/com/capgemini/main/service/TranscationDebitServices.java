@@ -1,6 +1,7 @@
 package com.capgemini.main.service;
 
 import java.time.LocalDate;
+import java.time.LocalTime;
 import java.time.Period;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -128,7 +129,7 @@ public class TranscationDebitServices implements TranscationUsingDebitCheque{
 		transaction.setTransactionType(transactionType[0]);
 		transaction.setTransactionAmount(chequeDetails.getAmount());
 		transaction.setTransactionStatus(status);
-		
+		transaction.setTransactionTime(LocalTime.now());
 		daoTransaction.setTranscationDetails(transaction);
 	}
 

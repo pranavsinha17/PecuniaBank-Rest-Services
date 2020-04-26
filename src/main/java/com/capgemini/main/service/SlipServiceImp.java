@@ -1,7 +1,7 @@
 package com.capgemini.main.service;
 
 import java.time.LocalDate;
-
+import java.time.LocalTime;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -107,7 +107,7 @@ public class SlipServiceImp implements SlipService {
 		transaction.setTransactionType(slipType);
 		transaction.setTransactionAmount(slip.getAmount());
 		transaction.setTransactionStatus(status);
-		
+		transaction.setTransactionTime(LocalTime.now());
 		daoTransaction.setTranscationDetails(transaction);
 		
 	}

@@ -1,5 +1,7 @@
 package com.capgemini.main.entity;
 
+import java.time.LocalDate;
+
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -49,31 +51,20 @@ public class CustomerDetails {
 	@Column(name="Opening_Balance") 
 	private double openingBalance;
 	
-	@OneToOne(cascade=CascadeType.ALL) 
-	@JoinColumn(name="address_id")
-	private Address address;
+	@Column(name="Opening_Date")
+	private LocalDate date;
 	
-	@Override
-	public String toString() {
-		return "CustomerDetails [customerId=" + customerId + ", customerFirstName=" + customerFirstName
-				+ ", customerLastName=" + customerLastName + ", DOB=" + DOB + ", age=" + age + ", gender=" + gender
-				+ ", contactNumber=" + contactNumber + ", panNumber=" + panNumber + ", adhaarNumber=" + adhaarNumber
-				+ ", accountType=" + accountType + ", openingBalance=" + openingBalance + ", address=" + address + "]";
-	}
-
-	public CustomerDetails()
-	{
-		
-	}
-
+	@Column(name="BranchId")
+	private int branchId;
+	
 	public CustomerDetails(long customerId, String customerFirstName, String customerLastName, String dOB, String age,
 			String gender, String contactNumber, String panNumber, String adhaarNumber, String accountType,
-			double openingBalance, Address address) {
+			double openingBalance, LocalDate date, int branchId, Address address) {
 		super();
 		this.customerId = customerId;
 		this.customerFirstName = customerFirstName;
 		this.customerLastName = customerLastName;
-		this.DOB = dOB;
+		DOB = dOB;
 		this.age = age;
 		this.gender = gender;
 		this.contactNumber = contactNumber;
@@ -81,7 +72,55 @@ public class CustomerDetails {
 		this.adhaarNumber = adhaarNumber;
 		this.accountType = accountType;
 		this.openingBalance = openingBalance;
+		this.date = date;
+		this.branchId = branchId;
 		this.address = address;
+	}
+
+	@Override
+	public String toString() {
+		return "CustomerDetails [customerId=" + customerId + ", customerFirstName=" + customerFirstName
+				+ ", customerLastName=" + customerLastName + ", DOB=" + DOB + ", age=" + age + ", gender=" + gender
+				+ ", contactNumber=" + contactNumber + ", panNumber=" + panNumber + ", adhaarNumber=" + adhaarNumber
+				+ ", accountType=" + accountType + ", openingBalance=" + openingBalance + ", date=" + date
+				+ ", branchId=" + branchId + ", address=" + address + "]";
+	}
+
+	/**
+	 * @return the branchId
+	 */
+	public int getBranchId() {
+		return branchId;
+	}
+
+	/**
+	 * @param branchId the branchId to set
+	 */
+	public void setBranchId(int branchId) {
+		this.branchId = branchId;
+	}
+
+	/**
+	 * @return the date
+	 */
+	public LocalDate getDate() {
+		return date;
+	}
+
+	/**
+	 * @param date the date to set
+	 */
+	public void setDate(LocalDate date) {
+		this.date = date;
+	}
+
+	@OneToOne(cascade=CascadeType.ALL) 
+	@JoinColumn(name="address_id")
+	private Address address;
+	
+	
+	public CustomerDetails() {
+		super();
 	}
 
 	public long getCustomerId() {

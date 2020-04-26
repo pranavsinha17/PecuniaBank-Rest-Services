@@ -1,6 +1,7 @@
 package com.capgemini.main.entity;
 
 import java.time.LocalDate;
+import java.time.LocalTime;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -38,6 +39,8 @@ public class Transaction {
 	private long benificaryAccoountNumber;
 	@Column(name="Benificary_Bank_Name")
 	private String bankName;
+	@Column(name="Transaction_Time")
+	LocalTime transactionTime;
 	
 	@Override
 	public String toString() {
@@ -45,16 +48,17 @@ public class Transaction {
 				+ ", transactionOption=" + transactionOption + ", transactionType=" + transactionType
 				+ ", transactionStatus=" + transactionStatus + ", transactionAmount=" + transactionAmount
 				+ ", transactionDate=" + transactionDate + ", benificaryName=" + benificaryName
-				+ ", benificaryAccoountNumber=" + benificaryAccoountNumber + ", bankName=" + bankName + "]";
+				+ ", benificaryAccoountNumber=" + benificaryAccoountNumber + ", bankName=" + bankName
+				+ ", transactionTime=" + transactionTime + "]";
 	}
-	
+
 	public Transaction() {
 		super();
 	}
-	
+
 	public Transaction(long transactionId, long accountNumber, String transactionOption, String transactionType,
 			String transactionStatus, double transactionAmount, LocalDate transactionDate, String benificaryName,
-			long benificaryAccoountNumber, String bankName) {
+			long benificaryAccoountNumber, String bankName, LocalTime transactionTime) {
 		super();
 		this.transactionId = transactionId;
 		this.accountNumber = accountNumber;
@@ -66,7 +70,24 @@ public class Transaction {
 		this.benificaryName = benificaryName;
 		this.benificaryAccoountNumber = benificaryAccoountNumber;
 		this.bankName = bankName;
+		this.transactionTime = transactionTime;
 	}
+
+	/**
+	 * @return the transactionTime
+	 */
+	public LocalTime getTransactionTime() {
+		return transactionTime;
+	}
+
+	/**
+	 * @param transactionTime the transactionTime to set
+	 */
+	public void setTransactionTime(LocalTime transactionTime) {
+		this.transactionTime = transactionTime;
+	}
+
+
 	/**
 	 * @return the transactionId
 	 */

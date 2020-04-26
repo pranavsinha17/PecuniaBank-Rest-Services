@@ -273,17 +273,20 @@ public class Sprint2DemoApplication implements CommandLineRunner{
 				customerDetails1.setAdhaarNumber("3650 7451 9856");
 				customerDetails1.setAccountType("Current");
 				customerDetails1.setOpeningBalance(25000);
+				customerDetails1.setBranchId(branchDetails1.getBranchId());
 				customer1Address.setStreet("127/211 W-2 Juhi Kalan");
 				customer1Address.setState("UP");
 				customer1Address.setCity("Kanpur");
 				customer1Address.setZipCode("208027");
 				customerDetails1.setAddress(customer1Address);
+				customerDetails1.setDate(LocalDate.of(2020, 04, 21));
 				accountDetails1.setCustomerDetails(customerDetails1);
 				accountDetails1.setAccountHolderName("Vaishali Tiwari");
 				accountDetails1.setAccountStatus("Active");
 				accountDetails1.setAccountBalance(25000);
 				accountDetails1.setCreditScore(1400);
 				accountDetails1.setAccountInterest(3);
+				accountDetails1.setDate(customerDetails1.getDate());
 			    accountDetails1.setBranchdetails(branchDetails1);
 
 				
@@ -299,9 +302,10 @@ public class Sprint2DemoApplication implements CommandLineRunner{
 				accountDetails2.setAccountBalance(12000);
 				accountDetails2.setAccountStatus("Active");
 			    accountDetails2.setBranchdetails(branchDetails1);
-		
+			    customerDetails2.setBranchId(branchDetails1.getBranchId());
 				customerDetails2.setOpeningBalance(12000);
 				customerDetails2.setAccountType("Savings");
+				customerDetails2.setDate(LocalDate.of(2020, 04, 21));
 				customerDetails2.setAdhaarNumber("7485 8555 3330");
 				customerDetails2.setContactNumber("9041459865");
 				customerDetails2.setPanNumber("RTYUO852L");
@@ -316,6 +320,7 @@ public class Sprint2DemoApplication implements CommandLineRunner{
 				customer2Address.setZipCode("1110011");
 				customerDetails2.setAddress(customer2Address);
 				accountDetails2.setCustomerDetails(customerDetails2);
+				accountDetails2.setDate(customerDetails2.getDate());
 		
 				//Account 3
 				AccountDetails accountDetails3=new AccountDetails();
@@ -329,7 +334,9 @@ public class Sprint2DemoApplication implements CommandLineRunner{
 				accountDetails3.setAccountStatus("Active");
 				accountDetails3.setBranchdetails(branchDetails2);
 		//
+				customerDetails3.setBranchId(branchDetails2.getBranchId());
 				customerDetails3.setOpeningBalance(6000);
+				customerDetails3.setDate(LocalDate.of(2020, 04, 21));
 				customerDetails3.setAccountType("Savings");
 				customerDetails3.setAdhaarNumber("9652 2222 6000");
 				customerDetails3.setContactNumber("7007820982");
@@ -345,6 +352,8 @@ public class Sprint2DemoApplication implements CommandLineRunner{
 				customer3Address.setZipCode("209801");
 				customerDetails3.setAddress(customer3Address);
 				accountDetails3.setCustomerDetails(customerDetails3);
+				accountDetails3.setDate(customerDetails3.getDate());
+				
 		
 				
 				AccountDetails accountDetails4=new AccountDetails();
@@ -357,13 +366,14 @@ public class Sprint2DemoApplication implements CommandLineRunner{
 				accountDetails4.setAccountBalance(8500);
 				accountDetails4.setAccountStatus("Active");
 				accountDetails4.setBranchdetails(branchDetails2);
-
+				customerDetails4.setBranchId(branchDetails2.getBranchId());
 				customerDetails4.setOpeningBalance(8500);
 				customerDetails4.setAccountType("Current");
 				customerDetails4.setAdhaarNumber("9854 4569 2345");
 				customerDetails4.setContactNumber("8004255984");
 				customerDetails4.setPanNumber("YTRFV664L");
 				customerDetails4.setDOB("21/06/1994");
+				customerDetails4.setDate(LocalDate.of(2020, 04, 21));
 				customerDetails4.setCustomerFirstName("Mradula");
 				customerDetails4.setCustomerLastName("Shukla");
 				customerDetails4.setAge("44");
@@ -376,6 +386,7 @@ public class Sprint2DemoApplication implements CommandLineRunner{
 				accountDetails4.setCustomerDetails(customerDetails4);
 				customerDetails4.setAddress(customer4Address);
 				accountDetails4.setCustomerDetails(customerDetails4);
+				accountDetails4.setDate(customerDetails4.getDate());
 
 				//Account5
 				AccountDetails accountDetails5=new AccountDetails();
@@ -388,12 +399,13 @@ public class Sprint2DemoApplication implements CommandLineRunner{
 				accountDetails5.setAccountBalance(9700);
 				accountDetails5.setAccountStatus("Active");
 				accountDetails5.setBranchdetails(branchDetails3);
-
+				customerDetails5.setBranchId(branchDetails3.getBranchId());
 				customerDetails5.setOpeningBalance(9700);
 				customerDetails5.setAccountType("Current");
 				customerDetails5.setAdhaarNumber("7458 5464 2545");
 				customerDetails5.setContactNumber("8317016118");
 				customerDetails5.setPanNumber("QCFRE856F");
+				customerDetails5.setDate(LocalDate.of(2020, 04, 21));
 				customerDetails5.setDOB("06/04/1989");
 				customerDetails5.setCustomerFirstName("Anushkaa");
 				customerDetails5.setCustomerLastName("Awasthi");
@@ -403,6 +415,7 @@ public class Sprint2DemoApplication implements CommandLineRunner{
 				customer5Address.setState("Tamil Nadu");
 				customer5Address.setCity("Chennai");
 				customer5Address.setZipCode("600107");
+				accountDetails5.setDate(customerDetails5.getDate());
 				customerDetails5.setAddress(customer5Address);
 				accountDetails5.setCustomerDetails(customerDetails5);
 				customerDetails5.setAddress(customer5Address);
@@ -415,6 +428,7 @@ public class Sprint2DemoApplication implements CommandLineRunner{
 				accountDetails6.setAccountHolderName("Prabhjot");
 				accountDetails6.setAccountInterest(3);
 				accountDetails6.setCreditScore(1250);
+				customerDetails6.setDate(LocalDate.of(2020, 04, 21));
 				accountDetails6.setAccountBalance(5000);
 				accountDetails6.setAccountStatus("Active");
 				accountDetails6.setBranchdetails(branchDetails3);
@@ -427,6 +441,7 @@ public class Sprint2DemoApplication implements CommandLineRunner{
 				customerDetails6.setCustomerFirstName("Prabhjot");
 				customerDetails6.setCustomerLastName("Kaur");
 				customerDetails6.setAge("23");
+				accountDetails6.setDate(customerDetails6.getDate());
 				customerDetails6.setGender("Female");
 				customer6Address.setStreet("900,Bhagat Singh Nagar Model House");
 				customer6Address.setState("Punjab");
@@ -436,7 +451,7 @@ public class Sprint2DemoApplication implements CommandLineRunner{
 				accountDetails6.setCustomerDetails(customerDetails6);
 				customerDetails6.setAddress(customer6Address);
 				accountDetails6.setCustomerDetails(customerDetails6);
-								
+				customerDetails6.setBranchId(branchDetails3.getBranchId());
 				//Account 7
 				AccountDetails accountDetails7=new AccountDetails();
 				Address customer7Address=new Address();
@@ -448,15 +463,18 @@ public class Sprint2DemoApplication implements CommandLineRunner{
 				accountDetails7.setAccountStatus("Active");
 				accountDetails7.setBranchdetails(branchDetails3);
 				customerDetails7.setOpeningBalance(7500);
+				customerDetails7.setBranchId(branchDetails3.getBranchId());
 				customerDetails7.setAccountType("Savings");
 				customerDetails7.setAdhaarNumber("7546 8598 2115");
 				customerDetails7.setContactNumber("9415546297");
+				customerDetails7.setDate(LocalDate.of(2020, 04, 21));
 				customerDetails7.setPanNumber("ASWED099D");
 				customerDetails7.setDOB("04/12/1978");
 				customerDetails7.setCustomerFirstName("Rahul");
 				customerDetails7.setCustomerLastName("Bajaj");
 				customerDetails7.setAge("42");
 				customerDetails7.setGender("Male");
+				accountDetails7.setDate(customerDetails7.getDate());
 				customer7Address.setStreet("101 Circular Rd, Bemloi");
 				customer7Address.setState("Himachal Pradesh");
 				customer7Address.setCity("Shimla");

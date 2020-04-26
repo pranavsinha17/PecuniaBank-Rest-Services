@@ -8,6 +8,7 @@ import org.springframework.stereotype.Repository;
 import org.springframework.stereotype.Service;
 
 import com.capgemini.main.entity.AccountDetails;
+import com.capgemini.main.entity.BranchDetails;
 
 @Transactional
 @Repository
@@ -36,6 +37,12 @@ public class DaoAccountImp implements DaoAccount{
 		// TODO Auto-generated method stub
 		return em.find(AccountDetails.class, accountNumber);
 	
+	}
+
+	@Override
+	public BranchDetails findBranch(int branchid) {
+		// TODO Auto-generated method stub
+		return em.find(BranchDetails.class, branchid);
 	}
 
 }

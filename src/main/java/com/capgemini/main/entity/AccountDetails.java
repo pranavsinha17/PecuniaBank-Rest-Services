@@ -1,5 +1,7 @@
 package com.capgemini.main.entity;
 
+import java.time.LocalDate;
+
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -41,7 +43,26 @@ public class AccountDetails {
 	@Column(name="Account_Interest")
 	private float accountInterest;
 	
+	@Column(name="Opening_Date")
+	private LocalDate date;
 	
+	
+	/**
+	 * @return the date
+	 */
+	public LocalDate getDate() {
+		return date;
+	}
+
+
+	/**
+	 * @param date the date to set
+	 */
+	public void setDate(LocalDate date) {
+		this.date = date;
+	}
+
+
 	@ManyToOne(optional = false)
 	@JoinColumn(name="Branch_Id") //According the customer location the branch is assigned.
 	BranchDetails branchdetails;
@@ -51,18 +72,13 @@ public class AccountDetails {
 	public String toString() {
 		return "AccountDetails [accountNumber=" + accountNumber + ", customerDetails=" + customerDetails
 				+ ", accountHolderName=" + accountHolderName + ", accountStatus=" + accountStatus + ", accountBalance="
-				+ accountBalance + ", creditScore=" + creditScore + ", accountInterest=" + accountInterest
-				+ ", branchdetails=" + branchdetails + "]";
-	}
-
-
-	public AccountDetails() {
-		super();
+				+ accountBalance + ", creditScore=" + creditScore + ", accountInterest=" + accountInterest + ", date="
+				+ date + ", branchdetails=" + branchdetails + "]";
 	}
 
 
 	public AccountDetails(long accountNumber, CustomerDetails customerDetails, String accountHolderName,
-			String accountStatus, double accountBalance, int creditScore, float accountInterest,
+			String accountStatus, double accountBalance, int creditScore, float accountInterest, LocalDate date,
 			BranchDetails branchdetails) {
 		super();
 		this.accountNumber = accountNumber;
@@ -72,9 +88,17 @@ public class AccountDetails {
 		this.accountBalance = accountBalance;
 		this.creditScore = creditScore;
 		this.accountInterest = accountInterest;
+		this.date = date;
 		this.branchdetails = branchdetails;
 	}
 
+
+	public AccountDetails() {
+		super();
+	}
+
+
+	
 
 	/**
 	 * @return the accountNumber
