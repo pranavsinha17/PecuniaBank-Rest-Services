@@ -69,16 +69,16 @@ import org.springframework.beans.factory.annotation.Autowired;
 			
 			Account accountManagement3=new Account();
 			Request loanRequest3=new Request();
-			accountManagement3.setAccountNumber("643265200000");
+			accountManagement3.setAccountNumber("500000115005");
 			accountManagement3.setAccountHolderName("Manoj Kumar Meena");
 			accountManagement3.setAccountBalance(5000);
 			accountManagement3.setAccountInterest("3");
 			accountManagement3.setCreditScore(800);
-			loanRequest3.setAccountNumber("643265200000");
-			loanRequest3.setAmount(300000);
+			loanRequest3.setAccountNumber("500000115005");
+			loanRequest3.setAmount(100000);
 			loanRequest3.setRoi(10);
 			loanRequest3.setTenure(6);
-			loanRequest3.setType("Education");
+			loanRequest3.setType("home");
 			
 			
 		//	loanDaoImplementation.insertAccountDetails(accountManagement);

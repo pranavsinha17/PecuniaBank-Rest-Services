@@ -5,6 +5,7 @@ import java.util.List;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+import javax.persistence.Query;
 import javax.persistence.TypedQuery;
 import javax.transaction.Transactional;
 
@@ -39,12 +40,6 @@ public class LoanDaoImplementation implements LoanDao{
 		return true;
 	}
 	
-	
-	@Override
-	public boolean addAccount(Account account) {
-		em.persist(account);
-		return true;
-	}
 
 	@Override
 	public Account existAccount(String accountNumber)  {
@@ -68,9 +63,10 @@ public class LoanDaoImplementation implements LoanDao{
 
 	@Override
 	public List<Ledger> viewLedger(String accountNumber) {
-		// TODO Auto-generated method stub
-		String Qstr="SELECT ledger FROM Ledger ledger WHERE ledger.accountNumber= :accountNumber";
-		TypedQuery<Ledger> query=em.createQuery(Qstr,Ledger.class).setParameter("accountNumber", accountNumber);
+		
+Query query=em.createQuery("SELECT ledger FROM Ledger ledger WHERE ledger.accountDetails.accountNumber= :account");
+query.setParameter("account", accountNumber);
+@SuppressWarnings("unchecked")
 		List<Ledger> ledgerList=query.getResultList();
 		return ledgerList;
 	}

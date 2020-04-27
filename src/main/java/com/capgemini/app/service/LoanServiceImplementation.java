@@ -1,5 +1,6 @@
 package com.capgemini.app.service;
 
+import java.time.LocalDate;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,12 +22,6 @@ public class LoanServiceImplementation implements LoanService{
 	public boolean addRequest(Request request) {
 		
 		return loanDao.addRequest(request);
-	}
-	
-	@Override
-	public boolean addAccount(Account account) {
-		
-		return loanDao.addAccount(account);
 	}
 
 	@Override
@@ -62,13 +57,23 @@ public class LoanServiceImplementation implements LoanService{
 			{
 				double EMI=calculateEMI(request.getAmount(),request.getTenure(),request.getRoi());
 				Ledger ledger=new Ledger();
-				ledger.setAccountNumber(account.getAccountNumber());
+				ledger.setAccountDetails(account);
 				ledger.setEMI_Amount(EMI);
 				ledger.setDuration(request.getTenure());
-				ledger.setInterestRate(request.getRoi());
-				ledger.setLoanRequestId(request);
+				if(request.getType().equals("Home"))
+				ledger.setInterestRate((float) 10.0);
+				else if(request.getType().equals("Education"))
+				ledger.setInterestRate((float) 6.0);
+				else if(request.getType().equals("Car"))
+				ledger.setInterestRate((float) 8.0);
+				else if(request.getType().equals("Personal"))
+				ledger.setInterestRate((float) 12.0);
+				ledger.setLoanRequestId(request.getLoanRequestId());
 				ledger.setNumberOfEMI((int) (request.getTenure()*12));
+				ledger.setStartDate(LocalDate.now());
+				ledger.setEndDate(LocalDate.now().plusYears(request.getTenure()));
 				ledger.setStatus("Grant");
+				
 				
 				loanDao.addledger(ledger);
 				System.out.println("Your Loan Request has been approved for more details view Loan Ledger");

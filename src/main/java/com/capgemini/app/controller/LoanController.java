@@ -34,11 +34,6 @@ public class LoanController {
 		return new ResponseEntity<Request>(HttpStatus.OK);
 	}
 	
-	@PostMapping("/addAccountDetails")
-	public ResponseEntity<Account> addAccount(@RequestBody Account account) {
-		loanService.addAccount(account);
-		return new ResponseEntity<Account>(HttpStatus.OK);
-	}
 	
 	@PostMapping("/loanRequest")
 	public String LoanRequest(@Valid @RequestBody Request request, BindingResult br) throws UserException{
@@ -60,20 +55,13 @@ public class LoanController {
 		}
 		
 	}
-	@PostMapping("/viewLedger/{accountNumber}")
-	  public ResponseEntity<List<Ledger>> getData(@Valid @RequestBody Ledger ledger, BindingResult br) throws UserException{
-		//System.out.println(ledger.toString());
-		
-		String err="";
-		if(br.hasErrors()) {
-			List<FieldError> errors=br.getFieldErrors();
-			for(FieldError error : errors)
-				err= err + error.getDefaultMessage() + " ";
-			throw new UserException(err);
-		}
+
+	
+	@GetMapping("/viewLedger/{accountNumber}")
+	  public ResponseEntity<List<Ledger>> getData(@Valid @PathVariable("accountNumber") String accountNumber) throws UserException{
 		try {
 			//return "your requested data is here";
-			List<Ledger> list = loanService.ViewLedger(ledger.getAccountNumber());
+			List<Ledger> list = loanService.ViewLedger(accountNumber);
 			return new ResponseEntity<List<Ledger>>(list,HttpStatus.OK);
 			//return "Your loan Request has been granted for more information view loan ledger";
 		}
@@ -82,6 +70,9 @@ public class LoanController {
 		}
 		
 	}
+	
+	
+		//check account exist or not
 	@PostMapping("/checkAccount/{accountNumber}")
 	public String checkAccount(@Valid @RequestBody Account account, BindingResult br) throws UserException{
 		System.out.println(account.toString());
@@ -102,6 +93,8 @@ public class LoanController {
 		}
 		
 	}
+	
+	//View all the loan details
 	@GetMapping("/viewLedgerData")
 	public ResponseEntity<List<Ledger>> getLedgerData(@Valid @RequestBody Ledger ledger, BindingResult br) throws UserException{
 	//	System.out.println(ledger.toString());
@@ -123,6 +116,7 @@ public class LoanController {
 		}
 		
 	}
+	
 	
 	
 	

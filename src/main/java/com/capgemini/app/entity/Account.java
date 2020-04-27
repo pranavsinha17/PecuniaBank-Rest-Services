@@ -1,6 +1,7 @@
 package com.capgemini.app.entity;
 
 import java.math.BigInteger;
+
 import java.util.Date;
 
 import javax.persistence.Column;
@@ -15,7 +16,7 @@ import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
 @Entity
-@Table(name="ACCOUNT_INFOO")
+@Table(name="ACCOUNT_IP")
 public class Account {
 	
 	@Id

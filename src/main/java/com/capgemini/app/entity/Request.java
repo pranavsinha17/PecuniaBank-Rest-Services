@@ -17,7 +17,7 @@ import org.hibernate.annotations.DynamicUpdate;
 
 
 @Entity
-@Table(name="Request_Loann")
+@Table(name="Request_L")
 @DynamicUpdate(true)
 @DynamicInsert(true)
 public class Request {
@@ -41,8 +41,6 @@ public class Request {
 	  @Column(name = "LOAN_ROI")
 	  private double roi;
 	  
-	 //  @ManyToOne(optional = false)
-	 //   @JoinColumn(name="ACCOUNT_NUMBER")
 	  @Column(name = "ACCOUNT_NUMBER")
 	  private String accountNumber;
 	  
