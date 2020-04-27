@@ -1,4 +1,5 @@
 package com.capgemini.accountmanagement.controller;
+import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,6 +18,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.capgemini.accountmanagement.entity.AccountDetails;
 import com.capgemini.accountmanagement.entity.AddressDetails;
 import com.capgemini.accountmanagement.entity.CustomerDetails;
+import com.capgemini.accountmanagement.entity.UpdateData;
 import com.capgemini.accountmanagement.exception.UserDefinedException;
 import com.capgemini.accountmanagement.service.AccountService;
 
@@ -29,7 +31,7 @@ public class AccountManagementController {
 	String res;
 	
 	//According to the employee's  branch the branch of the customer is set in the database.
-	
+	//working
 	@PostMapping("/account")
 	public ResponseEntity<String> addBranch(@RequestBody CustomerDetails customerDetails) {
 		System.out.println("--------------------------------------------------------------");
@@ -43,21 +45,23 @@ public class AccountManagementController {
 		
 		return new ResponseEntity<String>(res,HttpStatus.OK);
 	}
-	
-	@PutMapping("/account/{accountNumber}")
-	public ResponseEntity<String> updateMobileNumber(@RequestBody String mobileNumber,@PathVariable long accountNumber) 
+	//working 
+	@PostMapping("/updateMobile")
+	public ResponseEntity<String> updateMobileNumber(@RequestBody UpdateData data) 
 	{
-		boolean result=accountService.updateAccountMobileNumber(mobileNumber,accountNumber);
+		//System.out.println(mobileNumber+" "+accountNumber);
+		boolean result=accountService.updateAccountMobileNumber(data.getMobileNumber(),data.getAccountNumber());
 		if(result)
 		{
-			res=" Account updated Sucessfuly";
+			res=" Account updated Sucessfully";
 		}
 		else
 			throw new UserDefinedException("Account Number is Invalid");
 		
+		
 		return new ResponseEntity<String>(res,HttpStatus.OK);
 	 }
-	
+	//Working
 	@DeleteMapping("/account/{accountNumber}")
 	public ResponseEntity<String> deleteAccount(@PathVariable long accountNumber) {
 		boolean result=accountService.deleteAccount(accountNumber);
@@ -69,10 +73,22 @@ public class AccountManagementController {
 			throw new UserDefinedException("Account Number is Invalid");
 		return new ResponseEntity<String>(res,HttpStatus.OK);
 	}
-	
-	@PutMapping("/accountupdateaddress/{accountNumber}")
-	public ResponseEntity<String> updateAddress(@RequestBody AddressDetails address,@PathVariable long accountNumber) {
-		boolean result=accountService.updateAccountAddress(accountNumber, address);
+	//working
+	@PostMapping("/updateaddress")
+	public ResponseEntity<String> updateAddress(@RequestBody UpdateData data ) {
+		boolean result=accountService.updateAccountAddress(data.getAccountNumber(), data.getAddress());
+		if(result)
+		{
+			res=" Account updated Sucessfully";
+		}
+		else
+			throw new UserDefinedException("Account Number is Invalid");
+		return new ResponseEntity<String>(res,HttpStatus.OK);
+	}
+	//working
+	@PostMapping("/updateName")
+	public ResponseEntity<String> updateName(@RequestBody UpdateData data ) {
+		boolean result=accountService.updateName(data.getName(),data.getAccountNumber());
 		if(result)
 		{
 			res=" Account updated Sucessfully";
@@ -82,22 +98,20 @@ public class AccountManagementController {
 		return new ResponseEntity<String>(res,HttpStatus.OK);
 	}
 	
-	@PostMapping("/AccountUpdateName/{accountNumber}")
-	public ResponseEntity<String> updateName(@RequestBody String name,@PathVariable long accountNumber) {
-		boolean result=accountService.updateName(name,accountNumber);
-		if(result)
-		{
-			res=" Account updated Sucessfully";
-		}
-		else
-			throw new UserDefinedException("Account Number is Invalid");
-		return new ResponseEntity<String>(res,HttpStatus.OK);
-	}
-	
+	//working
 	@GetMapping("/accounts")
 	public ResponseEntity<List<AccountDetails>> getAllAccount() {
 		List<AccountDetails> accountlist=accountService.allAccount();
-		 return new ResponseEntity<List<AccountDetails>>(accountlist,HttpStatus.OK);
+		List<AccountDetails> accountlist1=new ArrayList<AccountDetails>();
+		for(AccountDetails accountDetails:accountlist)
+		{
+			if(accountDetails.getAccountStatus().equals("Close"));
+			else
+			{
+				accountlist1.add(accountDetails);
+			}
+		}
+		 return new ResponseEntity<List<AccountDetails>>(accountlist1,HttpStatus.OK);
 	}
 
 }

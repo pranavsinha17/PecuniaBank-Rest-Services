@@ -14,6 +14,7 @@ import com.capgemini.accountmanagement.entity.BranchDetails;
 import com.capgemini.accountmanagement.entity.CustomerDetails;
 import com.capgemini.accountmanagement.entity.EmployeeCredentials;
 import com.capgemini.accountmanagement.entity.EmployeeDetails;
+import com.capgemini.accountmanagement.service.AccountService;
 
 
 @SpringBootApplication
@@ -22,6 +23,9 @@ public class AccountManagement implements CommandLineRunner {
 	@Autowired
 	DaoService daoService;
 
+	 @Autowired
+	AccountService accountService;
+	 
 	public static void main(String[] args) {
 		SpringApplication.run(AccountManagement.class, args);
 	}
@@ -570,6 +574,8 @@ public class AccountManagement implements CommandLineRunner {
 //		daoService.insertAccountDetails(accountDetails8);
 //		daoService.insertAccountDetails(accountDetails9);
 //		daoService.insertAccountDetails(accountDetails10);
+		
+		
 	}
 }
 

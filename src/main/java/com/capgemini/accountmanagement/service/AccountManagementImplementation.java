@@ -24,7 +24,6 @@ public class AccountManagementImplementation implements AccountService {
 	@Override
 	public boolean addAccount(CustomerDetails customerDetails) {
 		
-		System.out.println(customerDetails);
 		customerDao.addCustomer(customerDetails);
 		AccountDetails account=new AccountDetails();
 		account.setAccountBalance(customerDetails.getOpeningBalance());
@@ -36,7 +35,6 @@ public class AccountManagementImplementation implements AccountService {
 		account.setAccountStatus("Active");
 		account.setBranchdetails(accountDao.findBranch(customerDetails.getBranchId()));//which branch customer want to open an account..
 		account.setCustomerDetails(customerDetails);
-		System.out.println(account);
 		System.out.println("Account added successfully");
 		return true;
 		

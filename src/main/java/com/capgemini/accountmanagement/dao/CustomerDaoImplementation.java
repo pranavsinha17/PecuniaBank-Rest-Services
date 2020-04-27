@@ -22,9 +22,7 @@ public class CustomerDaoImplementation implements CustomerDao{
 	@Override
 	public void addCustomer(CustomerDetails customerDetails) {
 		
-	//	System.out.println(customerDetails);
 		entityManager.persist(customerDetails);
-		
 		
 	}
 
@@ -39,8 +37,10 @@ public class CustomerDaoImplementation implements CustomerDao{
 		
 		if(entityManager.contains(entityManager.find(AccountDetails.class, accountNumber))) {
 		AccountDetails account=entityManager.find(AccountDetails.class, accountNumber);
+		entityManager.remove(account);
 		account.setAccountStatus("Close");
 		account.setAccountInterest((float) 0.0);
+		entityManager.persist(account);
 		return true;
 		}
 		return false;
@@ -52,7 +52,9 @@ public class CustomerDaoImplementation implements CustomerDao{
 		
 		if(entityManager.contains(entityManager.find(AccountDetails.class, accountNumber))) {
 			AccountDetails account=entityManager.find(AccountDetails.class, accountNumber);
+			entityManager.remove(account);
 			account.getCustomerDetails().setContactNumber(mobileNumber);
+			entityManager.persist(account);
 			return true;
 			}
 			return false;
@@ -63,7 +65,14 @@ public class CustomerDaoImplementation implements CustomerDao{
 		
 		if(entityManager.contains(entityManager.find(AccountDetails.class, accountNumber))) {
 			AccountDetails account=entityManager.find(AccountDetails.class, accountNumber);
-			account.getCustomerDetails().setAddress(address);
+			entityManager.remove(account);
+			AddressDetails address1=entityManager.find(AddressDetails.class, account.getCustomerDetails().getAddress().getAddressId());
+			address1.setCity(address.getCity());
+			address1.setState(address.getState());
+			address1.setStreet(address.getStreet());
+			address1.setZipCode(address.getZipCode());
+			account.getCustomerDetails().setAddress(address1);
+			entityManager.persist(account);
 			return true;
 			}
 			return false;
@@ -74,7 +83,9 @@ public class CustomerDaoImplementation implements CustomerDao{
 		
 		if(entityManager.contains(entityManager.find(AccountDetails.class, accountNumber))) {
 			AccountDetails account=entityManager.find(AccountDetails.class, accountNumber);
+			entityManager.remove(account);
 			account.setAccountHolderName(name);
+			entityManager.persist(account);
 			return true;
 			}
 			return false;
