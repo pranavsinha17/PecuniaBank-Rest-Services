@@ -14,7 +14,7 @@ import javax.persistence.Table;
 @Entity
 @Table(name="Branches")
 public class BranchDetails {
-	//We Auto put the information of branch.
+	
 	@Id
 	@Column(name="Branch_Id")
 	@GeneratedValue(strategy=GenerationType.SEQUENCE,generator="genName1")
@@ -30,7 +30,7 @@ public class BranchDetails {
 	@Column(name="Phone_Number")
 	private String phoneNumber;
 	
-	@OneToOne(cascade=CascadeType.ALL)   // 1:1 unidirectional
+	@OneToOne(cascade=CascadeType.ALL)  
 	@JoinColumn(name="address_id")
 	AddressDetails address;
 	

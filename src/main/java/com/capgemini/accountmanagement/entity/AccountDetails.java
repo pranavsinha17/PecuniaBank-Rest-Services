@@ -18,10 +18,10 @@ import javax.persistence.Table;
 @Table(name="Accounts")
 public class AccountDetails {
 	
-	@Id
+	@Id 
 	@Column(name="Account_number")
 	@GeneratedValue(strategy=GenerationType.SEQUENCE,generator="genName1")
-	@SequenceGenerator(name="genName1", sequenceName="acc",initialValue=1170000011,allocationSize=1)
+	@SequenceGenerator(name="genName1", sequenceName="acc",initialValue=1875662201,allocationSize=1)
 	private long accountNumber;
 
 	@OneToOne(cascade=CascadeType.ALL)   
@@ -44,8 +44,9 @@ public class AccountDetails {
 	private LocalDateTime openingDate;	
 	
     @ManyToOne(optional = false)
-	@JoinColumn(name="Branch_Id") //According the customer location the branch is assigned.
-	BranchDetails branchdetails;
+	@JoinColumn(name="Branch_Id") 
+
+    BranchDetails branchdetails;
     
     public AccountDetails()
     {

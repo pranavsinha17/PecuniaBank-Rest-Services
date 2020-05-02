@@ -12,5 +12,6 @@ public interface AccountDao{
 	public AccountDetails findAccountDetails(long accountNumber);
 	public BranchDetails findBranch(int branchid);
 	public List<AccountDetails> getAllAccount();
+	public AccountDetails getAccountDetailsByAccountId(long accountNumber);
 
 }

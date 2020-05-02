@@ -12,37 +12,76 @@ import org.springframework.stereotype.Service;
 import com.capgemini.accountmanagement.entity.AccountDetails;
 import com.capgemini.accountmanagement.entity.BranchDetails;
 
+/********************************************************************************
+ * @author       Vaishali Tiwari
+ * Description   This Dao is for updating account balance,checking whether the
+                 the account exists or not, for getting Account Details by 
+                 the account number,for finding the branch,for getting the list
+                 of all accounts
+ *Created On
+ 
+ ********************************************************************************/
+
 @Transactional
 @Repository
 @Service
 public class AccountDaoImplementation implements AccountDao{
+	
 	@Autowired
 	EntityManager entityManager;
+	
+/********************************************************************************
+ * Method           updateBalance
+ * Description      for updating the balance of account after any transaction
+ * returns String   returns null when the balance is updated
+ * Created By       Vaishali Tiwari
+ * Created on
+*********************************************************************************/
 
 	@Override
 	public String updateBalance(long accountNumber, double balance) 
 	{
-		
 		AccountDetails accountDetails=entityManager.find(AccountDetails.class, accountNumber);
 		accountDetails.setAccountBalance(balance);
 		return null;
 	}
+	
+/********************************************************************************
+ * Method           checkAccountExist
+ * Description      for checking whether the account exists or not
+ * returns boolean  returns true if account exists otherwise returns false if
+ * 					account does not exists
+ * Created By       Vaishali Tiwari
+ * Created on
+**********************************************************************************/
 
 	@Override
 	public boolean checkAccountExist(long accountNumber) 
 	{
-		
-	return entityManager.contains(entityManager.find(AccountDetails.class, accountNumber));
-		
+		return entityManager.contains(entityManager.find(AccountDetails.class, accountNumber));	
 	}
+	
+/**********************************************************************************
+* Method           findAccountDetails
+* Description      for fetching the account details of the given account number
+* returns          account details by account number
+* Created By       Vaishali Tiwari
+* Created on
+***********************************************************************************/
 
 	@Override
 	public AccountDetails findAccountDetails(long accountNumber) 
 	{
-		
 		return entityManager.find(AccountDetails.class, accountNumber);
-	
 	}
+	
+/**********************************************************************************
+* Method           findBranch
+* Description      for fetching the branch details of the given branch Id
+* returns          branch details by branch Id
+* Created By       Vaishali Tiwari
+* Created on
+***********************************************************************************/
 
 	@Override
 	public BranchDetails findBranch(int branchId) 
@@ -50,6 +89,14 @@ public class AccountDaoImplementation implements AccountDao{
 	
 		return entityManager.find(BranchDetails.class, branchId);
 	}
+/**********************************************************************************
+* Method           getAllAccount
+* Description      for getting the list of accounts with details of all the 
+                   accounts
+* returns List     account list 
+* Created By       Vaishali Tiwari
+* Created on
+***********************************************************************************/	
 
 	@Override
 	public List<AccountDetails> getAllAccount() 
@@ -60,4 +107,17 @@ public class AccountDaoImplementation implements AccountDao{
 		return accountList;
 	}
 
+/**********************************************************************************
+* Method           getAccountDetailsByAccountId
+* Description      for finding the account by account number
+* returns List     account details by account number 
+* Created By       Vaishali Tiwari
+* Created on
+	***********************************************************************************/
+	
+	@Override
+	public AccountDetails getAccountDetailsByAccountId(long accountNumber)
+	{
+		return entityManager.find(AccountDetails.class, accountNumber);
+	}
 }

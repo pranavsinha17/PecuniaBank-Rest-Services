@@ -1,5 +1,6 @@
 package com.capgemini.accountmanagement.service;
 
+import java.time.LocalDateTime;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -10,7 +11,16 @@ import com.capgemini.accountmanagement.dao.CustomerDao;
 import com.capgemini.accountmanagement.entity.AccountDetails;
 import com.capgemini.accountmanagement.entity.AddressDetails;
 import com.capgemini.accountmanagement.entity.CustomerDetails;
+import com.capgemini.accountmanagement.exception.UserDefinedException;
 
+/********************************************************************************
+ * @author       Vaishali Tiwari
+ * Description   This is a service class performing services such as adding 
+   				 account,deleting account,calling other functions to perform
+                 services
+ *Created On
+ 
+ ********************************************************************************/
 
 @Service
 public class AccountManagementImplementation implements AccountService {
@@ -20,6 +30,16 @@ public class AccountManagementImplementation implements AccountService {
 	
 	@Autowired
 	CustomerDao customerDao;
+	
+/********************************************************************************
+* Method           addAccount
+* Description      for adding the details in account according to the details
+                   given by customer
+* returns boolean  returns true if all the details are added successfully else 
+*                  returns false
+* Created By       Vaishali Tiwari
+* Created on
+**********************************************************************************/
 
 	@Override
 	public boolean addAccount(CustomerDetails customerDetails) {
@@ -27,14 +47,16 @@ public class AccountManagementImplementation implements AccountService {
 		customerDao.addCustomer(customerDetails);
 		AccountDetails account=new AccountDetails();
 		account.setAccountBalance(customerDetails.getOpeningBalance());
-		account.setAccountHolderName(customerDetails.getCustomerFirstName()+""+customerDetails.getCustomerLastName());
-		if(customerDetails.getAccountType().equals("Savings"))
+		account.setAccountHolderName(customerDetails.getCustomerFirstName()+" "+customerDetails.getCustomerLastName());
+		if(customerDetails.getAccountType().equals("Saving"))
 		account.setAccountInterest((float) 3.5);
 		else if(customerDetails.getAccountType().equals("Current"))
 		account.setAccountInterest((float) 3.0);
 		account.setAccountStatus("Active");
+		account.setOpeningDate(LocalDateTime.now());
 		account.setBranchdetails(accountDao.findBranch(customerDetails.getBranchId()));//which branch customer want to open an account..
 		account.setCustomerDetails(customerDetails);
+		customerDao.addAccount(account);//add account to data base.
 		System.out.println("Account added successfully");
 		return true;
 		
@@ -56,15 +78,39 @@ public class AccountManagementImplementation implements AccountService {
 	}
 
 	@Override
-	public boolean updateName(String name,long accountNumber) {
+	public boolean updateName(String fname,String lname,long accountNumber) {
 		
-		return customerDao.updateName(name,accountNumber) ;
+		return customerDao.updateName(fname,lname,accountNumber) ;
 	}
 
 	@Override
-	public List<AccountDetails> allAccount() {
+	public List<AccountDetails> getAllAccount() {
 
 		return accountDao.getAllAccount();
+	}
+	
+	@Override
+	public boolean checkAccountExist(long accountNumber){
+		 
+		return accountDao.checkAccountExist(accountNumber);
+	}
+
+/********************************************************************************
+* Method           getAccountDetailsById
+* Description      for fetching the account details according to the account number 
+* returns boolean  returns accountDetails if account exist otherwise fives an 
+				   exception
+* Created By       Vaishali Tiwari
+* Created on
+**********************************************************************************/
+	
+	@Override
+	public AccountDetails getAccountDetailsByAccountId(long accountNumber) throws UserDefinedException {
+		AccountDetails accountDetails = accountDao.getAccountDetailsByAccountId(accountNumber);
+		if (accountDetails == null)
+			throw new UserDefinedException("Account Doesn't Exist.Please Enter the Valid Account Number.");
+		else
+			return accountDetails;
 	}
 
 }

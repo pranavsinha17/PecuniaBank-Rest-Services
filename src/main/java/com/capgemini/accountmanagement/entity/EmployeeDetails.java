@@ -14,9 +14,6 @@ import javax.persistence.Table;
 @Entity
 @Table(name="Employees")
 public class EmployeeDetails {
-//It is a hard copy of Employees details form.
-	//We assume that the bank verify all the details of employees.
-	   //And generate employee_id and password and provide to employees.
 	
 	@Id
 	@Column(name="Employee_Number")
@@ -82,135 +79,91 @@ public class EmployeeDetails {
 		this.gender=gender;
 		this.address = address;
 	}
-	/**
-	 * @return the gender
-	 */
+	
 	public String getGender() {
 		return gender;
 	}
-	/**
-	 * @param gender the gender to set
-	 */
+	
 	public void setGender(String gender) {
 		this.gender = gender;
 	}
-	/**
-	 * @return the employeeNumber
-	 */
+	
 	public int getEmployeeNumber() {
 		return employeeNumber;
 	}
-	/**
-	 * @param employeeNumber the employeeNumber to set
-	 */
+	
 	public void setEmployeeNumber(int employeeNumber) {
 		this.employeeNumber = employeeNumber;
 	}
-	/**
-	 * @return the branchId
-	 */
+	
 	public int getBranchId() {
 		return branchId;
 	}
-	/**
-	 * @param branchId the branchId to set
-	 */
+	
 	public void setBranchId(int branchId) {
 		this.branchId = branchId;
 	}
-	/**
-	 * @return the employeeFirstName
-	 */
+	
 	public String getEmployeeFirstName() {
 		return employeeFirstName;
 	}
-	/**
-	 * @param employeeFirstName the employeeFirstName to set
-	 */
+	
 	public void setEmployeeFirstName(String employeeFirstName) {
 		this.employeeFirstName = employeeFirstName;
 	}
-	/**
-	 * @return the employeeLastName
-	 */
+
 	public String getEmployeeLastName() {
 		return employeeLastName;
 	}
-	/**
-	 * @param employeeLastName the employeeLastName to set
-	 */
+	
 	public void setEmployeeLastName(String employeeLastName) {
 		this.employeeLastName = employeeLastName;
 	}
-	/**
-	 * @return the dOB
-	 */
+	
 	public String getDOB() {
 		return DOB;
 	}
-	/**
-	 * @param dOB the dOB to set
-	 */
+	
 	public void setDOB(String dOB) {
 		DOB = dOB;
 	}
-	/**
-	 * @return the age
-	 */
+	
 	public String getAge() {
 		return age;
 	}
-	/**
-	 * @param age the age to set
-	 */
+	
 	public void setAge(String age) {
 		this.age = age;
 	}
-	/**
-	 * @return the panNumber
-	 */
+	
 	public String getPanNumber() {
 		return panNumber;
 	}
-	/**
-	 * @param panNumber the panNumber to set
-	 */
+	
 	public void setPanNumber(String panNumber) {
 		this.panNumber = panNumber;
 	}
-	/**
-	 * @return the adharNumber
-	 */
+	
 	public String getAdhaarNumber() {
 		return adhaarNumber;
 	}
-	/**
-	 * @param adharNumber the adharNumber to set
-	 */
+	
 	public void setAdhaarNumber(String adharNumber) {
 		this.adhaarNumber = adharNumber;
 	}
-	/**
-	 * @return the mobileNumber
-	 */
+	
 	public String getMobileNumber() {
 		return mobileNumber;
 	}
-	/**
-	 * @param mobileNumber the mobileNumber to set
-	 */
+	
 	public void setMobileNumber(String mobileNumber) {
 		this.mobileNumber = mobileNumber;
 	}
-	/**
-	 * @return the address
-	 */
+	
 	public AddressDetails getAddress() {
 		return address;
 	}
-	/**
-	 * @param address the address to set
-	 */
+	
 	public void setAddress(AddressDetails address) {
 		this.address = address;
 	}

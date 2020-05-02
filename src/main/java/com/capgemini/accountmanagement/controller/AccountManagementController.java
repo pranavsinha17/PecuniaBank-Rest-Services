@@ -5,22 +5,28 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.capgemini.accountmanagement.dto.UpdateData;
 import com.capgemini.accountmanagement.entity.AccountDetails;
-import com.capgemini.accountmanagement.entity.AddressDetails;
 import com.capgemini.accountmanagement.entity.CustomerDetails;
-import com.capgemini.accountmanagement.entity.UpdateData;
+
 import com.capgemini.accountmanagement.exception.UserDefinedException;
 import com.capgemini.accountmanagement.service.AccountService;
+
+/********************************************************************************
+ * @author       Vaishali Tiwari
+ * Description   This is the controller class, it is responsible to manage the
+  				 flow of the application
+ * Created On
+ 
+ ********************************************************************************/
 
 @RestController
 public class AccountManagementController {
@@ -28,24 +34,41 @@ public class AccountManagementController {
     @Autowired
 	AccountService accountService;
 	
-	String res;
+	String response;
+
+/********************************************************************************
+* Method             addAccount
+* Description        to call the service function add account to perform the 
+                     addition of data
+* returns Response   returns response as added successfully if account
+                     is added
+* Created By         Vaishali Tiwari
+* Created on
+**********************************************************************************/
 	
-	//According to the employee's  branch the branch of the customer is set in the database.
-	//working
+	@CrossOrigin(origins = "http://localhost:4200")
 	@PostMapping("/account")
-	public ResponseEntity<String> addBranch(@RequestBody CustomerDetails customerDetails) {
-		System.out.println("--------------------------------------------------------------");
-		System.out.println(customerDetails);
-		System.out.println("--------------------------------------------------------------");
+	public ResponseEntity<String> addAccount(@RequestBody CustomerDetails customerDetails)  {
 		boolean result=accountService.addAccount(customerDetails);
 		if(result)
 		{
-			res=" Account added Sucessfully";
+			response="{\"data\":\"Account added Sucessfully\"} ";	
 		}
 		
-		return new ResponseEntity<String>(res,HttpStatus.OK);
+		return new ResponseEntity<String>(response,HttpStatus.OK);
 	}
-	//working 
+	
+/********************************************************************************
+* Method           updateMobileNumber
+* Description      to call the updateAccountMobileNumber to perform updation of
+                   Mobile Number
+* returns boolean  returns response as Mobile number updated successfully if mobile
+                   number is updated otherwise it will throw an exception
+* Created By       Vaishali Tiwari
+* Created on
+**********************************************************************************/	
+	 
+	@CrossOrigin(origins = "http://localhost:4200")
 	@PostMapping("/updateMobile")
 	public ResponseEntity<String> updateMobileNumber(@RequestBody UpdateData data) 
 	{
@@ -53,55 +76,99 @@ public class AccountManagementController {
 		boolean result=accountService.updateAccountMobileNumber(data.getMobileNumber(),data.getAccountNumber());
 		if(result)
 		{
-			res=" Account updated Sucessfully";
+			response=" {\"data\":\"Mobile Number Updated Sucessfully\"}";
 		}
 		else
 			throw new UserDefinedException("Account Number is Invalid");
 		
 		
-		return new ResponseEntity<String>(res,HttpStatus.OK);
+		return new ResponseEntity<String>(response,HttpStatus.OK);
 	 }
-	//Working
+	
+/********************************************************************************
+* Method           deleteAccount
+* Description      to call the deleteAccount to perform deletion task
+* returns boolean  returns response as Account deleted successfully if account is 
+                   deleted otherwise it will throw an exception
+* Created By       Vaishali Tiwari
+* Created on
+**********************************************************************************/
+	
+	@CrossOrigin(origins = "http://localhost:4200")
 	@DeleteMapping("/account/{accountNumber}")
-	public ResponseEntity<String> deleteAccount(@PathVariable long accountNumber) {
+	public ResponseEntity<String> deleteAccount(@PathVariable long accountNumber)
+	{
 		boolean result=accountService.deleteAccount(accountNumber);
 		if(result)
 		{
-			res=" Account deleted Sucessfully";
+			response="{\"data\":\"Account deleted Sucessfully\"}";
 		}
 		else
-			throw new UserDefinedException("Account Number is Invalid");
-		return new ResponseEntity<String>(res,HttpStatus.OK);
+		{
+			response="{\"data\":\"Account doesn't exists\"}";
+		}
+			//throw new UserDefinedException("Account Number is Invalid");
+		return new ResponseEntity<String>(response,HttpStatus.OK);
 	}
-	//working
-	@PostMapping("/updateaddress")
-	public ResponseEntity<String> updateAddress(@RequestBody UpdateData data ) {
+	
+/********************************************************************************
+* Method           updateAccountAddress
+* Description      to call updateAddress function to perform updation of address
+* returns boolean  returns response as address updated successfully if address
+                   is upadted
+* Created By       Vaishali Tiwari
+* Created on
+**********************************************************************************/
+	
+	@CrossOrigin(origins = "http://localhost:4200")
+	@PostMapping("/updateAddress")
+	public ResponseEntity<String> updateAddress(@RequestBody UpdateData data ) 
+	{
 		boolean result=accountService.updateAccountAddress(data.getAccountNumber(), data.getAddress());
 		if(result)
 		{
-			res=" Account updated Sucessfully";
+			response="{\"data\":\"Address updated Sucessfully\"}";
 		}
 		else
 			throw new UserDefinedException("Account Number is Invalid");
-		return new ResponseEntity<String>(res,HttpStatus.OK);
+		return new ResponseEntity<String>(response,HttpStatus.OK);
 	}
-	//working
+
+/********************************************************************************
+* Method           updateName
+* Description      to call updateName function to perform updation of name
+* returns boolean  returns response as Name updated successfully if name
+                   is updated
+* Created By       Vaishali Tiwari
+* Created on
+**********************************************************************************/
+	
+	@CrossOrigin(origins = "http://localhost:4200")
 	@PostMapping("/updateName")
-	public ResponseEntity<String> updateName(@RequestBody UpdateData data ) {
-		boolean result=accountService.updateName(data.getName(),data.getAccountNumber());
+	public ResponseEntity<String> updateName(@RequestBody UpdateData data )
+	{
+		boolean result=accountService.updateName(data.getFirstName(),data.getLastName(),data.getAccountNumber());
 		if(result)
 		{
-			res=" Account updated Sucessfully";
+			response="{\"data\":\"Name Updated Sucessfully\"}";
 		}
 		else
 			throw new UserDefinedException("Account Number is Invalid");
-		return new ResponseEntity<String>(res,HttpStatus.OK);
+		return new ResponseEntity<String>(response,HttpStatus.OK);
 	}
 	
-	//working
+/********************************************************************************
+* Method           getAllAccount
+* Description      it calls the allAccount to provide details of all account
+* returns boolean  returns response as list of account whoise status is active
+* Created By       Vaishali Tiwari
+* Created on
+**********************************************************************************/	
+
+	@CrossOrigin(origins = "http://localhost:4200")
 	@GetMapping("/accounts")
 	public ResponseEntity<List<AccountDetails>> getAllAccount() {
-		List<AccountDetails> accountlist=accountService.allAccount();
+		List<AccountDetails> accountlist=accountService.getAllAccount();
 		List<AccountDetails> accountlist1=new ArrayList<AccountDetails>();
 		for(AccountDetails accountDetails:accountlist)
 		{
@@ -112,6 +179,49 @@ public class AccountManagementController {
 			}
 		}
 		 return new ResponseEntity<List<AccountDetails>>(accountlist1,HttpStatus.OK);
+	}
+	
+/********************************************************************************
+* Method           checkAccountExist
+* Description      To check account exists or not
+* returns boolean  returns response as account doesn't exist if account is not 
+                   present in the database
+* Created By       Vaishali Tiwari
+* Created on
+**********************************************************************************/	
+	
+	@CrossOrigin(origins = "http://localhost:4200")
+	@GetMapping("accounts/{accountNumber}")
+	public ResponseEntity<String> checkAccountExist(@PathVariable long accountNumber) {
+			boolean result = accountService.checkAccountExist(accountNumber);
+			if(result==false)
+			{
+				response="{\"data\":\"Account doesn't exists\"}";
+				
+			}
+			else
+			{
+				response="{\"data\":\"\"}";
+			}
+			
+			return new ResponseEntity<String>(response,HttpStatus.OK);
+			
+	}
+	
+/********************************************************************************
+* Method           getAccountDetails
+* Description      To get the account details
+* returns boolean  returns response as account details according to the given
+				   account number
+* Created By       Vaishali Tiwari
+* Created on
+**********************************************************************************/
+	
+	@CrossOrigin(origins = "http://localhost:4200")
+	@GetMapping("account/{accountNumber}")
+	public ResponseEntity<AccountDetails> getAccountDetails(@PathVariable long accountNumber) {
+			AccountDetails accountDetails = accountService.getAccountDetailsByAccountId(accountNumber);
+			return new ResponseEntity<AccountDetails>(accountDetails, HttpStatus.OK);
 	}
 
 }

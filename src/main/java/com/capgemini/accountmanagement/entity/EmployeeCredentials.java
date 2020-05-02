@@ -12,9 +12,7 @@ import javax.persistence.Table;
 @Entity
 @Table(name="Employee_Credentials")
 public class EmployeeCredentials {
-	//Credentials is provide by bank to their employees through any medium to login in bank and do their work.
-	//Bank employee has  access of their details. 
-	//Id and password provide by bank .
+	
 	@Id
 	@Column(name="employee_Id")
 	private String employeeId;

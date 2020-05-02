@@ -13,7 +13,9 @@ public interface AccountService {
 	public boolean deleteAccount(long accountNumber);
 	public boolean updateAccountAddress(long accountNumber, AddressDetails address);
 	public boolean updateAccountMobileNumber(String mobileNumber,long accountNumber);
-	public boolean updateName(String name,long accountNumber);
-	public List<AccountDetails> allAccount();
+	public boolean updateName(String fname,String lname,long accountNumber);
+	public List<AccountDetails> getAllAccount();
+	public boolean checkAccountExist(long accountNumber);
+	public AccountDetails getAccountDetailsByAccountId(long accountNumber);
 
 }

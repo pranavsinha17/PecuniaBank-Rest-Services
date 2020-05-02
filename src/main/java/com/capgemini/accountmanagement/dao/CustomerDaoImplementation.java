@@ -11,83 +11,158 @@ import com.capgemini.accountmanagement.entity.AccountDetails;
 import com.capgemini.accountmanagement.entity.AddressDetails;
 import com.capgemini.accountmanagement.entity.CustomerDetails;
 
+/********************************************************************************
+ * @author       Vaishali Tiwari
+ * Description   This Dao is for saving the account details,saving the customer 
+                 details,fetch customer details, delete account,update the
+                 account details(name,contact number,address)
+ *Created On
+ 
+ ********************************************************************************/
 @Transactional
 @Repository
 @Service
-public class CustomerDaoImplementation implements CustomerDao{
+public class CustomerDaoImplementation implements CustomerDao
+{
 	
 	@PersistenceContext
 	EntityManager entityManager;
 	
+/**********************************************************************************
+* Method           addCustomer
+* Description      for saving the customer details 
+* Created By       Vaishali Tiwari
+* Created on
+***********************************************************************************/
+	
 	@Override
-	public void addCustomer(CustomerDetails customerDetails) {
-		
-		entityManager.persist(customerDetails);
-		
+	public void addCustomer(CustomerDetails customerDetails) 
+	{
+		entityManager.persist(customerDetails);	
 	}
+	
+/**********************************************************************************
+* Method           addAccount
+* Description      for saving the account details 
+* Created By       Vaishali Tiwari
+* Created on
+***********************************************************************************/	
+	
+	@Override
+	public void addAccount(AccountDetails account) 
+	{
+		entityManager.persist(account);	
+	}
+	
+/**********************************************************************************
+* Method           findCustomer
+* Description      for finding the customer details 
+* Created By       Vaishali Tiwari
+* Created on
+***********************************************************************************/
 
 	@Override
-	public CustomerDetails findCustomer(long customerId) {
-		
+	public CustomerDetails findCustomer(long customerId) 
+	{	
 		return entityManager.find(CustomerDetails.class, customerId);
 	}
+	
+/**********************************************************************************
+* Method           deleteAccount
+* Description      To delete account,by changing the status from "Active" to 
+                   "Close" 
+* Created By       Vaishali Tiwari
+* Created on
+***********************************************************************************/
 
 	@Override
-	public boolean deleteAccount(long accountNumber) {
+	public boolean deleteAccount(long accountNumber) 
+	{
 		
-		if(entityManager.contains(entityManager.find(AccountDetails.class, accountNumber))) {
-		AccountDetails account=entityManager.find(AccountDetails.class, accountNumber);
-		entityManager.remove(account);
-		account.setAccountStatus("Close");
-		account.setAccountInterest((float) 0.0);
-		entityManager.persist(account);
-		return true;
+		if(entityManager.contains(entityManager.find(AccountDetails.class, accountNumber))) 
+		{
+			AccountDetails account=entityManager.find(AccountDetails.class, accountNumber);
+			if(account.getAccountStatus().equals("Active"))
+			{
+				account.setAccountStatus("Close");
+				account.setAccountInterest((float) 0.0);
+				return true;
+			}
+			else
+			{
+				return false;
+			}
 		}
 		return false;
-		
 	}
+	
+/**************************************************************************************
+* Method           updateMobile
+* Description      To update the mobile number of the account holder
+* Created By       Vaishali Tiwari
+* Created on
+**************************************************************************************/
 
 	@Override
-	public boolean updateMobile( String mobileNumber,long accountNumber) {
+	public boolean updateMobile( String mobileNumber,long accountNumber) 
+	{
 		
-		if(entityManager.contains(entityManager.find(AccountDetails.class, accountNumber))) {
+		if(entityManager.contains(entityManager.find(AccountDetails.class, accountNumber))) 
+		{
 			AccountDetails account=entityManager.find(AccountDetails.class, accountNumber);
-			entityManager.remove(account);
-			account.getCustomerDetails().setContactNumber(mobileNumber);
-			entityManager.persist(account);
+			CustomerDetails customer=entityManager.find(CustomerDetails.class, account.getCustomerDetails().getCustomerId());
+			customer.setContactNumber(mobileNumber);
+			account.setCustomerDetails(customer);
 			return true;
-			}
+		}
 			return false;
 	}
-
+	
+/**************************************************************************************
+* Method           updateAddress
+* Description      To update the address of the account holder
+* Created By       Vaishali Tiwari
+* Created on
+* *************************************************************************************/
 	@Override
 	public boolean updateAddress(long accountNumber, AddressDetails address) {
 		
 		if(entityManager.contains(entityManager.find(AccountDetails.class, accountNumber))) {
 			AccountDetails account=entityManager.find(AccountDetails.class, accountNumber);
-			entityManager.remove(account);
+			CustomerDetails customer=entityManager.find(CustomerDetails.class, account.getCustomerDetails().getCustomerId());
 			AddressDetails address1=entityManager.find(AddressDetails.class, account.getCustomerDetails().getAddress().getAddressId());
 			address1.setCity(address.getCity());
 			address1.setState(address.getState());
 			address1.setStreet(address.getStreet());
 			address1.setZipCode(address.getZipCode());
-			account.getCustomerDetails().setAddress(address1);
-			entityManager.persist(account);
+			customer.setAddress(address1);
+			account.setCustomerDetails(customer);
 			return true;
 			}
 			return false;
 	}
+	
+/**************************************************************************************
+* Method           updateName
+* Description      To update the name of the account holder
+* Created By       Vaishali Tiwari
+* Created on
+**************************************************************************************/	
 
 	@Override
-	public boolean updateName(String name,long accountNumber) {
+	public boolean updateName(String fname,String lname,long accountNumber) 
+	{
 		
-		if(entityManager.contains(entityManager.find(AccountDetails.class, accountNumber))) {
+		if(entityManager.contains(entityManager.find(AccountDetails.class, accountNumber))) 
+		{
 			AccountDetails account=entityManager.find(AccountDetails.class, accountNumber);
-			entityManager.remove(account);
-			account.setAccountHolderName(name);
-			entityManager.persist(account);
+			CustomerDetails customer=entityManager.find(CustomerDetails.class, account.getCustomerDetails().getCustomerId());
+			customer.setCustomerFirstName(fname);
+			customer.setCustomerLastName(lname);
+			account.setAccountHolderName(fname+" "+lname);
+			account.setCustomerDetails(customer);
 			return true;
-			}
+		}
 			return false;
 	}
 
