@@ -16,7 +16,7 @@ import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
 @Entity
-@Table(name="ACCOUNT_IP")
+@Table(name="ACCOUNT_IPz")
 public class Account {
 	
 	@Id
@@ -34,7 +34,7 @@ public class Account {
 	int creditScore;
 	
 	@Column(name="Account_Interest")
-	String accountInterest;
+	int accountInterest;
 	
 	 
 
@@ -78,12 +78,12 @@ public class Account {
 		}
 
 
-		public String getAccountInterest() {
+		public int getAccountInterest() {
 			return accountInterest;
 		}
 
 
-		public void setAccountInterest(String accountInterest) {
+		public void setAccountInterest(int accountInterest) {
 			this.accountInterest = accountInterest;
 		}
 
@@ -92,7 +92,7 @@ public class Account {
 	    }
 	 
 	 
-	    public Account(String accountNumber, String accountHolderName,  int accountBalance, int  creditScore, String accountInterest
+	    public Account(String accountNumber, String accountHolderName,  int accountBalance, int  creditScore, int accountInterest
 )
 		{
 		this.accountNumber=accountNumber;

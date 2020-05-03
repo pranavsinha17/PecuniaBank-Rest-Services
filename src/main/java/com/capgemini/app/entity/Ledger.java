@@ -18,7 +18,7 @@ import javax.persistence.Table;
 
 
 @Entity
-@Table(name="Ledger_I")
+@Table(name="Ledger_Ipz")
 //@SequenceGenerator(name ="test_seq",initialValue=101, allocationSize = 1)
 public class Ledger {
 	
@@ -27,13 +27,11 @@ public class Ledger {
 	@SequenceGenerator(sequenceName = "ledger_seq", initialValue=10001, allocationSize = 1, name = "ledger_seq")
 	@Column(name="Loan_LedgerId")
 	private long loanLedgerId;
-	@ManyToOne(optional = false)   // One person can always to take more than one loan
-	@JoinColumn(name="Account_Number")
-	Account accountDetails;
-	@Column(name="EMI_Amount")
-	private double EMI_Amount;
+	
+	@Column(name="emi_Amount")
+	private double emiAmount;
 	@Column(name="Interest_Rate") //make a list of interest rate of different type of loan
-	private float interestRate;
+	private double interestRate;
 	@Column(name="EMI_Terms")
 	private int numberOfEMI;
 	@Column(name="Duration")
@@ -46,14 +44,17 @@ public class Ledger {
 	private LocalDate endDate;
 	@Column(name="LOAN_REQUESTID")
 	private long loanRequestId ;
+	@ManyToOne(optional = false)   // One person can always to take more than one loan
+	@JoinColumn(name="Account_Number")
+	Account accountDetails;
 	
-	public Ledger(long loanLedgerId, Account accountDetails, double eMI_Amount, float interestRate,
+	public Ledger(long loanLedgerId, double emiAmount, double interestRate,
 			int numberOfEMI, int duration, String status, LocalDate startDate, LocalDate endDate,
-			long loanRequestId) {
+			long loanRequestId, Account accountDetails) {
 		super();
 		this.loanLedgerId = loanLedgerId;
-		this.accountDetails = accountDetails;
-		EMI_Amount = eMI_Amount;
+		
+		this.emiAmount = emiAmount;
 		this.interestRate = interestRate;
 		this.numberOfEMI = numberOfEMI;
 		this.duration = duration;
@@ -61,6 +62,7 @@ public class Ledger {
 		this.startDate = startDate;
 		this.endDate = endDate;
 		this.loanRequestId = loanRequestId;
+		this.accountDetails = accountDetails;
 	}
 	/**
 	 * @return the loanLedgerId
@@ -89,25 +91,22 @@ public class Ledger {
 	/**
 	 * @return the eMI_Amount
 	 */
-	public double getEMI_Amount() {
-		return EMI_Amount;
+	public double getEmiAmount() {
+		return emiAmount;
 	}
-	/**
-	 * @param eMI_Amount the eMI_Amount to set
-	 */
-	public void setEMI_Amount(double eMI_Amount) {
-		EMI_Amount = eMI_Amount;
+	public void setEmiAmount(double emiAmount) {
+		this.emiAmount = emiAmount;
 	}
 	/**
 	 * @return the interestRate
 	 */
-	public float getInterestRate() {
+	public double getInterestRate() {
 		return interestRate;
 	}
 	/**
 	 * @param interestRate the interestRate to set
 	 */
-	public void setInterestRate(float interestRate) {
+	public void setInterestRate(double interestRate) {
 		this.interestRate = interestRate;
 	}
 	/**
@@ -184,14 +183,15 @@ public class Ledger {
 	}
 	@Override
 	public String toString() {
-		return "LoanLedger [loanLedgerId=" + loanLedgerId + ", accountDetails=" + accountDetails + ", EMI_Amount="
-				+ EMI_Amount + ", interestRate=" + interestRate + ", numberOfEMI=" + numberOfEMI + ", duration="
+		return "LoanLedger [loanLedgerId=" + loanLedgerId + ", EMI_Amount="
+				+ emiAmount + ", interestRate=" + interestRate + ", numberOfEMI=" + numberOfEMI + ", duration="
 				+ duration + ", status=" + status + ", startDate=" + startDate + ", endDate=" + endDate
-				+ ", loanRequestId=" + loanRequestId + "]";
+				+ ", loanRequestId=" + loanRequestId + ", accountDetails=" + accountDetails + "]";
 	}
 	public Ledger() {
 		super();
 	}
+	
 	
 
 	

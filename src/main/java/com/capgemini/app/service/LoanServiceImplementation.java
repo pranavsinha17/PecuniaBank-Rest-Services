@@ -1,6 +1,7 @@
 package com.capgemini.app.service;
 
 import java.time.LocalDate;
+
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,17 +13,48 @@ import com.capgemini.app.entity.Ledger;
 import com.capgemini.app.entity.Request;
 import com.capgemini.app.exception.UserException;
 
+/********************************************************************************
+ * @author       Amardeep Singh
+ * Description   This is a service class performing services such as adding request,calculating emi, check credit score
+                 , loan process, find account , view ledger by account number and view all ledger data
+
+ *Created On
+ 
+ ********************************************************************************/
+
+
 @Service
 public class LoanServiceImplementation implements LoanService{
 	
 	@Autowired
 	private LoanDao loanDao;
 
+	/********************************************************************************
+	* Method           addRequest
+	* Description      for adding the details of loan request in request according to loan schemes
+	                   
+	* returns boolean  returns true if all the details are added successfully else 
+	*                  returns false
+	* Created By       Amardeep Singh
+	* Created on
+	**********************************************************************************/
+	
 	@Override
 	public boolean addRequest(Request request) {
 		
 		return loanDao.addRequest(request);
 	}
+	
+
+	/********************************************************************************
+	* Method           calculateEMI
+	* Description      for calculating the emi by applying business logic
+	                   
+	* returns double  returns emi  
+	*                  
+	* Created By       Amardeep Singh
+	* Created on
+	**********************************************************************************/
 
 	@Override
 	public double calculateEMI(double loanAmount, int tenure, double roi) {
@@ -36,6 +68,16 @@ public class LoanServiceImplementation implements LoanService{
 		
 	}
 
+	/********************************************************************************
+	* Method           checkCreditScore
+	* Description      to check credit score according to business logic
+	                   
+	* returns boolean  returns true if credit score is valid else returns false
+	                 
+	* Created By       Amardeep Singh
+	* Created on
+	**********************************************************************************/
+	
 	@Override
 	public boolean checkCreditScore(int creditScore) {
 		// TODO Auto-generated method stub
@@ -46,8 +88,20 @@ public class LoanServiceImplementation implements LoanService{
 		return false;
 	}
 
+	
+	/********************************************************************************
+	* Method           loanProcess
+	* Description      to process loan request and set data into ledger if it is approved
+	                   
+	* returns string  returns message if loan is granted otherwise  returns error message
+	                 
+	* Created By       Amardeep Singh
+	* Created on
+	**********************************************************************************/
+	
+	
 	@Override
-	public boolean loanProcess(Request request) throws UserException{
+	public String loanProcess(Request request) throws UserException{
 		// TODO Auto-generated method stub
 		Account account=loanDao.existAccount(request.getAccountNumber());
 		if(account!=null)
@@ -58,16 +112,9 @@ public class LoanServiceImplementation implements LoanService{
 				double EMI=calculateEMI(request.getAmount(),request.getTenure(),request.getRoi());
 				Ledger ledger=new Ledger();
 				ledger.setAccountDetails(account);
-				ledger.setEMI_Amount(EMI);
+				ledger.setEmiAmount(EMI);
 				ledger.setDuration(request.getTenure());
-				if(request.getType().equals("Home"))
-				ledger.setInterestRate((float) 10.0);
-				else if(request.getType().equals("Education"))
-				ledger.setInterestRate((float) 6.0);
-				else if(request.getType().equals("Car"))
-				ledger.setInterestRate((float) 8.0);
-				else if(request.getType().equals("Personal"))
-				ledger.setInterestRate((float) 12.0);
+				ledger.setInterestRate(request.getRoi());
 				ledger.setLoanRequestId(request.getLoanRequestId());
 				ledger.setNumberOfEMI((int) (request.getTenure()*12));
 				ledger.setStartDate(LocalDate.now());
@@ -76,24 +123,33 @@ public class LoanServiceImplementation implements LoanService{
 				
 				
 				loanDao.addledger(ledger);
-				System.out.println("Your Loan Request has been approved for more details view Loan Ledger");
+				return "Your Loan Request has been approved for more details view Loan Ledger";
 			}
 			else
 			{
-			System.out.println("You can't get loan due to your previous track record");
-			throw new UserException("Your credit score is not good to grant your Loan Request");
+			throw new UserException("Your loan request has been rejected because your credit score is not good to grant your Loan Request");
 			}
 			
 			
 		}
 		else
 		{
-			System.out.println("Your account is not exists in our account firstly open account and then apply");
 			throw new UserException("Your Account does not Exist. To take loan first you have to open account in our bank. For that go to Account management branch.");
 		}
-		return false;
 	}
 
+	
+	/********************************************************************************
+	* Method           findAccount
+	* Description      to check if account is exist or not
+	                   
+	* returns boolean  returns true if account is exist otherwise  returns false
+	                 
+	* Created By       Amardeep Singh
+	* Created on
+	**********************************************************************************/
+	 
+	
 	@Override
 	public boolean findAccount(String accountNumber) throws UserException {
 		// TODO Auto-generated method stub
@@ -111,11 +167,31 @@ public class LoanServiceImplementation implements LoanService{
 }
 	
 
+	/********************************************************************************
+	* Method           viewAll
+	* Description      to get the all data of ledger 
+	                   
+	* returns list     return list of all ledger data
+	                 
+	* Created By       Amardeep Singh
+	* Created on
+	**********************************************************************************/
+	
 	@Override
 	public List<Ledger> viewAll() {
 		// TODO Auto-generated method stub
 		return loanDao.viewAllLedger();
 	}
+
+	/********************************************************************************
+	* Method           ViewLedger
+	* Description      to get the all data of ledger search by account number 
+	                   
+	* returns list     return list of all ledger data according to account number
+	                 
+	* Created By       Amardeep Singh
+	* Created on
+	**********************************************************************************/
 
 	@Override
 	public List<Ledger> ViewLedger(String accountNumber) {

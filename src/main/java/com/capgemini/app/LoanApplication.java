@@ -37,48 +37,23 @@ import org.springframework.beans.factory.annotation.Autowired;
 			
 			
 			
-		/*	Account accountManagement=new Account();
-			Request loanRequest=new Request();
-			accountManagement.setAccountNumber("872323432315");
-			accountManagement.setAccountHolderName("Anjali Singh");
-			accountManagement.setAccountBalance(7500);
-			accountManagement.setAccountInterest("3.5");
-			accountManagement.setCreditScore(450);
-			loanRequest.setAccountNumber(accountManagement);
-			loanRequest.setAmount(200000);
-			loanRequest.setRoi(10.5);
-			loanRequest.setTenure(6);
-			loanRequest.setType("Home");
-			
-			
-			Account accountManagement1=new Account();
-			Request loanRequest1=new Request();
-			accountManagement1.setAccountNumber("516118161787");
-			accountManagement1.setAccountHolderName("Sonia Bhardwaaj");
-			accountManagement1.setAccountBalance(8000);
-			accountManagement1.setAccountInterest("3.5");
-			accountManagement1.setCreditScore(740);
-			loanRequest1.setAccountNumber(accountManagement1);
-			loanRequest1.setAmount(700000);
-			loanRequest1.setRoi(8.5);
-			loanRequest1.setTenure(4);
-			loanRequest1.setType("car");*/
-			
+		
 
 			
 			
-			Account accountManagement3=new Account();
+		/*	Account accountManagement3=new Account();
 			Request loanRequest3=new Request();
-			accountManagement3.setAccountNumber("500000115005");
-			accountManagement3.setAccountHolderName("Manoj Kumar Meena");
-			accountManagement3.setAccountBalance(5000);
-			accountManagement3.setAccountInterest("3");
-			accountManagement3.setCreditScore(800);
-			loanRequest3.setAccountNumber("500000115005");
+			accountManagement3.setAccountNumber("123456780000");
+			accountManagement3.setAccountHolderName("Prabhjot");
+			accountManagement3.setAccountBalance(230000);
+			accountManagement3.setAccountInterest(3);
+			accountManagement3.setCreditScore(725);
+			loanDaoImplementation.insertAccountDetails(accountManagement3);
+		/*	loanRequest3.setAccountNumber("500000115014");
 			loanRequest3.setAmount(100000);
-			loanRequest3.setRoi(10);
+			loanRequest3.setRoi(8);
 			loanRequest3.setTenure(6);
-			loanRequest3.setType("home");
+			loanRequest3.setType("Personal");
 			
 			
 		//	loanDaoImplementation.insertAccountDetails(accountManagement);
@@ -91,7 +66,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 			
 			//Requesting for a loan
 		
-			try {
+	/*		try {
 			loanService.loanProcess(loanRequest3);
 			}
 	     catch (UserException e) {
@@ -101,7 +76,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 			loanService.viewAll();
 			
 			
-
+*/
 			
 			
 		}

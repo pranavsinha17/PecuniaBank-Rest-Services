@@ -17,7 +17,7 @@ import org.hibernate.annotations.DynamicUpdate;
 
 
 @Entity
-@Table(name="Request_L")
+@Table(name="Request_Lpz")
 @DynamicUpdate(true)
 @DynamicInsert(true)
 public class Request {
