@@ -9,23 +9,42 @@ import org.springframework.stereotype.Repository;
 
 import com.cg.pecuniabank.passbook.entity.AccountDetails;
 
-@Repository
-public class AccountDAOImpl implements AccountDAO{
-	
-	@Autowired
-	EntityManager em;
+/******************
+ * 
+ * @author Prabhjot This Dao is for inserting account details, for getting
+ *         Account Details by the account Id.
+ *
+ ******************/
 
-	@Override
-	public AccountDetails getAccountDetailsByAccountId(long accountId)
-	{
-		return em.find(AccountDetails.class, accountId);
-	}
-	
+@Repository
+public class AccountDAOImpl implements AccountDAO {
+
+	@Autowired
+	EntityManager entityManager;
+
+	/*****************
+	 * 
+	 * Method:insertAccountDetails Description: for persiting the account details.
+	 *
+	 *****************/
+
 	@Override
 	public void insertAccountDetails(AccountDetails accountDetails) {
-		accountDetails.setCreateDate(LocalDateTime.now());
-		em.persist(accountDetails);
+		accountDetails.setOpeningDate((LocalDateTime.now()));
+		entityManager.persist(accountDetails);
 	}
 
+	/*****************
+	 * 
+	 * Method:getAccountDetailsByAccountId. Description: for fetching the account
+	 * detail by the account id.
+	 * @return accountDetails by Account Id
+	 *
+	 *****************/
+
+	@Override
+	public AccountDetails getAccountDetailsByAccountId(long accountId) {
+		return entityManager.find(AccountDetails.class, accountId);
+	}
 
 }

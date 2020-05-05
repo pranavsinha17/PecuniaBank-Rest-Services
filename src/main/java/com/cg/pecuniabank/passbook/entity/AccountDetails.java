@@ -5,23 +5,29 @@ import java.time.LocalDateTime;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
+import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
 @Entity
 @Table(name="Account")
 public class AccountDetails {
 	
+
 	@Id
-	@Column(name ="Account_number") 
+	@Column(name="Account_number")
+	@GeneratedValue(strategy=GenerationType.SEQUENCE,generator="genName1")
+	@SequenceGenerator(name="genName1", sequenceName="acc",initialValue=1170000011,allocationSize=1)
 	private long accountNumber;
 
 	@OneToOne(cascade=CascadeType.ALL)   
 	@JoinColumn(name="Customer_ID")
-	private CustomerDetails customerDetails;
+	CustomerDetails customerDetails;
 	
 	@Column(name="Account_Holder_Name")
 	private String accountHolderName;
@@ -30,40 +36,36 @@ public class AccountDetails {
 	private String accountStatus;
 	
 	@Column(name="Account_Balance")
-	private String accountBalance;
-
-	@Column(name="Credit_Score")
-	private String creditScore;
+	private double accountBalance;
 	
 	@Column(name="Account_Interest")
-	private String accountInterest;
+	private float accountInterest;
 	
-	@Column(name="Create_Date")
-	private LocalDateTime createDate;
+	@Column(name="Opening_Date")
+	private LocalDateTime openingDate;	
 	
-	@ManyToOne(optional = false)  
-	@JoinColumn(name="Branch_Id")
-	private BranchDetails branchDetails;
-	
-	public AccountDetails()
-	{
-		
-	}
-	
+    @ManyToOne(optional = false)
+	@JoinColumn(name="Branch_Id") //According the customer location the branch is assigned.
+	BranchDetails branchdetails;
+    
+    public AccountDetails()
+    {
+    	super();
+    }
+
 	public AccountDetails(long accountNumber, CustomerDetails customerDetails, String accountHolderName,
-			String accountStatus, String accountBalance, String creditScore, String accountInterest,BranchDetails branchDetails) {
+			String accountStatus, double accountBalance, float accountInterest,
+			LocalDateTime openingDate, BranchDetails branchdetails) {
 		super();
-		this.accountNumber = accountNumber;
 		this.customerDetails = customerDetails;
 		this.accountHolderName = accountHolderName;
 		this.accountStatus = accountStatus;
 		this.accountBalance = accountBalance;
-		this.creditScore = creditScore;
 		this.accountInterest = accountInterest;
-		this.branchDetails=branchDetails;
+		this.openingDate = openingDate;
+		this.branchdetails = branchdetails;
 	}
 
-	
 	public long getAccountNumber() {
 		return accountNumber;
 	}
@@ -96,44 +98,45 @@ public class AccountDetails {
 		this.accountStatus = accountStatus;
 	}
 
-	public String getAccountBalance() {
+	public double getAccountBalance() {
 		return accountBalance;
 	}
 
-	public void setAccountBalance(String accountBalance) {
+	public void setAccountBalance(double accountBalance) {
 		this.accountBalance = accountBalance;
 	}
 
-	public String getCreditScore() {
-		return creditScore;
-	}
-
-	public void setCreditScore(String creditScore) {
-		this.creditScore = creditScore;
-	}
-
-	public String getAccountInterest() {
+	public float getAccountInterest() {
 		return accountInterest;
 	}
 
-	public void setAccountInterest(String accountInterest) {
+	public void setAccountInterest(float accountInterest) {
 		this.accountInterest = accountInterest;
 	}
 
-	public BranchDetails getBranchDetails() {
-		return branchDetails;
+	public LocalDateTime getOpeningDate() {
+		return openingDate;
 	}
 
-	public void setBranchDetails(BranchDetails branchDetails) {
-		this.branchDetails = branchDetails;
+	public void setOpeningDate(LocalDateTime openingDate) {
+		this.openingDate = openingDate;
 	}
 
-	public LocalDateTime getCreateDate() {
-		return createDate;
+	public BranchDetails getBranchdetails() {
+		return branchdetails;
 	}
 
-	public void setCreateDate(LocalDateTime createDate) {
-		this.createDate = createDate;
+	public void setBranchdetails(BranchDetails branchdetails) {
+		this.branchdetails = branchdetails;
 	}
+
+	@Override
+	public String toString() {
+		return "AccountDetails [accountNumber=" + accountNumber + ", customerDetails=" + customerDetails
+				+ ", accountHolderName=" + accountHolderName + ", accountStatus=" + accountStatus + ", accountBalance="
+				+ accountBalance + ",  accountInterest=" + accountInterest
+				+ ", openingDate=" + openingDate + ", branchdetails=" + branchdetails + "]";
+	}
+
+	
 }
-

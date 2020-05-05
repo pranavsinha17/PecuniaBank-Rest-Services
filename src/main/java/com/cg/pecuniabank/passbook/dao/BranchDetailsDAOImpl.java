@@ -11,11 +11,18 @@ import com.cg.pecuniabank.passbook.entity.BranchDetails;
 public class BranchDetailsDAOImpl implements BranchDetailsDAO{
 	
 	@Autowired
-	EntityManager em;
+	EntityManager entityManager;
+	
+	/*******************
+	 * 
+	 * Method:insertBranchDetails
+	 * Description:it is for saving the branch details.
+	 * 
+	 */
 	
 	@Override
 	public void insertBranchDetails(BranchDetails branchDetails) {
-		em.persist(branchDetails);		
+		entityManager.persist(branchDetails);		
 	}
 
 

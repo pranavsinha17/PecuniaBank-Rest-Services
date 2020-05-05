@@ -32,13 +32,13 @@ public class BranchDetails {
 	
 	@OneToOne(cascade=CascadeType.ALL)   // 1:1 unidirectional
 	@JoinColumn(name="address_id")
-	Address address;
+	AddressDetails address;
 	
 	public BranchDetails() {
 		super();
 	}
 	
-	public BranchDetails(int branchId, String branchName, String branchIFSC, Address address ,String phoneNumber) {
+	public BranchDetails(int branchId, String branchName, String branchIFSC, AddressDetails address ,String phoneNumber) {
 		super();
 		this.branchId = branchId;
 		this.branchName = branchName;
@@ -67,10 +67,10 @@ public class BranchDetails {
 	public void setBranchIFSC(String branchIFSC) {
 		this.branchIFSC = branchIFSC;
 	}
-	public Address getAddress() {
+	public AddressDetails getAddress() {
 		return address;
 	}
-	public void setAddress(Address address) {
+	public void setAddress(AddressDetails address) {
 		this.address = address;
 	}
 	public String getPhoneNumber() {

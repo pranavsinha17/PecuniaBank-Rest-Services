@@ -13,57 +13,62 @@ import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
 @Entity
-@Table(name="Customer")
+@Table(name = "Customers")
 public class CustomerDetails {
-	
-	@Id
-	@Column(name="Customer_ID")
-	@GeneratedValue(strategy=GenerationType.SEQUENCE,generator="genName2")
-	@SequenceGenerator(name="genName2", sequenceName="id2",initialValue=212242,allocationSize=1)
-	private long customerId; 
 
-	@Column(name="Customer_First_Name")
+	@Id
+	@Column(name = "Customer_ID")
+	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "genName2")
+	@SequenceGenerator(name = "genName2", sequenceName = "customer", initialValue = 146501, allocationSize = 1)
+	private long customerId;
+
+	@Column(name = "Customer_First_Name")
 	private String customerFirstName;
-	
-	@Column(name="Employee_Last_Name")
+
+	@Column(name = "Customer_Last_Name")
 	private String customerLastName;
-	
-	@Column(name="DOB")
+
+	@Column(name = "DOB")
 	private String DOB;
-	
-	@Column(name="Age")
+
+	@Column(name = "Age")
 	private String age;
-	
-	@Column(name="Gender")
+
+	@Column(name = "Gender")
 	private String gender;
-	
-	@Column(name="Contact_Number")
+
+	@Column(name = "Contact_Number")
 	private String contactNumber;
-	
-	@Column(name="Pan_Number")
+
+	@Column(name = "Pan_Number")
 	private String panNumber;
-	
-	@Column(name="Adhaar_Number")
+
+	@Column(name = "Adhaar_Number")
 	private String adhaarNumber;
-	
-	@Column(name="Account_Type") 
+
+	@Column(name = "Account_Type")
 	private String accountType;
-	
-	@Column(name="Opening_Balance") 
-	private String openingBalance;
-	
-	@OneToOne(cascade=CascadeType.ALL) 
-	@JoinColumn(name="address_id")
-	private Address address;
-	
-	public CustomerDetails()
-	{
-		
+
+	@Column(name = "Opening_Balance")
+	private int openingBalance;
+
+	@OneToOne(cascade = CascadeType.ALL)
+	@JoinColumn(name = "address_id")
+	private AddressDetails address;
+
+	@Column(name = "BranchId")
+	private int branchId;
+
+	@Column(name = "Credit_Score")
+	private int creditScore;
+
+	public CustomerDetails() {
+		super();
 	}
 
 	public CustomerDetails(long customerId, String customerFirstName, String customerLastName, String dOB, String age,
 			String gender, String contactNumber, String panNumber, String adhaarNumber, String accountType,
-			String openingBalance) {
+			int openingBalance, AddressDetails address, int branchId, int creditScore) {
 		super();
 		this.customerId = customerId;
 		this.customerFirstName = customerFirstName;
@@ -76,6 +81,9 @@ public class CustomerDetails {
 		this.adhaarNumber = adhaarNumber;
 		this.accountType = accountType;
 		this.openingBalance = openingBalance;
+		this.address = address;
+		this.branchId = branchId;
+		this.creditScore = creditScore;
 	}
 
 	public long getCustomerId() {
@@ -158,20 +166,45 @@ public class CustomerDetails {
 		this.accountType = accountType;
 	}
 
-	public String getOpeningBalance() {
+	public int getOpeningBalance() {
 		return openingBalance;
 	}
 
-	public void setOpeningBalance(String openingBalance) {
+	public void setOpeningBalance(int openingBalance) {
 		this.openingBalance = openingBalance;
 	}
 
-	public Address getAddress() {
+	public AddressDetails getAddress() {
 		return address;
 	}
 
-	public void setAddress(Address address) {
+	public void setAddress(AddressDetails address) {
 		this.address = address;
-	}	
+	}
+
+	public int getBranchId() {
+		return branchId;
+	}
+
+	public void setBranchId(int branchId) {
+		this.branchId = branchId;
+	}
+
+	public int getCreditScore() {
+		return creditScore;
+	}
+
+	public void setCreditScore(int creditScore) {
+		this.creditScore = creditScore;
+	}
+
+	@Override
+	public String toString() {
+		return "CustomerDetails [customerId=" + customerId + ", customerFirstName=" + customerFirstName
+				+ ", customerLastName=" + customerLastName + ", DOB=" + DOB + ", age=" + age + ", gender=" + gender
+				+ ", contactNumber=" + contactNumber + ", panNumber=" + panNumber + ", adhaarNumber=" + adhaarNumber
+				+ ", accountType=" + accountType + ", openingBalance=" + openingBalance + ", address=" + address
+				+ ", branchId=" + branchId + ", creditScore=" + creditScore + "]";
+	}
 
 }

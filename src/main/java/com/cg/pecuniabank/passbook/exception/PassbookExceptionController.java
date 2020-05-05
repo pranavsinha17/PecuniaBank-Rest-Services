@@ -14,8 +14,8 @@ public class PassbookExceptionController {
 		return new ResponseEntity<>(accountDetailsException.getMessage(),HttpStatus.NOT_FOUND);
 	}
 	
-	@ExceptionHandler(value=TransactionsNotFoundException.class)
-	public ResponseEntity<Object> handleException1(TransactionsNotFoundException transactionsNotFoundException)
+	@ExceptionHandler(value=TransactionFailedException.class)
+	public ResponseEntity<Object> handleException1(TransactionFailedException transactionsNotFoundException)
 	{
 		return new ResponseEntity<>(transactionsNotFoundException.getMessage(),HttpStatus.NOT_FOUND);	
 	}

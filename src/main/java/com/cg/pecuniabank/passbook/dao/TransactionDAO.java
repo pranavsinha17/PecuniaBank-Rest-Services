@@ -7,9 +7,9 @@ import com.cg.pecuniabank.passbook.entity.Transaction;
 
 public interface TransactionDAO {
 	
-	List<Transaction> getAccountTransactionDetails(long accountId);
 	void insertTransactionDetails(Transaction transactionDetails);
 	List<Transaction> getAccountTransactionByDateRange(long accountNumber, LocalDateTime fromDate, LocalDateTime toDate);
 	List<Transaction> getTransactionDetailsAfterLastUpdateDate(long accountNumber,LocalDateTime lastUpdateDate);
+	List<Transaction> getAccountTransactionDetails(long accountId);
 
 }
