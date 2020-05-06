@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.RestControllerAdvice;
 public class ExceptionController {
 	@ExceptionHandler(value = UserDefinedException.class)
 	public ResponseEntity<Object> handleException1(UserDefinedException exception) {
-		return new ResponseEntity<>(exception.getMessage(),HttpStatus.NOT_FOUND );
+		return new ResponseEntity<>(exception.getMessage(), HttpStatus.NOT_FOUND);
 	}
 
 }

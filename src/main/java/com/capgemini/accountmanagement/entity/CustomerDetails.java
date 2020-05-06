@@ -1,4 +1,5 @@
 package com.capgemini.accountmanagement.entity;
+
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -9,60 +10,59 @@ import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
-
+import javax.persistence.UniqueConstraint;
 
 @Entity
-@Table(name="Customers")
+@Table(name = "Customers")
 public class CustomerDetails {
-	
-	@Id
-	@Column(name="Customer_ID")
-	@GeneratedValue(strategy=GenerationType.SEQUENCE,generator="genName2")
-	@SequenceGenerator(name="genName2", sequenceName="customer",initialValue=146501,allocationSize=1)
-	private long customerId; 
 
-	@Column(name="Customer_First_Name")
+	@Id
+	@Column(name = "Customer_ID")
+	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "genName2")
+	@SequenceGenerator(name = "genName2", sequenceName = "customer", initialValue = 146501, allocationSize = 1)
+	private long customerId;
+
+	@Column(name = "Customer_First_Name")
 	private String customerFirstName;
-	
-	@Column(name="Customer_Last_Name")
+
+	@Column(name = "Customer_Last_Name")
 	private String customerLastName;
-	
-	@Column(name="DOB")
+
+	@Column(name = "DOB")
 	private String DOB;
-	
-	@Column(name="Age")
+
+	@Column(name = "Age")
 	private String age;
-	
-	@Column(name="Gender")
+
+	@Column(name = "Gender")
 	private String gender;
-	
-	@Column(name="Contact_Number")
+
+	@Column(name = "Contact_Number")
 	private String contactNumber;
-	
-	@Column(name="Pan_Number")
+
+	@Column(name = "Pan_Number", length = 50, unique = true)
 	private String panNumber;
-	
-	@Column(name="Adhaar_Number")
+
+	@Column(name = "Adhaar_Number", length = 50, unique = true)
 	private String adhaarNumber;
-	
-	@Column(name="Account_Type") 
+
+	@Column(name = "Account_Type")
 	private String accountType;
-	
-	@Column(name="Opening_Balance") 
+
+	@Column(name = "Opening_Balance")
 	private int openingBalance;
-	
-	@OneToOne(cascade=CascadeType.ALL) 
-	@JoinColumn(name="address_id")
+
+	@OneToOne(cascade = CascadeType.ALL)
+	@JoinColumn(name = "address_id")
 	private AddressDetails address;
-	
-	@Column(name="BranchId")
+
+	@Column(name = "BranchId")
 	private int branchId;
-	
-	@Column(name="Credit_Score")
+
+	@Column(name = "Credit_Score")
 	private int creditScore;
-	
-	public CustomerDetails()
-	{
+
+	public CustomerDetails() {
 		super();
 	}
 
@@ -83,7 +83,7 @@ public class CustomerDetails {
 		this.openingBalance = openingBalance;
 		this.address = address;
 		this.branchId = branchId;
-		this.creditScore=creditScore;
+		this.creditScore = creditScore;
 	}
 
 	public long getCustomerId() {
@@ -206,10 +206,5 @@ public class CustomerDetails {
 				+ ", accountType=" + accountType + ", openingBalance=" + openingBalance + ", address=" + address
 				+ ", branchId=" + branchId + ", creditScore=" + creditScore + "]";
 	}
-	
-	
-	
-	
-	
 
 }

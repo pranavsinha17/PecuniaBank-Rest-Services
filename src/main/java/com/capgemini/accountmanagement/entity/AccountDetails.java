@@ -15,47 +15,46 @@ import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
 @Entity
-@Table(name="Accounts")
+@Table(name = "Accounts")
 public class AccountDetails {
-	
-	@Id 
-	@Column(name="Account_number")
-	@GeneratedValue(strategy=GenerationType.SEQUENCE,generator="genName1")
-	@SequenceGenerator(name="genName1", sequenceName="acc",initialValue=1875662201,allocationSize=1)
+
+	@Id
+	@Column(name = "Account_number")
+	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "genName1")
+	@SequenceGenerator(name = "genName1", sequenceName = "acc", initialValue = 1875662201, allocationSize = 1)
 	private long accountNumber;
 
-	@OneToOne(cascade=CascadeType.ALL)   
-	@JoinColumn(name="Customer_ID")
+	@OneToOne(cascade = CascadeType.ALL)
+	@JoinColumn(name = "Customer_ID")
 	CustomerDetails customerDetails;
-	
-	@Column(name="Account_Holder_Name")
-	private String accountHolderName;
-	
-	@Column(name="Account_Status")
-	private String accountStatus;
-	
-	@Column(name="Account_Balance")
-	private double accountBalance;
-	
-	@Column(name="Account_Interest")
-	private float accountInterest;
-	
-	@Column(name="Opening_Date")
-	private LocalDateTime openingDate;	
-	
-    @ManyToOne(optional = false)
-	@JoinColumn(name="Branch_Id") 
 
-    BranchDetails branchdetails;
-    
-    public AccountDetails()
-    {
-    	super();
-    }
+	@Column(name = "Account_Holder_Name")
+	private String accountHolderName;
+
+	@Column(name = "Account_Status")
+	private String accountStatus;
+
+	@Column(name = "Account_Balance")
+	private double accountBalance;
+
+	@Column(name = "Account_Interest")
+	private float accountInterest;
+
+	@Column(name = "Opening_Date")
+	private LocalDateTime openingDate;
+
+	@ManyToOne(optional = false)
+	@JoinColumn(name = "Branch_Id")
+
+	BranchDetails branchdetails;
+
+	public AccountDetails() {
+		super();
+	}
 
 	public AccountDetails(long accountNumber, CustomerDetails customerDetails, String accountHolderName,
-			String accountStatus, double accountBalance, float accountInterest,
-			LocalDateTime openingDate, BranchDetails branchdetails) {
+			String accountStatus, double accountBalance, float accountInterest, LocalDateTime openingDate,
+			BranchDetails branchdetails) {
 		super();
 		this.accountNumber = accountNumber;
 		this.customerDetails = customerDetails;
@@ -135,9 +134,8 @@ public class AccountDetails {
 	public String toString() {
 		return "AccountDetails [accountNumber=" + accountNumber + ", customerDetails=" + customerDetails
 				+ ", accountHolderName=" + accountHolderName + ", accountStatus=" + accountStatus + ", accountBalance="
-				+ accountBalance + ",  accountInterest=" + accountInterest
-				+ ", openingDate=" + openingDate + ", branchdetails=" + branchdetails + "]";
+				+ accountBalance + ",  accountInterest=" + accountInterest + ", openingDate=" + openingDate
+				+ ", branchdetails=" + branchdetails + "]";
 	}
 
-	
 }

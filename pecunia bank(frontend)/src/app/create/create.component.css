@@ -1,0 +1,65 @@
+.container {
+    margin-top: 25px;
+    background-color: whitesmoke; 
+    height: inherit;
+    padding-bottom: 12px;
+    border-radius: 0px 0px 5px 5px;
+}
+
+
+h1{
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: white;
+    font-weight: bold;
+    margin-top: 10px;
+}
+p{
+    color: white;
+    font-weight: bold;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+/* .submitButton{
+    margin-right: 5px;
+    color: white;
+    background-color:steelblue;
+    height: 45px;
+    width: 120px;
+    text-align: center;
+    border-radius: 5px;
+    text-decoration: none;
+    font-size: 16px;
+    box-shadow: 1px 1px steelblue;
+    border: 0px;
+}
+
+.resetButton{
+    margin-left: 5px;
+    color: white;
+    background-color:black;
+    height: 45px;
+    width: 120px;
+    border-radius: 5px;
+    text-align: center;
+    text-decoration: none;
+    font-size: 16px;
+    box-shadow: 1px 1px black;
+    border: 0px;
+} */
+
+.row{
+    background-color: black;
+    display: list-item;
+    padding-left: 16px;
+    border-radius: 5px 5px 0px 0px;
+    padding-bottom: 8px;
+    list-style: none;
+}
+
+.btn-dark{
+    margin-top: 8px;
+    margin-left: 8px;
+}
+
+.btn-dark:hover{
+    color: white;
+}

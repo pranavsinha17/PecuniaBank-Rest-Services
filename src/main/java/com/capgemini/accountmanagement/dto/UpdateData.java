@@ -3,21 +3,20 @@ package com.capgemini.accountmanagement.dto;
 import com.capgemini.accountmanagement.entity.AddressDetails;
 
 /********************************************************************************
- * @author       Vaishali Tiwari
- * Description   This class is used as DTO,i.e,data transfer object
- * Created On
- 
+ * @author       Vaishali Tiwari 
+ * Description   This class is used as DTO,i.e,data transfer object Created On
+ *         
  ********************************************************************************/
 
 public class UpdateData {
-	
-	 String mobileNumber;
-	 long accountNumber;
-	 AddressDetails address;
-	 String firstName;
-	 String lastName;
-	 
-	 public UpdateData(long accountNumber, String firstName, String lastName) {
+
+	String mobileNumber;
+	long accountNumber;
+	AddressDetails address;
+	String firstName;
+	String lastName;
+
+	public UpdateData(long accountNumber, String firstName, String lastName) {
 		super();
 		this.accountNumber = accountNumber;
 		this.firstName = firstName;
@@ -29,7 +28,7 @@ public class UpdateData {
 		this.mobileNumber = mobileNumber;
 		this.accountNumber = accountNumber;
 	}
-	
+
 	public UpdateData(long accountNumber, AddressDetails address) {
 		super();
 		this.accountNumber = accountNumber;
@@ -51,34 +50,33 @@ public class UpdateData {
 	public void setLastName(String lastName) {
 		this.lastName = lastName;
 	}
-	
+
 	public UpdateData() {
 		super();
 	}
-	
+
 	public AddressDetails getAddress() {
 		return address;
 	}
-	
+
 	public void setAddress(AddressDetails address) {
 		this.address = address;
 	}
-	
+
 	public String getMobileNumber() {
 		return mobileNumber;
 	}
-	
+
 	public void setMobileNumber(String mobileNumber) {
 		this.mobileNumber = mobileNumber;
 	}
-	
+
 	public long getAccountNumber() {
 		return accountNumber;
 	}
-	
+
 	public void setAccountNumber(long accountNumber) {
 		this.accountNumber = accountNumber;
 	}
 
 }
-
