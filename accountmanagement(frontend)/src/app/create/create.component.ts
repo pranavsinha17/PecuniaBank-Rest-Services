@@ -13,7 +13,7 @@ import { AccountService } from '../Account.service';
 })
 export class CreateComponent implements OnInit {
 
-  userModel=new User('','','','','','','','','',null,new Address('','','',''),'118001',null);  
+  userModel=new User('','','','','','','','','',null,new Address('','','',''),'',null);  
   
   data=[];
   dataPan=[];

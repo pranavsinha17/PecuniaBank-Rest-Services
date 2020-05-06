@@ -7,8 +7,6 @@ import com.capgemini.accountmanagement.entity.BranchDetails;
 
 public interface AccountDao {
 
-	public String updateBalance(long accountNumber, double balance);
-
 	public boolean checkAccountExist(long accountNumber);
 
 	public AccountDetails findAccountDetails(long accountNumber);

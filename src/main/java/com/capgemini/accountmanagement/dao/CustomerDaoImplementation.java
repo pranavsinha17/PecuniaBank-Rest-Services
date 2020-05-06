@@ -52,18 +52,6 @@ public class CustomerDaoImplementation implements CustomerDao {
 	}
 
 	/**********************************************************************************
-	 * Method        findCustomer 
-	 * Description   for finding the customer details 
-	 * Created By    Vaishali Tiwari
-	 * Created on
-	 ***********************************************************************************/
-
-	@Override
-	public CustomerDetails findCustomer(long customerId) {
-		return entityManager.find(CustomerDetails.class, customerId);
-	}
-
-	/**********************************************************************************
 	 * Method        deleteAccount 
 	 * Description   To delete account,by changing the status from "Active" to "Close" 
 	 * Created By    Vaishali Tiwari 

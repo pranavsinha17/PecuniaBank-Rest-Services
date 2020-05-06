@@ -30,20 +30,7 @@ public class AccountDaoImplementation implements AccountDao {
 	@Autowired
 	EntityManager entityManager;
 
-	/********************************************************************************
-	 * Method          updateBalance 
-	 * Description     for updating the balance of account after any transaction 
-	 * returns String  returns null when the balance is updated
-	 * Created By      Vaishali Tiwari 
-	 * Created on
-	 *********************************************************************************/
 
-	@Override
-	public String updateBalance(long accountNumber, double balance) {
-		AccountDetails accountDetails = entityManager.find(AccountDetails.class, accountNumber);
-		accountDetails.setAccountBalance(balance);
-		return null;
-	}
 
 	/********************************************************************************
 	 * Method            checkAccountExist 

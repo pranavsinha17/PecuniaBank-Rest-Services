@@ -95,10 +95,7 @@ public class AccountManagementController {
 		boolean result = accountService.deleteAccount(accountNumber);
 		if (result) {
 			response = "{\"data\":\"Account deleted Sucessfully\"}";
-		} else {
-			response = "{\"data\":\"Account doesn't exists\"}";
-		}
-		// throw new UserDefinedException("Account Number is Invalid");
+		} 
 		return new ResponseEntity<String>(response, HttpStatus.OK);
 	}
 

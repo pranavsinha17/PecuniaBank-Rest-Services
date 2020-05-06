@@ -9,7 +9,7 @@ import org.springframework.stereotype.Service;
 
 import com.capgemini.accountmanagement.entity.AccountDetails;
 import com.capgemini.accountmanagement.entity.BranchDetails;
-import com.capgemini.accountmanagement.entity.EmployeeCredentials;
+
 
 /********************************************************************************
  * @author      Vaishali Tiwari 
@@ -34,17 +34,6 @@ public class DaoService {
 
 	public void insertBranchDetails(BranchDetails branchDetails) {
 		entityManager.persist(branchDetails);
-	}
-
-	/**************************************************************************************
-	 * Method         insertEmployee 
-	 * Description    To setting up the database for Employee
-	 * Created By     Vaishali Tiwari 
-	 * Created on
-	 ***************************************************************************************/
-
-	public void insertEmployee(EmployeeCredentials employeeCredentials) {
-		entityManager.persist(employeeCredentials);
 	}
 
 	/**************************************************************************************

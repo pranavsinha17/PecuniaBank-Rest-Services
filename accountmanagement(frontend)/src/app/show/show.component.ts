@@ -36,6 +36,7 @@ export class ShowComponent implements OnInit {
   'Gender',
   'Adhaar Number',
   'Account Type',
+  'BranchId'
   ];
 
   customerKeys=['customerId',
@@ -46,7 +47,8 @@ export class ShowComponent implements OnInit {
   'contactNumber',
   'gender',
   'adhaarNumber',
-  'accountType'
+  'accountType',
+  'branchId'
   ];
 
   addressHeaders=['Street',

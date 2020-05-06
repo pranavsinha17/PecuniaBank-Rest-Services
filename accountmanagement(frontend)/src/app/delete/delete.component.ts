@@ -1,8 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {Router} from '@angular/router';
 import { AccountService } from '../Account.service';
-import { DeleteAccount } from '../delete';
-
 
 @Component({
   selector: 'app-delete',
