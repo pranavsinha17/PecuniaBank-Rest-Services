@@ -1,0 +1,131 @@
+
+<div class="container" >
+   
+      <section class="col-md-20 mx-auto mt-4">
+    
+        <p id="para1">Account Summary</p>
+       <div class="alert alert-danger" *ngIf="accountErrorInfo!= undefined">
+         {{accountErrorInfo}}</div>
+        <form #frm="ngForm" (ngSubmit)= "submit(accountSummaryData)"> 
+          <div class="mt-3"><b>Enter Account Id:</b></div>
+          <div>
+            <input type="text" name="accountId" 
+             pattern=[0-9]{10} maxlength="10" 
+            [(ngModel)]="accountSummaryData.accountNumber" class="form-control" 
+            placeholder="Account Number"
+            #accountNumber="ngModel" required /> 
+          </div>
+            <div class="alert alert-dark" *ngIf="accountNumber.invalid && (accountNumber.touched || accountNumber.dirty)">
+            *  Account Id must be of 10 digits only.
+            </div>
+
+
+          <div class="form-row" style="display: inline-flex;">
+          <div class="col">
+          <div class="mt-3"><b>From:</b></div>
+          <div>
+            <input style="width: 350px;"  type="date" name="startingDateId" [(ngModel)]="accountSummaryData.startingDate" class="form-control" 
+            #startingDate="ngModel" required /> 
+          </div>
+            <div class="alert alert-dark" *ngIf="startingDate.invalid && (startingDate.touched || startingDate.dirty)">
+            * Starting Date must be filled.
+            </div>
+          </div>
+
+          <div class="col">
+            <div class="mt-3" style="margin-left: 50px;"><b>To:</b></div>
+          <div>
+            <input  style="width: 350px; margin-left: 50px;" type="date" name="endingDate1" [(ngModel)]="accountSummaryData.endingDate" class="form-control" 
+
+            #endingDate="ngModel" required/> 
+          </div>
+            <div class="alert alert-dark" style="margin-left: 50px;" *ngIf="endingDate.invalid && (endingDate.touched || endingDate.dirty)">
+            * Ending Date must be filled.
+            </div>
+          </div>
+        </div>
+            
+        <div class="form-row" style="display: inline-flex;">
+            <input type="submit" [disabled]="!frm.valid" class="btn btn-success" value="submit" style="margin-left: 280px;margin-right: 50px;"/>
+            <input type="reset" class="btn btn-success"  value="Reset"/>
+          </div>
+       
+          </form>
+      </section> 
+    </div> 
+
+    <div class="container" class="display" *ngIf="val1">
+        <div class="container" class="div div-card">
+        <div class="card" style="width: 100rem; height: 100rem;" class="shadow-lg p-3 mb-5 bg-white rounded">
+        <div class="card-body">
+      
+        <div class="card-body" class="card-header">
+          <p id="para2"> <b>Account Number:</b> {{accountDetails.accountNumber}}</p>
+        </div>
+          <div class="card-body" class="div1">
+       <p><b>Branch Id:</b> {{accountDetails.branchdetails.branchId}}</p>
+        <p><b>Branch Name:</b> {{accountDetails.branchdetails.branchName}}</p>
+        <p><b>Branch IFSC:</b> {{accountDetails.branchdetails.branchIFSC}}</p>
+        <p><b>Branch Phone No:</b> {{accountDetails.branchdetails.phoneNumber}}</p>
+        <p><b>Branch Address:</b> {{accountDetails.branchdetails.address.street}} {{accountDetails.branchdetails.address.city}}
+          {{accountDetails.branchdetails.address.state}}, {{accountDetails.branchdetails.address.zipCode}}
+        </p>
+      </div>
+      
+      
+      <div class="card-body" class="div2"  > 
+       
+        <p> <b>Account Holder Name:</b> {{accountDetails.accountHolderName}}</p>
+        <p> <b>Account Status:</b> {{accountDetails.accountStatus}}</p>
+        <p> <b>Account Balance:</b> {{accountDetails.accountBalance}}</p>
+        <p> <b>Customer ID:</b> {{accountDetails.customerDetails.customerId}}</p>
+        <p> <b>Address:</b> {{accountDetails.customerDetails.address.street}} {{accountDetails.customerDetails.address.city}}
+        {{accountDetails.customerDetails.address.state}} {{accountDetails.customerDetails.address.zipCode}}
+       </p> 
+       </div> 
+      
+      </div>  
+      </div>
+      </div>
+      </div> 
+      
+     
+      
+<div class="div-table" *ngIf="val2">
+    <table style="border-radius: 2px; border-style: dotted;" class="table table-hover">
+    <thead style="background-color:lightgray"> 
+      <tr>
+     <th  style="height: 40px; width: 120px;" >DATE</th>
+     <th >TRANS ID</th>
+     <th>ACCOUNT NUMBER</th>
+     <th>BENIFICARY NAME</th>
+     <th >BENIFICARY ACCOUNT NUMBER</th>
+     <th >BANK NAME</th>
+     <th> AMOUNT</th>
+     <th> OPTION</th>
+     <th>TYPE</th>
+     <th> STATUS</th>
+    </tr>
+    </thead>
+    
+     <tbody>
+         <tr *ngFor="let transaction of transactions  | orderBy:'transactionDate'">  
+         <td>{{transaction.transactionDate | date:'medium'}}</td>
+         <td>{{transaction.transactionId}}</td>
+         <td>{{transaction.accountNumber}}</td>
+         <td>{{transaction.benificaryName}}</td>
+         <td>{{transaction.benificaryAccoountNumber}}</td>
+         <td>{{transaction.bankName}}</td>
+         <td>{{transaction.transactionAmount}}</td>
+         <td>{{transaction.transactionOption}}</td>
+         <td>{{transaction.transactionType}}</td>
+         <td>{{transaction.transactionStatus}}</td>
+        </tr>
+        <tr><td colspan="10" style="text-align: right; height: 50px;background-color: #F5F7F7; margin-left: 50px;"><b>Account Balance :</b>{{accountDetails.accountBalance}}</td></tr>
+     </tbody>  
+   </table> 
+  </div>
+
+
+
+    
