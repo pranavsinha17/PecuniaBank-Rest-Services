@@ -1,0 +1,50 @@
+<header>         
+  <mdb-navbar SideClass="navbar fixed-top navbar-expand-lg navbar-dark scrolling-navbar" [containerInside]="false">
+      <logo>
+          <a class="logo navbar-brand" routerLinkActive="active" routerLink="home"><strong>Pecunia</strong></a>
+      </logo>
+      <links>
+          <ul class="navbar-nav mr-auto">
+            
+              <li class="nav-item active waves-light" mdbRippleRadius>
+                  <a *ngIf="loginService.isUserLoggedIn() && !ngOnInit()" class="nav-link">Account Department<span class="sr-only">(current)</span></a>
+              </li>
+              <li class="nav-item active waves-light" mdbRippleRadius>
+                  <a *ngIf="loginService.isUserLoggedIn() && !ngOnInit()" class="nav-link">Loan Department</a>
+              </li>
+              <!-- <li class="nav-item active waves-light" mdbRippleRadius>
+                  <a *ngIf="loginService.isUserLoggedIn() && !ngOnInit()" routerLinkActive="active" routerLink="transaction-department" class="nav-link" >Transaction Department</a>
+                
+              </li> -->
+              <li class="nav-item dropdown nav-item active waves-light" mdbRippleRadius dropdown>
+                <a *ngIf="loginService.isUserLoggedIn() && !ngOnInit()" dropdownToggle mdbWavesEffect type="button" class="nav-link dropdown-toggle waves-light" mdbWavesEffect>
+                  Transaction Department<span class="caret"></span></a>
+                <div *dropdownMenu class="dropdown-menu dropdown dropdown-primary" role="menu">
+                  <a class="dropdown-item waves-light" mdbWavesEffect routerLinkActive="active" routerLink="transaction-by-cheque" >Transact By Cheque</a>
+                  <div class="divider dropdown-divider"></div>
+                  <a class="dropdown-item waves-light" mdbWavesEffect routerLinkActive="active" routerLink="transaction-by-slip" >Transact By Slip</a>
+                </div>
+              </li>
+              <li class="nav-item active waves-light" mdbRippleRadius>
+                <a *ngIf="loginService.isUserLoggedIn() && !ngOnInit()" class="nav-link">Passbook Entry</a>
+            </li>
+          </ul>
+          <div class="nav navbar-nav navbar-right">
+            <ul class="navbar-nav mr-auto" >
+              <li class="nav-item active waves-light" mdbRippleRadius>
+                <a *ngIf="loginService.isUserLoggedIn() && ngOnInit()" routerLinkActive="active" routerLink="add-employee" class="nav-link" >Add Employee</a>
+            </li>
+            <li class="nav-item active waves-light" mdbRippleRadius>
+              <a *ngIf="loginService.isUserLoggedIn()" routerLinkActive="active" routerLink="logout" class="nav-link" >Logout</a>
+          </li>
+            <li class="nav-item active waves-light" mdbRippleRadius>
+              <a *ngIf="!loginService.isUserLoggedIn()" routerLinkActive="active" routerLink="login" class="nav-link" ><strong>Employee Login</strong></a>
+            </li>
+            </ul>
+            </div>
+      </links>
+       
+  </mdb-navbar>
+  <router-outlet></router-outlet> 
+  
+  

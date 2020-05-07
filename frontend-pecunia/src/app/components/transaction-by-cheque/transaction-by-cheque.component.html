@@ -1,0 +1,133 @@
+<div class="view intro hm-purple-light" style="">
+    <div class="full-bg-img flex-center">
+        <div class="fadeInUp flex-center">
+             <div class="container login-form-2" style="text-align: center;">
+                
+                <form #frm="ngForm" class="form-group" style="display: list-item;">
+                    <h1>Transaction By Cheque</h1>
+                    <div >
+                        <label for="Type">Transaction Type</label>
+                           <select class="form-control"  id="power"
+                                 required
+                                 [(ngModel)]="cheque.transactionType" name="Type">
+                             <option *ngFor="let type of transactionType" [value]="type">{{type}}</option>
+                          </select>
+                      </div>
+            
+                    <div class="mt-3">Cheque Number</div>
+                    <div><input type="text" name="Number" [(ngModel)]="cheque.chequeNumber"    minlength="6" maxlength="6" pattern="[0-9]+" class="form-control" #number="ngModel"
+                        required /></div>
+                    <div class="alert alert-dark mt-3" *ngIf="number.invalid && (number.touched || number.dirty)">cheque Number is
+                      required and Id must contain numeric value and also length=6  .</div>
+            
+                      <div class="mt-3">Issue Date</div>
+                            <div><input type="date" name="Issue" [(ngModel)]="cheque.issueDate1"    minlength="10" maxlength="10"  class="form-control" #Issue="ngModel"
+                                required /></div>
+                            <div class="alert alert-dark mt-3" *ngIf="Issue.invalid && (Issue.touched || Issue.dirty)">cheque issuedate  is
+                              required and must contain  value must within 3 months.</div>
+            
+            
+                              <div class="mt-3">Cheque Account Number</div>
+                      <div><input type="text" name="AccNumber" [(ngModel)]="cheque.accountNumber"    minlength="7" maxlength="7" pattern="[0-9]+" class="form-control" #Accnumber="ngModel"
+                          required /></div>
+                      <div class="alert alert-dark mt-3" *ngIf="Accnumber.invalid && (Accnumber.touched || Accnumber.dirty)">cheque Account Number is
+                        required and Id must contain numeric value and also length=7.</div>
+            
+                        <div *ngIf='cheque.transactionType==="Credit"'>
+                        <div class="mt-3">Cheque Benificary Account Number</div>
+                        <div  ><input type="text" name="BAccNumber" [(ngModel)]="cheque.benificaryAccountNumber"    minlength="7" maxlength="7" pattern="[0-9]+" class="form-control" #bAccnumber="ngModel"
+                            required /></div>
+                        <div class="alert alert-dark mt-3" *ngIf="bAccnumber.invalid && (bAccnumber.touched || bAccnumber.dirty)">cheque Benificary Account Number is
+                          required and Id must contain numeric value and also length=7  .</div>
+                        </div>
+            
+                          <div class="mt-3">Cheque Amount</div>
+                          <div><input type="text"  name="Amount" [(ngModel)]="cheque.amount"    minlength="3" maxlength="6" pattern="[0-9]+" class="form-control" #amount="ngModel"
+                              required /></div>
+                          <div class="alert alert-dark mt-3" *ngIf="amount.invalid && (amount.touched || amount.dirty)"> min Amount 100 and max amount 200000  cheque Amount is
+                            required and  must contain numeric value </div>
+            
+                    <div class="mt-3">payee</div>
+              <div><input type="text" name="payee" [(ngModel)]="cheque.payName"    minlength="3" maxlength="25" pattern="[a-zA-Z]+" class="form-control" #payee="ngModel"
+                  required /></div>
+              <div class="alert alert-dark mt-3" *ngIf="payee.invalid && (payee.touched || payee.dirty)">Payee Name is
+                required and must contain alpha value and also min length=3 and max=25 .</div>
+                   
+                      
+                         
+            
+                <div >
+                  <label for="Type">Bank Name</label>
+                  <select class="form-control"  id="bank"
+                          required
+                          [(ngModel)]="cheque.bankName" name="bankType">
+                    <option *ngFor="let type of bankType" [value]="type">{{type}}</option>
+                  </select>
+                </div>
+                <div class="mt-3">Bank IFSC code</div>
+                <div><input type="text" name="BankIFSC" [(ngModel)]="cheque.IFSC"    minlength="10" maxlength="10" pattern="[a-zA-Z0-9]+" class="form-control" #branchIFSC="ngModel"
+                required /></div>
+                <div class="alert alert-dark mt-3" *ngIf="branchIFSC.invalid && (branchIFSC.touched || branchIFSC.dirty)">Branch IFSC code is
+                required and must contain alpha-numeric  value and also length is 10.</div>
+                <div class="mt-3"><button class="btnRegister" type="submit" [disabled]="!frm.valid" (click)="doTransaction()">Proceed</button>
+               </div>
+            
+            
+                    </form>
+
+                </div>
+                <p>{{transactionStatement}}</p>
+<!--Transaction statment generated by the transaction-->
+             
+<div class="div-table" *ngIf="val">
+  <p style="text-align: center;">Last Transaction Statment</p>
+  <table style="border-radius: 2px; border-style: dotted;"  class="table table-striped">
+  <thead style="background-color:lightgray"> 
+    <tr>
+   <th  style="height: 40px; width: 100px;" >DATE</th>
+   <th >TRANS ID</th>
+   <th>ACCOUNT NUMBER</th>
+   <th>BENIFICARY NAME</th>
+   <th >BENIFICARY ACCOUNT NUMBER</th>
+   <th >BANK NAME</th>
+   <th> AMOUNT</th>
+   <th> OPTION</th>
+   <th>TYPE</th>
+   <th> STATUS</th>
+  </tr>
+  </thead>
+  
+   <tbody>
+      <!-- 
+       <td>{{transaction.transactionDate}}</td>
+       <td>{{transaction.transactionId}}</td>
+       <td>{{transaction.accountNumber}}</td>
+       <td>{{transaction.benificaryName}}</td>
+       <td>{{transaction.benificaryAccoountNumber}}</td>
+       <td>{{transaction.bankName}}</td>
+       <td>{{transaction.transactionAmount}}</td>
+       <td>{{transaction.transactionOption}}</td>
+       <td>{{transaction.transactionType}}</td>
+       <td>{{transaction.transactionStatus}}</td>
+   -->
+   </tbody>  
+ </table> 
+</div>
+  
+</div>
+</div>
+</div>
+
+
+<footer class="page-footer font-small unique-color-dark">
+
+    
+    <!-- Copyright -->
+    <div class="footer-copyright text-center py-3">© 2020 Copyright:
+        <a href="#">with ♥ @pranavsinha17</a>
+    </div>
+    <!-- Copyright -->
+    
+    </footer>
+
+

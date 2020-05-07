@@ -1,0 +1,70 @@
+form{
+    display: flex;
+}
+
+div {
+    
+    padding-top: 5%;
+  }
+  @media (max-width: 979px) {
+    div {
+      padding-top: 110px;
+    }
+    .col-25, .col-75, input[type=submit] {
+        width: 100%;
+        margin-top: 0;
+      }
+
+  }
+  input[type="radio"]{
+    margin: 10px 0;
+  }
+  label + label {
+    margin-left: 20px;
+}
+  .row:after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+  
+.view {
+    background: url("/assets/img/slide_3.jpg")no-repeat center center;
+    background-size: cover;
+    
+    filter: opacity(65%);
+    fill-opacity: initial;
+    
+    
+}
+  /*          */
+.login-form-2{
+    padding: 9%;
+    background: #f05837;
+    box-shadow: 0 5px 8px 0 rgba(0, 0, 0, 0.2), 0 9px 26px 0 rgba(0, 0, 0, 0.19);
+   margin-top: 20%;
+    margin: auto 0px;
+    margin-bottom: 15%;
+    min-width: 500px;
+    max-width: auto;
+}
+
+
+
+.btnRegister{
+    float: center;
+    margin-top: 10%;
+    border: none;
+    border-radius: 1.5rem;
+    padding: 2%;
+    background: #0062cc;
+    color: #fff;
+    font-weight: 600;
+    width: 50%;
+    cursor: pointer;
+}
+
+label{margin-left: 20px;}
+#datepicker{width:180px; margin: 0 20px 20px 20px;}
+#datepicker > span:hover{cursor: pointer;}
+
