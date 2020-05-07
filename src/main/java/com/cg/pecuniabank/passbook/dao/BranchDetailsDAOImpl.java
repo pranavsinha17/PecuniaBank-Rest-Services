@@ -13,12 +13,13 @@ public class BranchDetailsDAOImpl implements BranchDetailsDAO{
 	@Autowired
 	EntityManager entityManager;
 	
-	/*******************
+	/*********************************************************
 	 * 
-	 * Method:insertBranchDetails
-	 * Description:it is for saving the branch details.
+	 * Method: insertBranchDetails
+	 * Description: it is for saving the branch details.
+	 * created by : Prabhjot, 22 April 2020  
 	 * 
-	 */
+	 **********************************************************/
 	
 	@Override
 	public void insertBranchDetails(BranchDetails branchDetails) {

@@ -16,6 +16,7 @@ import com.cg.pecuniabank.passbook.entity.PassbookUpdate;
  * @author Prabhjot
  * Description : It provides the dao for saving the passbook update details in
  * the passbook Update entity, updating the lastupdatedate of the account number.
+ * created by : Prabhjot ,21 April 2020
  *
  ********************************************************************************/
 
@@ -31,6 +32,7 @@ public class PassbookDAOImpl implements PassbookDAO {
 	 * 
 	 * Method : passbookUpdateNewEntry
 	 * Description : for saving the new passbookDetails in PassbookUpdate entity.
+	 * created by : Prabhjot ,22 April 2020
 	 * 
 	 *****************************************************************************/
 
@@ -44,6 +46,7 @@ public class PassbookDAOImpl implements PassbookDAO {
 	 * 
 	 * Method : passbookUpdateChangeLastUpdate
 	 * Description : for updating the details in the PassbookUpdate table.
+	 * created by : Prabhjot ,22 April 2020
 	 * 
 	 ***************************************************************************/
 	
@@ -62,6 +65,7 @@ public class PassbookDAOImpl implements PassbookDAO {
 	 * Method : passbookUpdateDetailsByAccountNumber
 	 * Description : for fetching the PassbookUpdate details by the account Number.
 	 * @return it will return the passbook update details by account number.
+	 * created by : Prabhjot ,22 April 2020
 	 * 
 	 *******************************************************************************/
 	

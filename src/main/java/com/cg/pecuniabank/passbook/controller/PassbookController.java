@@ -35,6 +35,8 @@ public class PassbookController {
 	 * @return account details 
 	 * @throws AccountDoesntExistException 
 	 * 
+	 * created by : Prabhjot ,24 April 2020
+	 * 
 	 **************************************************************************************************/
 
 	@CrossOrigin(origins = "http://localhost:4200")
@@ -54,6 +56,8 @@ public class PassbookController {
 	 * @return transaction list.
 	 * @throws AccountDoesntExistException 
 	 * @throws TransactionFailedException 
+	 * 
+	 * created by : Prabhjot ,24 April 2020
 	 * 
 	 **************************************************************************************************/
 	
@@ -77,6 +81,8 @@ public class PassbookController {
 	 * @throws AccountDoesntExistException 
 	 * @throws TransactionFailedException 
 	 * 
+	 * created by : Prabhjot ,24 April 2020
+	 * 
 	 ********************************************************************************************************/
 
 	@CrossOrigin(origins = "http://localhost:4200")
@@ -97,6 +103,8 @@ public class PassbookController {
 	 * @return passbookUpdateDetails
 	 * @throws AccountDoesntExistException 
 	 *  
+	 *  created by : Prabhjot ,24 April 2020
+	 *  
 	 **********************************************************************************************************/
 	
 	@CrossOrigin(origins = "http://localhost:4200")
@@ -116,11 +124,13 @@ public class PassbookController {
 	 * @return transactions list
 	 * @throws TransactionFailedException 
 	 *  
+	 *  created by : Prabhjot ,24 April 2020
+	 *  
 	 **********************************************************************************************************/
 	
 	@CrossOrigin(origins = "http://localhost:4200")
 	@GetMapping("passbook/transactions/{accountNumber}/{lastUpdateDate}")
-	public List<Transaction> getTransactions(@PathVariable("accountNumber") long accountNumber,
+	public List<Transaction> updatePassbook(@PathVariable("accountNumber") long accountNumber,
 			@PathVariable("lastUpdateDate") @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME) LocalDateTime lastUpdatedDate) throws TransactionFailedException {
 		return passbookService.getTransactionDetailsAfterLastUpdateDate(accountNumber, lastUpdatedDate);
 	}
