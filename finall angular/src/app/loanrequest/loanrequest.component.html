@@ -1,0 +1,75 @@
+<div class="container" >
+  <section class="col-md-20 mx-auto mt-4">
+  <div class="alert alert-danger"  *ngIf="accountErrorInfo!= undefined">{{accountErrorInfo}}</div>
+  <form #frm="ngForm" (ngSubmit)="checkAccount(accountNumber1)" class="form-inline"> 
+    <div class="mt-3"><b>Enter Account Id:</b></div>
+    <div>
+
+      <input type="number" pattern=[0-9]{12}
+      name="txtid" [(ngModel)]="accountNumber1" class="form-control" 
+      minlength="12" maxlength="12" #accountNumber="ngModel" required /> 
+      <input type="submit" [disabled]="!frm.valid" class="btn btn-success" value="Check Account"/>
+    </div>
+      <div class="alert alert-danger" *ngIf="accountNumber.invalid && (accountNumber.touched || accountNumber.dirty)">
+      * Account Id must be of 12 digits Only.
+      </div>
+  </form>
+
+</section> 
+</div> 
+
+<div *ngIf="val1">
+ 
+  <section class="col-md-10 mx-auto mt-4">
+
+    <form #frm="ngForm" (ngSubmit)="loanRequest()">
+
+      <label>Loan Amount</label>
+      <div><input type="number" pattern="(?=.*[0-9]).{5,7}" name="amount" [(ngModel)]="request.amount" class="form-control" #amount="ngModel"
+          required minlength="3"  ngModel maxlength="7" placeholder="Enter loan amount"/></div>
+      <div class="alert alert-danger mt-3" *ngIf="amount.invalid && (amount.touched || amount.dirty)">
+          Minimum Loan amount is 10000 and maximum is 2000000.
+    
+        
+      </div>
+      
+
+
+     
+        <div class="mt-3">
+          <label for="loanTypeSelect">Loan Type</label>
+          <select class="form-control input-lg" id="loanTypeSelect" name="type"  [(ngModel)]="request.type">
+            <option value="" disabled selected>Please Select Loan type--</option> 
+          <option value='Home'>Home</option>
+          <option value='Car'>Car</option>
+          <option value='Personal'>Personal</option>
+          <option value='Education'>Education</option>
+          <option value='StartUp'>StartUp</option>
+          </select>
+      </div>
+
+
+      <label>Loan Tenure</label>
+        <div><input type="number" pattern="(?=.*[0-9]).{1}"  name="tenure" [(ngModel)]="request.tenure" class="form-control" #tenure="ngModel"
+            required minlength="1" required maxlength="2" placeholder="Enter loan tenure"/></div>
+        <div class="alert alert-danger mt-3" *ngIf="tenure.invalid && (tenure.touched || tenure.dirty)">
+          Loan Tenure must be between 1 to 9 years. 
+         
+
+        </div>
+
+       
+     
+      <div class="existing" *ngIf="val2">
+            <div class="mt-3">
+               <br>
+               <label>Account Number</label>
+               <input type="text" name="accountNumber" class="form-control"  [(ngModel)]="request.accountNumber" disabled=true #accountNumber="ngModel" value={{accountNumber2}}>
+           </div>
+      </div>
+
+  
+      <div class="mt-3"><input type="submit" [disabled]="!frm.valid"  class="btn btn-success" /></div>
+    </form>
+  </section>
+</div>

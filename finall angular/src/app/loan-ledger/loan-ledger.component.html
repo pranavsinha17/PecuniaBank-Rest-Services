@@ -1,0 +1,44 @@
+
+ 
+
+<!--<p>loan---{{loan.loanLedgerId}} {{loan.emiAmount}} {{loan.interestRate}} {{loan.numberOfEMI}} {{loan.duration}} {{loan.status}} {{loan.startDate}} {{loan.endDate}} {{loan.loanRequestId}} </p>-->
+
+
+    
+<div class="div-table" >
+<table style="border-radius: 2px; border-style: dotted;"  class="table table-striped">
+<thead style="background-color:lightgray"> 
+  <tr>
+ <th  style="height: 40px; width: 100px;" >Account number</th>
+ <th>Account holder Name</th>
+ <th >LoanRequestId</th>
+ <th>LoanLedgerId</th>
+ <th>LoanType</th>
+ <th>EmiAmount</th>
+ <th >InterestRate</th>
+ <th >NumberOfEMI</th>
+ <th> Duration</th>
+ <th> Status</th>
+ <th>StartDate</th>
+ <th> EndDate</th>
+</tr>
+</thead>
+
+ <tbody>
+     <tr *ngFor="let ledger of loan">  
+      <td>{{ledger.accountDetails.accountNumber}}</td>
+      <td>{{ledger.accountDetails.accountHolderName}}</td>
+      <td>{{ledger.loanRequestId}}</td>
+     <td>{{ledger.loanLedgerId}}</td>
+     <td>{{ledger.loanType}}</td>
+     <td>{{ledger.emiAmount}} </td>
+     <td>{{ledger.interestRate}}</td>
+     <td>{{ledger.numberOfEMI}}</td>
+     <td>{{ledger.duration}}</td>
+     <td>{{ledger.status}} </td>
+     <td>{{ledger.startDate}} </td>
+     <td>{{ledger.endDate}}</td>
+ </tbody>  
+</table> 
+</div>
+
