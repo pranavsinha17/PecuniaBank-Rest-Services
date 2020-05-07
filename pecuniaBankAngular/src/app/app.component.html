@@ -1,0 +1,32 @@
+<header>
+<nav  class="navbar navbar-inverse navbar-custom ">
+    <div class="container-fluid"> 
+      <div class="navbar-header"> 
+      <a class="navbar-brand">Pecunia Bank</a> 
+      </div> 
+       <ul class="nav navbar-nav"> 
+            <li><a id="list1"*ngIf="!loginService.isUserLoggedIn()" routerLinkActive="routerLinkActive" routerLink="login">Log-In</a></li> 
+      <li class="dropdown"> 
+          <a  class="dropdown-toggle" data-toggle="dropdown"> 
+              Transaction<span class="caret"></span></a> 
+          <ul class="dropdown-menu"> 
+             <li ><a id="list1"*ngIf="loginService.isUserLoggedIn()" routerLinkActive="routerLinkActive" routerLink="Transcation">Daily Transcation</a></li> 
+             <li><a id="list1" *ngIf="loginService.isUserLoggedIn()" routerLinkActive="routerLinkActive" routerLink="DepositSlip">Deposit Money Using Slip</a></li> 
+             <li><a id="list1" *ngIf="loginService.isUserLoggedIn()" routerLinkActive="routerLinkActive" routerLink="WithdrawalSlip">Withdrawal Money Using Slip</a></li> 
+             <li><a id="list1"*ngIf="loginService.isUserLoggedIn()" routerLinkActive="routerLinkActive" routerLink="WithdrawalCheque">Withdrawal Money Using Cheque</a></li> 
+             <li><a id="list1"*ngIf="loginService.isUserLoggedIn()" routerLinkActive="routerLinkActive" routerLink="DepositCheque">Deposit Money Using Cheque</a></li> 
+             <li><a id="list1"*ngIf="loginService.isUserLoggedIn()" routerLinkActive="routerLinkActive" routerLink="TransferCheque">Transfer Money Using cheque</a></li> 
+             <li><a id="list1"*ngIf="loginService.isUserLoggedIn()" routerLinkActive="routerLinkActive" routerLink="logout">Log-Out</a></li> 
+         </ul> 
+      </li> 
+      </ul> 
+  </div> 
+  </nav>
+</header>
+  <router-outlet></router-outlet>
+  <footer class="footer" style="background-color:rgb(241, 241, 207);">
+    <div class="container">
+        <span class="text-muted">All Rights Reserved 2020 @PECUNIA BANK</span>
+    </div>
+  
+  </footer>
