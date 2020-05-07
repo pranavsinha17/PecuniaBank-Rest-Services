@@ -25,11 +25,24 @@ export class DeleteComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  
+  /**********************************************************************************
+	 * Method        goHome 
+	 * Description   for going back to the homepage
+	 * Created By    Vaishali Tiwari
+	 * Created on    29-April-2020
+	 ***********************************************************************************/
   goHome()
   {
     this.router.navigate(['']);
   }
 
+    /**********************************************************************************
+	 * Method        find 
+	 * Description   checks whether the account exists or not
+	 * Created By    Vaishali Tiwari
+	 * Created on    29-April-2020
+	 ***********************************************************************************/
   find(value:any)
   {
     if(value.length>=10)
@@ -57,6 +70,13 @@ export class DeleteComponent implements OnInit {
     }
   }
 
+    /**********************************************************************************
+	 * Method        deleteAccount
+	 * Description   deleting an account associated with the account number provided
+	 * Created By    Vaishali Tiwari
+	 * Created on    29-April-2020
+	 ***********************************************************************************/
+
   deleteAccount(accountNumber:any)
   {
     this._deleteService.deleteAccount(accountNumber)
@@ -71,6 +91,13 @@ export class DeleteComponent implements OnInit {
       }
     );
   }
+
+  /**********************************************************************************
+	 * Method        getAccountByAccountNumber 
+	 * Description   for getting the details of account by account number
+	 * Created By    Vaishali Tiwari
+	 * Created on    29-April-2020
+	 ***********************************************************************************/
 
   getAccountByAccountNumber(value:any)
   {

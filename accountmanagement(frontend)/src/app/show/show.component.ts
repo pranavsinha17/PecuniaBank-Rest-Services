@@ -74,6 +74,13 @@ export class ShowComponent implements OnInit {
   ngOnInit(): void {
   }
 
+
+  /**********************************************************************************
+	 * Method        getAccount 
+	 * Description   for getting the list of accounts with details 
+	 * Created By    Vaishali Tiwari
+	 * Created on    29-April-2020
+	 ***********************************************************************************/
   getAccount()
   {
       this._createService.getAccount().subscribe(
@@ -86,6 +93,13 @@ export class ShowComponent implements OnInit {
         error=>{console.error(error)}
       );
   }
+
+  /**********************************************************************************
+	 * Method        goHome 
+	 * Description   for going back to the homepage
+	 * Created By    Vaishali Tiwari
+	 * Created on    29-April-2020
+	 ***********************************************************************************/
   
   goHome()
   {

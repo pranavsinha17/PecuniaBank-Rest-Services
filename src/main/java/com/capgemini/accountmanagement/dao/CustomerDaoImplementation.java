@@ -16,7 +16,7 @@ import com.capgemini.accountmanagement.entity.CustomerDetails;
  * Description   This Dao is for saving the account
  *               details,saving the customer details,fetch customer details, delete
  *               account,update the account details(name,contact number,address)
- * Created On
+ * Created On    21-April-2020
  * 
  ********************************************************************************/
 @Transactional
@@ -31,7 +31,7 @@ public class CustomerDaoImplementation implements CustomerDao {
 	 * Method        addCustomer 
 	 * Description   for saving the customer details 
 	 * Created By    Vaishali Tiwari 
-	 * Created on
+	 * Created on    22-April-2020
 	 ***********************************************************************************/
 
 	@Override
@@ -43,7 +43,7 @@ public class CustomerDaoImplementation implements CustomerDao {
 	 * Method        addAccount 
 	 * Description   for saving the account details
 	 * Created By    Vaishali Tiwari
-	 * Created on
+	 * Created on    22-April-2020
 	 ***********************************************************************************/
 
 	@Override
@@ -55,7 +55,7 @@ public class CustomerDaoImplementation implements CustomerDao {
 	 * Method        deleteAccount 
 	 * Description   To delete account,by changing the status from "Active" to "Close" 
 	 * Created By    Vaishali Tiwari 
-	 * Created on
+	 * Created on    22-April-2020
 	 ***********************************************************************************/
 
 	@Override
@@ -78,7 +78,7 @@ public class CustomerDaoImplementation implements CustomerDao {
 	 * Method         updateMobile 
 	 * Description    To update the mobile number of the account holder
 	 * Created By     Vaishali Tiwari 
-	 * Created on
+	 * Created on     22-April-2020
 	 **************************************************************************************/
 
 	@Override
@@ -99,7 +99,7 @@ public class CustomerDaoImplementation implements CustomerDao {
 	 * Method        updateAddress 
 	 * Description   To update the address of the account holder
 	 * Created By    Vaishali Tiwari 
-	 * Created on
+	 * Created on    22-April-2020
 	 *************************************************************************************/
 	@Override
 	public boolean updateAddress(long accountNumber, AddressDetails address) {
@@ -125,7 +125,7 @@ public class CustomerDaoImplementation implements CustomerDao {
 	 * Method       updateName 
 	 * Description  To update the name of the account holder
 	 * Created By   Vaishali Tiwari  
-	 * Created on
+	 * Created on   22-April-2020
 	 **************************************************************************************/
 
 	@Override

@@ -42,10 +42,25 @@ export class UpdateComponent implements OnInit {
   ngOnInit(): void {
   }
   
+  /**********************************************************************************
+	 * Method        goHome 
+	 * Description   for going back to the homepage
+	 * Created By    Vaishali Tiwari
+	 * Created on    29-April-2020
+	 ***********************************************************************************/
+  
   goHome()
   {
     this.router.navigate(['']);
   }
+
+  
+  /**********************************************************************************
+	 * Method        onSubmit
+	 * Description   for submitting the updated details(name,contact number or address)
+	 * Created By    Vaishali Tiwari
+	 * Created on    29-April-2020
+	 ***********************************************************************************/
   onSubmit()
   {
     if(this.nameValue)
@@ -87,6 +102,14 @@ export class UpdateComponent implements OnInit {
     }
   }
 
+  
+  /**********************************************************************************
+	 * Method        find 
+	 * Description   checks whether the account exists or not
+	 * Created By    Vaishali Tiwari
+	 * Created on    29-April-2020
+	 ***********************************************************************************/
+
   find(value:any)
   {
     if(value.length>=10)
@@ -121,6 +144,14 @@ export class UpdateComponent implements OnInit {
       this.showExisting=false;
     }
   }
+
+  
+  /**********************************************************************************
+	 * Method        getAccountByAccountNumber 
+	 * Description   for getting the details of account by account number
+	 * Created By    Vaishali Tiwari
+	 * Created on    29-April-2020
+	 ***********************************************************************************/
 
   getAccountByAccountNumber(value:any)
   {

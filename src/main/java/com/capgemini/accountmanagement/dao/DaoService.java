@@ -14,7 +14,7 @@ import com.capgemini.accountmanagement.entity.BranchDetails;
 /********************************************************************************
  * @author      Vaishali Tiwari 
  * Description  This Dao is for setting up the database
- * Created On
+ * Created On   21-April-2020
  * 
  *********************************************************************************/
 @Transactional
@@ -29,7 +29,7 @@ public class DaoService {
 	 * Method       insertBranchDetails 
 	 * Description  To setting up the database for branch details 
 	 * Created By   Vaishali Tiwari 
-	 * Created on
+	 * Created on   22-April-2020
 	 ***************************************************************************************/
 
 	public void insertBranchDetails(BranchDetails branchDetails) {
@@ -40,7 +40,7 @@ public class DaoService {
 	 * Method         insertAccountDetails 
 	 * Description    To setting up the database for account details
 	 * Created By     Vaishali Tiwari 
-	 * Created on
+	 * Created on     22-April-2020
 	 ***************************************************************************************/
 
 	public void insertAccountDetails(AccountDetails accountDetails) {

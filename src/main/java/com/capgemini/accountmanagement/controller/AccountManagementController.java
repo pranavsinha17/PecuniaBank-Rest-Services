@@ -25,8 +25,7 @@ import com.capgemini.accountmanagement.service.AccountService;
  * @author      Vaishali Tiwari 
  * Description  This is the controller class, it is responsible to manage the
  *              flow of the application.
- * Created On
- * 
+ * Created On   21-April-2020 
  ********************************************************************************/
 
 @RestController
@@ -43,7 +42,7 @@ public class AccountManagementController {
 	 *               of data returns Response
 	 * returns       response as added  successfully if account is added 
 	 * Created By    Vaishali Tiwari
-	 * Created on
+	 * Created on    24-April-2020
 	 **********************************************************************************/
 
 	@CrossOrigin(origins = "http://localhost:4200")
@@ -64,7 +63,7 @@ public class AccountManagementController {
 	 * returns       boolean response as Mobile number updated successfully if mobile
 	 *               number is updated otherwise it will throw an exception
 	 * Created By    Vaishali Tiwari 
-	 * Created on
+	 * Created on    24-April-2020
 	 **********************************************************************************/
 
 	@CrossOrigin(origins = "http://localhost:4200")
@@ -86,7 +85,7 @@ public class AccountManagementController {
 	 * returns       boolean response as Account deleted successfully if account is
 	 *               deleted otherwise it will throw an exception
 	 * Created By    Vaishali Tiwari 
-	 * Created on
+	 * Created on    24-April-2020
 	 **********************************************************************************/
 
 	@CrossOrigin(origins = "http://localhost:4200")
@@ -105,7 +104,7 @@ public class AccountManagementController {
 	 * returns      boolean returns response as address updated successfully if 
 	 *              address is updated 
 	 * Created By   Vaishali Tiwari
-	 * Created on 
+	 * Created on   24-April-2020
 	 **********************************************************************************/
 
 	@CrossOrigin(origins = "http://localhost:4200")
@@ -125,7 +124,7 @@ public class AccountManagementController {
 	 * returns       boolean returns response as Name updated successfully if name
 	 *               is updated
 	 * Created By    Vaishali Tiwari 
-	 * Created on
+	 * Created on    24-April-2020
 	 **********************************************************************************/
 
 	@CrossOrigin(origins = "http://localhost:4200")
@@ -144,7 +143,7 @@ public class AccountManagementController {
 	 * Description   it calls the allAccount to provide details of all account
 	 * returns       boolean returns response as list of account whose status is active
 	 * Created By    Vaishali Tiwari 
-	 * Created on
+	 * Created on    24-April-2020
 	 **********************************************************************************/
 
 	@CrossOrigin(origins = "http://localhost:4200")
@@ -168,7 +167,7 @@ public class AccountManagementController {
 	 * boolean       returns response as account doesn't exist if account is not present
 	 *               in the database
 	 * Created By    Vaishali Tiwari
-	 * Created on
+	 * Created on    24-April-2020
 	 **********************************************************************************/
 
 	@CrossOrigin(origins = "http://localhost:4200")
@@ -187,11 +186,11 @@ public class AccountManagementController {
 	}
 
 	/********************************************************************************
-	 * Method        getAccountDetails 
-	 * Description   To get the account details returns boolean response as account
-	 *               details according to the given account number
-	 * Created By    Vaishali Tiwari 
-	 * Created on
+	 * Method         getAccountDetails 
+	 * Description    To get the account details 
+	 * returns        account details according to the given account number        
+	 * Created By     Vaishali Tiwari 
+	 * Created on     24-April-2020
 	 **********************************************************************************/
 
 	@CrossOrigin(origins = "http://localhost:4200")

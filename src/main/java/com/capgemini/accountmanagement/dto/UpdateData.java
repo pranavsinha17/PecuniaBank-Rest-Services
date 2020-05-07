@@ -4,8 +4,8 @@ import com.capgemini.accountmanagement.entity.AddressDetails;
 
 /********************************************************************************
  * @author       Vaishali Tiwari 
- * Description   This class is used as DTO,i.e,data transfer object Created On
- *         
+ * Description   This class is used as DTO,i.e,data transfer object 
+ * Created On    21-April-2020        
  ********************************************************************************/
 
 public class UpdateData {

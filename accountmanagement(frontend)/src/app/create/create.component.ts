@@ -34,10 +34,24 @@ export class CreateComponent implements OnInit {
  
   }
 
+    /**********************************************************************************
+	 * Method        goHome
+	 * Description   for going back to the home page
+	 * Created By    Vaishali Tiwari
+	 * Created on    29-April-2020
+	 ***********************************************************************************/
+
    goHome(){
      
      this.router.navigate(['']);
    }
+
+     /**********************************************************************************
+	 * Method        getAge 
+	 * Description   to calculate age with the help of dob provided
+	 * Created By    Vaishali Tiwari
+	 * Created on    29-April-2020
+	 ***********************************************************************************/
 
   getAge(value:any){
 
@@ -50,6 +64,14 @@ export class CreateComponent implements OnInit {
       this.userModel.age = age.toString();
     }
   }
+
+    /**********************************************************************************
+	 * Method        checkAdhaar 
+	 * Description   checks whether the adhaar number mentioned already exists or not
+	 * Created By    Vaishali Tiwari
+	 * Created on    29-April-2020
+	 ***********************************************************************************/
+
   checkAdhaar(value)
   {
     if(value.length==11)
@@ -77,6 +99,14 @@ export class CreateComponent implements OnInit {
 
     }
   }
+
+   /**********************************************************************************
+	 * Method        checkPan
+	 * Description   checks whether the pan number mentioned already exists or not
+	 * Created By    Vaishali Tiwari
+	 * Created on    29-April-2020
+	 ***********************************************************************************/
+
   checkPan(value)
   {
     if(value.length==9)
@@ -104,6 +134,12 @@ export class CreateComponent implements OnInit {
 
   }
   
+   /**********************************************************************************
+	 * Method        find
+	 * Description   to find the list of adhaar numbers and pan numbers
+	 * Created By    Vaishali Tiwari
+	 * Created on    29-April-2020
+	 ***********************************************************************************/
 
   find()
   {
