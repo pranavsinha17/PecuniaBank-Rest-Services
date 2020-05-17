@@ -4,14 +4,16 @@ import { HomeComponent } from './components/home/home.component';
 import { LogoutComponent } from './components/logout/logout.component';
 import { AuthGaurdService } from './services/auth-guard.service';
 import { AddEmployeeComponent } from './components/add-employee/add-employee.component';
-import { TransactionBySlipComponent } from './components/transaction-by-slip/transaction-by-slip.component';
-import { TransactionByChequeComponent } from './components/transaction-by-cheque/transaction-by-cheque.component';
+import { ResetPasswordComponent } from './components/reset-password/reset-password.component';
 
 
 
 const appRoutes: Routes = [
   { path: 'login', 
-    component: LoginComponent 
+    component: LoginComponent,
+    children:[
+      {path:'forget',component:ResetPasswordComponent}
+    ] 
   }
 ,
 {
@@ -25,17 +27,6 @@ const appRoutes: Routes = [
     component: AddEmployeeComponent,
     canActivate:[AuthGaurdService]
 },
-{
-  path:'transaction-by-slip',
-  component: TransactionBySlipComponent,
-  canActivate:[AuthGaurdService]
-},
-{
-  path:'transaction-by-cheque',
-  component: TransactionByChequeComponent,
-  canActivate:[AuthGaurdService]
-},
-
 {
     path:'',redirectTo:'/home',pathMatch:'full',canActivate:[AuthGaurdService]
   }

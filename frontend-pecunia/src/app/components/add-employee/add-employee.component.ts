@@ -6,7 +6,7 @@ import { Address } from '../../model/address';
 import { ShareBetweenComponentsService } from '../../services/share-between-components.service';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { FormGroup } from '@angular/forms';
-import { AddEmployeeService } from 'src/app/services/add-employee.service';
+import { EmployeeService } from 'src/app/services/employee.service';
 
 
 
@@ -36,7 +36,7 @@ export class AddEmployeeComponent implements OnInit,OnDestroy {
   EmployeeDetails:EmployeeDetails;
   address:Address;
   contactForm: FormGroup;
-  constructor(private router: Router,private sharer:ShareBetweenComponentsService,private service: AddEmployeeService) { 
+  constructor(private router: Router,private sharer:ShareBetweenComponentsService,private service: EmployeeService) { 
     
   }
   ngOnDestroy(): void {

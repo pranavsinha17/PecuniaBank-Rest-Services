@@ -13,8 +13,7 @@ import { LogoutComponent } from './components/logout/logout.component';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { AddEmployeeComponent } from './components/add-employee/add-employee.component';
 import { BasicAuthHttpInterceptorService } from './services/basic-auth-http-interceptor.service';
-import { TransactionByChequeComponent } from './components/transaction-by-cheque/transaction-by-cheque.component';
-import { TransactionBySlipComponent } from './components/transaction-by-slip/transaction-by-slip.component';
+import { ResetPasswordComponent } from './components/reset-password/reset-password.component';
 
 
 
@@ -25,8 +24,7 @@ import { TransactionBySlipComponent } from './components/transaction-by-slip/tra
     LoginComponent,
     LogoutComponent,
     AddEmployeeComponent,
-    TransactionByChequeComponent,
-    TransactionBySlipComponent,
+    ResetPasswordComponent,
   
     
   ],

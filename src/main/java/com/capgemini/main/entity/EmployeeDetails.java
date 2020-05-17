@@ -36,9 +36,10 @@ public class EmployeeDetails {
 	private String age;
 	@Column(name="gender")
 	private String gender;
-	@Column(name="Pan_Number")
+	
+	@Column(name="Pan_Number", unique=true)
 	private String panNumber;
-	@Column(name="Adhar_Number")
+	@Column(name="Adhar_Number" ,unique=true)
 	private String adharNumber;
     @Column(name="Mobile_Number")
     private String mobileNumber;

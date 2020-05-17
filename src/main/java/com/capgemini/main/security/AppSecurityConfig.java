@@ -51,7 +51,7 @@ public class AppSecurityConfig extends WebSecurityConfigurerAdapter {
      .and()
 .csrf().disable().
 
-				authorizeRequests().antMatchers(HttpMethod.OPTIONS, "/**").permitAll().anyRequest().authenticated()
+				authorizeRequests().antMatchers("/password-reset/*").permitAll().anyRequest().authenticated()
 				.and().httpBasic();
 	}
 	
@@ -59,7 +59,7 @@ public class AppSecurityConfig extends WebSecurityConfigurerAdapter {
 	    public CorsConfigurationSource corsConfigurationSource() {
 	        CorsConfiguration configuration = new CorsConfiguration();
 	        configuration.setAllowedOrigins(Arrays.asList("*"));
-	        configuration.setAllowedMethods(Arrays.asList("GET", "POST", "PUT", "PATCH", "DELETE", "OPTIONS"));
+	        configuration.setAllowedMethods(Arrays.asList("GET", "POST","OPTIONS", "PUT", "PATCH", "DELETE" ));
 	        configuration.setAllowedHeaders(Arrays.asList("authorization", "content-type", "x-auth-token"));
 	        configuration.setExposedHeaders(Arrays.asList("x-auth-token"));
 	        UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
