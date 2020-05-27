@@ -1,5 +1,4 @@
 package com.capgemini.main.entity;
-
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -12,7 +11,7 @@ import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
 @Entity
-@Table(name="Branch")
+@Table(name="Branches")
 public class BranchDetails {
 	//We Auto put the information of branch.
 	@Id

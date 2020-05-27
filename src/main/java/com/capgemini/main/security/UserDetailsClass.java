@@ -2,7 +2,6 @@ package com.capgemini.main.security;
 
 import java.util.Collection;
 import java.util.Collections;
-import java.util.stream.Collectors;
 
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
@@ -14,6 +13,10 @@ import com.capgemini.main.entity.EmployeeCredentials;
 
 public class UserDetailsClass implements UserDetails{
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private EmployeeCredentials employee;
 	public UserDetailsClass(EmployeeCredentials employee) {
 		super();

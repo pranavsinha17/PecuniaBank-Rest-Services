@@ -12,7 +12,12 @@ import com.capgemini.main.entity.BranchDetails;
 import com.capgemini.main.entity.EmployeeCredentials;
 import com.capgemini.main.entity.EmployeeDetails;
 
-
+/****************************
+ *          @author          Pranav Sinha
+ *          Description      It is a Main class.
+  *         Version             1.0
+  *         Created Date    18-APR-2020
+ ****************************/
 
 @SpringBootApplication
 public class Sprint2DemoApplication implements CommandLineRunner{
@@ -104,7 +109,7 @@ public class Sprint2DemoApplication implements CommandLineRunner{
 				
 				employee1.setEmployeeId("116001");//empNumber
 				employee1.setEmployeePassword("satyam118001");
-				employee1.setEmployeeDetails(employee1details);//Firstname + branchid
+				
 				employee1details.setBranchId(118001);
 				employee1details.setEmployeeFirstName("Satyam");
 				employee1details.setEmployeeLastName("Sinha");
@@ -119,6 +124,7 @@ public class Sprint2DemoApplication implements CommandLineRunner{
 				employee1Address.setState("Bihar");
 				employee1Address.setZipCode("852201");
 				employee1details.setAddress(employee1Address);
+				employee1.setEmployeeDetails(employee1details);//Firstname + branchid
 				
 			    EmployeeCredentials employee2=new EmployeeCredentials();
 				EmployeeDetails employee2details=new EmployeeDetails();
@@ -126,7 +132,7 @@ public class Sprint2DemoApplication implements CommandLineRunner{
 				
 				employee2.setEmployeeId("116002");//empNumber
 				employee2.setEmployeePassword("pranav118002");//Firstname + branchid
-				employee2.setEmployeeDetails(employee2details);
+				
 				employee2details.setBranchId(118002);
 				employee2details.setEmployeeFirstName("Pranav");
 				employee2details.setEmployeeLastName("Sinha");
@@ -141,13 +147,13 @@ public class Sprint2DemoApplication implements CommandLineRunner{
 				employee2Address.setCity("Rajasthan");
 				employee2Address.setZipCode("808124");
 				employee2details.setAddress(employee2Address);
+				employee2.setEmployeeDetails(employee2details);
 				
 				EmployeeCredentials employee3=new EmployeeCredentials();
 				EmployeeDetails employee3details=new EmployeeDetails();
 				Address employee3Address=new Address();
 				employee3.setEmployeeId("admin");//empNumber
 				employee3.setEmployeePassword("admin");//Firstname + branchid
-				employee1.setEmployeeDetails(employee3details);
 				employee3details.setBranchId(118003);
 				employee3details.setEmployeeFirstName("Vaiahali");
 				employee3details.setEmployeeLastName("Tiwari");
@@ -162,6 +168,7 @@ public class Sprint2DemoApplication implements CommandLineRunner{
 				employee3Address.setCity("UP");
 				employee3Address.setZipCode("855124");
 				employee3details.setAddress(employee3Address);
+				employee3.setEmployeeDetails(employee3details);
 				
 				daoService.insertEmployee(employee1);
 				daoService.insertEmployee(employee2);

@@ -8,6 +8,7 @@
                 
                             <div>
                                 <h1>ADD EMPLOYEE DETAILS</h1>
+                                <p>Employee Record is subjected to the bank premises. Add Employee to the Bank Database.</p>
                                 <div class="row ">
                                     <div class="col-md-6">
                                       
@@ -60,7 +61,7 @@
                                         </div>
                                         <div class="form-group " >
                                             <label for="Type">PAN Number</label>
-                                            <input required  [(ngModel)]="pan" type="text" minlength="10" maxlength="10" pattern="[A-Z]{5}[0-9]{4}[A-Z]{1}" class="form-control" placeholder="PAN No. *" #panControl="ngModel" />
+                                            <input required  [(ngModel)]="pan" type="text" minlength="10" maxlength="10" pattern="[A-Z]{5}[0-9]{4}[A-Z]{1}" class="form-control" placeholder="eg.-QWERT1234Y *" #panControl="ngModel" />
                                             <p *ngIf="!panControl.valid && panControl.touched" style="color: red;">*PAN is required </p>
                                         </div> 
                                        

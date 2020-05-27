@@ -6,13 +6,12 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
 @Entity
-@Table(name="Employee")
+@Table(name="Employees")
 public class EmployeeDetails {
 //It is a hard copy of Employees details form.
 	//We assume that the bank verify all the details of employees.

@@ -88,13 +88,19 @@ export class AddEmployeeComponent implements OnInit,OnDestroy {
       employeeDetails:this.EmployeeDetails
     }
     console.log(this.credentials);
-    
+    if(parseInt(this.age)>18)
+    {
    this.service.putData(this.credentials);
     window.alert('Employee Added'+ 'Username: '+this.username + ' Password: '+this.password);
     this.sharer.setCount(cnt);
     this.router.navigateByUrl('/home');
   }
+  else{
+    window.alert("Age must be above 18");
+  }
 }
+}
+  
   getAge(value:any){
 
     this.age='';

@@ -1,25 +1,23 @@
 package com.capgemini.main.Dao;
-
-import java.util.List;
-import java.util.Optional;
-
 import javax.persistence.EntityManager;
 import javax.persistence.NoResultException;
 import javax.persistence.PersistenceContext;
 import javax.persistence.TypedQuery;
 import javax.transaction.Transactional;
-
-import org.springframework.context.annotation.Primary;
-import org.springframework.data.domain.Example;
-import org.springframework.data.domain.Page;
-import org.springframework.data.domain.Pageable;
-import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Repository;
 import org.springframework.stereotype.Service;
 
+import com.capgemini.main.entity.Address;
 import com.capgemini.main.entity.EmployeeCredentials;
 import com.capgemini.main.entity.EmployeeDetails;
 import com.capgemini.main.exception.UserException;
+
+/****************************
+ *          @author          Pranav Sinha
+ *          Description      It is a dao implementation class that provides the data access layer for Employee/Admin information. 
+  *         Version             1.0
+  *         Created Date    18-APR-2020
+ ****************************/
 
 @Service
 @Transactional
@@ -99,6 +97,29 @@ public class EmployeeDaoImpl implements EmployeeDao {
 	    if(emp!=null)
 	    	return false;
 	    return true;
+	}
+
+	@Override
+	public void updateEmployeeDetailsDao(String username, String mobileNumber, Address address) throws UserException {
+		// TODO Auto-generated method stub
+boolean result= em.contains(em.find(EmployeeCredentials.class, username));
+	    
+		if(result==true)
+		{
+		System.out.println(em.find(EmployeeCredentials.class, username).getEmployeeDetails().getMobileNumber());
+			System.out.println("Hello");
+			
+				em.find(EmployeeCredentials.class, username).getEmployeeDetails().setMobileNumber(mobileNumber);
+				em.find(EmployeeCredentials.class, username).getEmployeeDetails().setAddress(address);
+				
+	
+		}
+		else {
+			throw new UserException("Account Does Not Exists");
+			
+		}
+		
+	
 	}
 
 

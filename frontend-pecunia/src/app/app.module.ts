@@ -14,6 +14,7 @@ import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { AddEmployeeComponent } from './components/add-employee/add-employee.component';
 import { BasicAuthHttpInterceptorService } from './services/basic-auth-http-interceptor.service';
 import { ResetPasswordComponent } from './components/reset-password/reset-password.component';
+import { UpdateEmployeeComponent } from './components/update-employee/update-employee.component';
 
 
 
@@ -25,6 +26,7 @@ import { ResetPasswordComponent } from './components/reset-password/reset-passwo
     LogoutComponent,
     AddEmployeeComponent,
     ResetPasswordComponent,
+    UpdateEmployeeComponent,
   
     
   ],

@@ -5,6 +5,7 @@ import { LogoutComponent } from './components/logout/logout.component';
 import { AuthGaurdService } from './services/auth-guard.service';
 import { AddEmployeeComponent } from './components/add-employee/add-employee.component';
 import { ResetPasswordComponent } from './components/reset-password/reset-password.component';
+import { UpdateEmployeeComponent } from './components/update-employee/update-employee.component';
 
 
 
@@ -26,6 +27,11 @@ const appRoutes: Routes = [
     path:'add-employee',
     component: AddEmployeeComponent,
     canActivate:[AuthGaurdService]
+},
+{
+  path:'update-employee',
+  component: UpdateEmployeeComponent,
+  canActivate:[AuthGaurdService]
 },
 {
     path:'',redirectTo:'/home',pathMatch:'full',canActivate:[AuthGaurdService]

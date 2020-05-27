@@ -9,7 +9,7 @@ import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 @Entity
-@Table(name="Employee_Credentails")
+@Table(name="Employee_Credentials")
 public class EmployeeCredentials {
 	//Credentials is provide by bank to their employees through any medium to login in bank and do their work.
 	//Bank employee has  access of their details. 

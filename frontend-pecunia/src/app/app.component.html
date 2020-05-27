@@ -31,9 +31,13 @@
           </ul>
           <div class="nav navbar-nav navbar-right">
             <ul class="navbar-nav mr-auto" >
+              
               <li class="nav-item active waves-light" mdbRippleRadius>
                 <a *ngIf="loginService.isUserLoggedIn() && ngOnInit()" routerLinkActive="active" routerLink="add-employee" class="nav-link" >Add Employee</a>
             </li>
+            <li class="nav-item active waves-light" mdbRippleRadius>
+              <a *ngIf="loginService.isUserLoggedIn() && ngOnInit()" routerLinkActive="active" routerLink="update-employee" class="nav-link" >Update Employee</a>
+          </li>
             <li class="nav-item active waves-light" mdbRippleRadius>
               <a *ngIf="loginService.isUserLoggedIn()" routerLinkActive="active" routerLink="logout" class="nav-link" >Logout</a>
           </li>

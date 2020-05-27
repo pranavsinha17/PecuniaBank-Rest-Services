@@ -1,7 +1,6 @@
 package com.capgemini.main.security;
 
 import org.springframework.data.jpa.repository.JpaRepository;
-import org.springframework.security.core.userdetails.User;
 import org.springframework.stereotype.Repository;
 
 import com.capgemini.main.entity.EmployeeCredentials;

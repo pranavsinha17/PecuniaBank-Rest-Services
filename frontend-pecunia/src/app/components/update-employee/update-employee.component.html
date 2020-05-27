@@ -1,0 +1,91 @@
+<div class="view intro hm-purple-light" style="">
+    <div class="full-bg-img flex-center">
+        <div class="fadeInUp flex-center">
+             <div class="container login-form-2" >
+                <div class="row" style="text-align: center;">
+                      <div class="col-md-12 ">
+                        <div>
+                
+                            <div>
+                                <h1>UPDATE EMPLOYEE DETAILS</h1>
+                                <p>Employees can update their mobile number and address records if it has been changed.</p>
+                                <div class="row ">
+                                    <div class="col-md-6">
+                                      
+                                        <div class="form-group">
+                                            <label for="Type">Employee Id</label>
+                                            <input   [(ngModel)]="employeeId" type="text" class="form-control" placeholder="Enter Employee Id*" #fnameControl="ngModel" />
+                                            <p *ngIf="!fnameControl.valid && fnameControl.touched" style="color: red;">*First Name is required </p>
+                                        </div>
+                
+                                        <div class="form-group">
+                                            <label for="Type">Street Name</label>
+                                            <input   [(ngModel)]="street" type="text" minlength="10" maxlength="250" class="form-control" placeholder="Street Name *" #streetControl="ngModel" />
+                                            <p *ngIf="!streetControl.valid && streetControl.touched" style="color: red;">*Street Name is required </p>
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label for="Type">City Name</label>
+                                            <input   [(ngModel)]="city" type="text" minlength="3" maxlength="50"  class="form-control" placeholder="City Name *" #cityControl="ngModel" />
+                                            <p *ngIf="!cityControl.valid && cityControl.touched" style="color: red;">*City Name is required </p>
+                                        </div>
+
+                                      
+                               </div>
+                                                         
+
+                                  
+                                    <div class="col-md-6">
+                                    
+                                        <div class="form-group">
+                                            <label for="Type">Mobile Number</label>
+                                            <input   [(ngModel)]="phone" type="text" minlength="10" maxlength="10" pattern="[0-9]{10}" class="form-control" placeholder="Employee Mobile Number *" #phoneControl="ngModel" />
+                                            <p *ngIf="!phoneControl.valid && phoneControl.touched" style="color: red;">*Mobile No. is required </p>
+                                        </div>
+                                        
+                                       
+                            
+                                        
+                                        <div class="form-group">
+                                            <label for="Type">State Name</label>
+                                            <input   [(ngModel)]="state" type="text" minlength="3" maxlength="50"  class="form-control" placeholder="State Name *" #stateControl="ngModel" />
+                                            <p *ngIf="!stateControl.valid && stateControl.touched" style="color: red;">*State name is required </p>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="Type">Postal Code</label>
+                                            <input   [(ngModel)]="zipcode" type="text" minlength="6" maxlength="6" pattern="^[1-9][0-9]{5}$"  class="form-control" placeholder="Zip Code *" #zipControl="ngModel" />
+                                            <p *ngIf="!zipControl.valid && zipControl.touched" style="color: red;">*Zipcode is required </p>
+                                        </div>
+                                      
+                                        
+                                    </div>
+                                    
+                                </div>
+                                 
+                                                                
+                             
+                             <input  type="submit" class="btnRegister"  (click)="updateEmployee()"/>
+           
+                           
+                     
+          
+    
+           </div>
+
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+<footer class="page-footer font-small unique-color-dark">
+
+    
+    <!-- Copyright -->
+    <div class="footer-copyright text-center py-3">© 2020 Copyright:
+        <a href="#">with ♥ @pranavsinha17</a>
+    </div>
+    <!-- Copyright -->
+    
+    </footer>

@@ -27,6 +27,14 @@ export class EmployeeService {
     });
   }
 
+  updateData(data,username)
+  {
+    this.http.put(`http://localhost:8082/employee/${username}`,data).pipe( retry(1),
+    catchError(this.handleError)
+).subscribe((data)=>{
+      console.log(data+'added');
+    });
+  }
   handleError(error) {
     let errorMessage = '';
     if (error.error instanceof ErrorEvent) {
